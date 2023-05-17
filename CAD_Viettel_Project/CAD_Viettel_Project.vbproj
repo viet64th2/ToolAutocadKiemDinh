@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>CAD_Viettel_Project</RootNamespace>
+    <AssemblyName>CAD_Viettel_Project</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CAD_Viettel_Project.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CAD_Viettel_Project.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="accoremgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\accoremgd.dll</HintPath>
+    </Reference>
+    <Reference Include="acdbmgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acdbmgd.dll</HintPath>
+    </Reference>
+    <Reference Include="acdbmgdbrep, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acdbmgdbrep.dll</HintPath>
+    </Reference>
+    <Reference Include="acmgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acmgd.dll</HintPath>
+    </Reference>
+    <Reference Include="AdWindows, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\AdWindows.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.AutoCAD.Interop">
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\Autodesk.AutoCAD.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Autodesk.AutoCAD.Interop.Common">
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\..\Desktop\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Core, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8afb38e9204fc0a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\Microsoft.WindowsAPICodePack.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ExtendedLinguisticServices, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8afb38e9204fc0a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Sensors, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8afb38e9204fc0a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\Microsoft.WindowsAPICodePack.Sensors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8afb38e9204fc0a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8afb38e9204fc0a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\System.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration">
+      <HintPath>..\packages\WindowsAPICodePack.7.0.4\lib\net472\WindowsFormsIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassChung\clsCanhraTD.vb" />
+    <Compile Include="ClassMatDung\clsMatDung.vb" />
+    <Compile Include="ClassChung\clsThongTinChung.vb" />
+    <Compile Include="ClassChung\Command.vb" />
+    <Compile Include="ClassMatDung\Cot_TuDung.vb" />
+    <Compile Include="FormChung\FormSetting.Designer.vb">
+      <DependentUpon>FormSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\FormSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChung\FormTTCcotDayCo.Designer.vb">
+      <DependentUpon>FormTTCcotDayCo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\FormTTCcotDayCo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChung\FormTTCcotTuDung.Designer.vb">
+      <DependentUpon>FormTTCcotTuDung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\FormTTCcotTuDung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_CG.Designer.vb">
+      <DependentUpon>Form3Chan_4Mong_DD_CG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_CG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form4Chan_4Mong_DD_CG.Designer.vb">
+      <DependentUpon>Form4Chan_4Mong_DD_CG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form4Chan_4Mong_DD_CG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\FormMB_TuDung.Designer.vb">
+      <DependentUpon>FormMB_TuDung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\FormMB_TuDung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\TrenMai\Form4Chan_4Mong_L3d_KG.Designer.vb">
+      <DependentUpon>Form4Chan_4Mong_L3d_KG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\TrenMai\Form4Chan_4Mong_L3d_KG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\TrenMai\Form4Chan_4Mong_TM_CG.Designer.vb">
+      <DependentUpon>Form4Chan_4Mong_TM_CG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\TrenMai\Form4Chan_4Mong_TM_CG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form4Chan_4Mong_DD_KG.Designer.vb">
+      <DependentUpon>Form4Chan_4Mong_DD_KG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form4Chan_4Mong_DD_KG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\TrenMai\Form4Chan_4Mong_TM_KG.Designer.vb">
+      <DependentUpon>Form4Chan_4Mong_TM_KG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\TrenMai\Form4Chan_4Mong_TM_KG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.vb">
+      <DependentUpon>FormMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_KG.Designer.vb">
+      <DependentUpon>Form3Chan_3Mong_DD_KG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_KG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_CG.Designer.vb">
+      <DependentUpon>Form3Chan_3Mong_DD_CG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_CG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_KG.Designer.vb">
+      <DependentUpon>Form3Chan_4Mong_DD_KG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_KG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_CG.Designer.vb">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_CG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_CG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_KG.Designer.vb">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_KG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_KG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiCG.Designer.vb">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_trenmaiCG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiCG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChung\FormPrint.Designer.vb">
+      <DependentUpon>FormPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\FormPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChung\Formtest.Designer.vb">
+      <DependentUpon>Formtest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\Formtest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChung\FormThongTinChung.Designer.vb">
+      <DependentUpon>FormThongTinChung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\FormThongTinChung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassChung\Lib_Drawing.vb" />
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiKG.Designer.vb">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_trenmaiKG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiKG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modul\mbBienChung.vb" />
+    <Compile Include="ClassMatBang\mbVeMong.vb" />
+    <Compile Include="MatDung\FormMD_TuDung.Designer.vb">
+      <DependentUpon>FormMD_TuDung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MatDung\FormMD_TuDung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modul\mdSPCFunction_TA.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="FormChung\TestMatDung.Designer.vb">
+      <DependentUpon>TestMatDung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\TestMatDung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resource1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ClassChung\Toa_Do.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormChung\FormSetting.resx">
+      <DependentUpon>FormSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\FormTTCcotDayCo.resx">
+      <DependentUpon>FormTTCcotDayCo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\FormTTCcotTuDung.resx">
+      <DependentUpon>FormTTCcotTuDung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_KG.resx">
+      <DependentUpon>Form3Chan_3Mong_DD_KG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_CG.resx">
+      <DependentUpon>Form3Chan_3Mong_DD_CG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_CG.resx">
+      <DependentUpon>Form3Chan_4Mong_DD_CG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_KG.resx">
+      <DependentUpon>Form3Chan_4Mong_DD_KG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\Form4Chan_4Mong_DD_CG.resx">
+      <DependentUpon>Form4Chan_4Mong_DD_CG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\FormMB_TuDung.resx">
+      <DependentUpon>FormMB_TuDung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\TrenMai\Form4Chan_4Mong_L3d_KG.resx">
+      <DependentUpon>Form4Chan_4Mong_L3d_KG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\TrenMai\Form4Chan_4Mong_TM_CG.resx">
+      <DependentUpon>Form4Chan_4Mong_TM_CG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\DuoiDat\Form4Chan_4Mong_DD_KG.resx">
+      <DependentUpon>Form4Chan_4Mong_DD_KG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatBang\TrenMai\Form4Chan_4Mong_TM_KG.resx">
+      <DependentUpon>Form4Chan_4Mong_TM_KG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatDung\FormMD_3Chan_4Mong_L3_CG.resx">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_CG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatDung\FormMD_3Chan_4Mong_L3_KG.resx">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_KG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiCG.resx">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_trenmaiCG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\FormPrint.resx">
+      <DependentUpon>FormPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\Formtest.resx">
+      <DependentUpon>Formtest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\FormThongTinChung.resx">
+      <DependentUpon>FormThongTinChung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiKG.resx">
+      <DependentUpon>FormMD_3Chan_4Mong_L3_trenmaiKG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatDung\FormMD_TuDung.resx">
+      <DependentUpon>FormMD_TuDung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\TestMatDung.resx">
+      <DependentUpon>TestMatDung.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\cột 15 m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon\b4a896b1a45d5d03044c.bmp" />
+    <Content Include="icon\iconviettel4.png" />
+    <None Include="Resources\icon_viettel.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
