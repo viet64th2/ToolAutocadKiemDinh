@@ -19,6 +19,7 @@ Public Class clsThongTinChung
     Private m_LoaiMong2 As String
     Private m_LoaiMong3 As String
     Private m_LoaiMong4 As String
+    Private m_MongNoiChung As String
 
 
 
@@ -174,6 +175,15 @@ Public Class clsThongTinChung
         Get
             Return m_SoTangDay
         End Get
+    End Property
+
+    Public Property MongNoiChung As String
+        Get
+            Return m_MongNoiChung
+        End Get
+        Set(value As String)
+            m_MongNoiChung = value
+        End Set
     End Property
 #End Region
 

@@ -2104,37 +2104,56 @@ Public Class mbVeMong
             'Dim GocXoay As Double = (360 * Math.PI / 180) - Lib_Drawing.mbTinhgoc1(0, 0) 'xoay ga chong xoay cot tam giac
             Dim Goc As Double = (GocXoayMatBang * (Math.PI)) / 180
             Dim GocXoay As Double
-            If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 And ThongTinChung.GaChongXoay <> "" Then
-                Dim GocXoayCoGa As Double = Goc - Math.PI
-                If MongNoiChung1 = "Móng 1, Móng 2" Then
-                    GocXoay = GocXoayCoGa - Math.PI
-                ElseIf MongNoiChung1 = "Móng 2, Móng 3" Then
-                    GocXoay = GocXoayCoGa - Math.PI / 2 - Math.PI
-                ElseIf MongNoiChung1 = "Móng 3, Móng 4" Then
-                    GocXoay = GocXoayCoGa
-                ElseIf MongNoiChung1 = "Móng 4, Móng 1" Then
-                    GocXoay = GocXoayCoGa - Math.PI / 2
-
-                Else
-
-                    GocXoay = GocXoayCoGa
-                End If
-            ElseIf ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 And ThongTinChung.GaChongXoay = "" Then
+            If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 Then
                 Dim GocXoayCoGa As Double = Goc
                 If MongNoiChung1 = "Móng 1, Móng 2" Then
-                    GocXoay = GocXoayCoGa - Math.PI
+                    'GocXoay = GocXoayCoGa - Math.PI / 2
+                    If x1 >= 0 And y1 >= 0 Then
+                        GocXoay = 0
+                    ElseIf x1 >= 0 And y1 <= 0 Then
+                        GocXoay = -Math.PI / 2
+                    ElseIf x1 <= 0 And y1 >= 0 Then
+                        GocXoay = Math.PI / 2
+                    Else
+                        GocXoay = -Math.PI
+                    End If
                 ElseIf MongNoiChung1 = "Móng 2, Móng 3" Then
-                    GocXoay = GocXoayCoGa - Math.PI / 2 - Math.PI
+                    'GocXoay = GocXoayCoGa - Math.PI / 2
+                    If x2 >= 0 And y2 >= 0 Then
+                        GocXoay = 0
+                    ElseIf x2 >= 0 And y2 <= 0 Then
+                        GocXoay = -Math.PI / 2
+                    ElseIf x2 <= 0 And y2 >= 0 Then
+                        GocXoay = Math.PI / 2
+                    Else
+                        GocXoay = -Math.PI
+                    End If
                 ElseIf MongNoiChung1 = "Móng 3, Móng 4" Then
-                    GocXoay = GocXoayCoGa
+                    'GocXoay = GocXoayCoGa - Math.PI / 2
+                    If x3 >= 0 And y3 >= 0 Then
+                        GocXoay = 0
+                    ElseIf x3 >= 0 And y3 <= 0 Then
+                        GocXoay = -Math.PI / 2
+                    ElseIf x3 <= 0 And y3 >= 0 Then
+                        GocXoay = Math.PI / 2
+                    Else
+                        GocXoay = -Math.PI
+                    End If
                 ElseIf MongNoiChung1 = "Móng 4, Móng 1" Then
-                    GocXoay = GocXoayCoGa - Math.PI / 2
-
+                    'GocXoay = GocXoayCoGa - Math.PI / 2
+                    If x1 >= 0 And y1 >= 0 Then
+                        GocXoay = Math.PI / 2
+                    ElseIf x1 >= 0 And y1 <= 0 Then
+                        GocXoay = 0
+                    ElseIf x1 <= 0 And y1 >= 0 Then
+                        GocXoay = -Math.PI
+                    Else
+                        GocXoay = -Math.PI / 2
+                    End If
                 Else
                     GocXoay = GocXoayCoGa
                 End If
             Else
-
                 GocXoay = Goc
             End If
             Lib_Drawing.RotateEntity(id_cottamgiac, Matrix3d.Rotation(GocXoay, curUCS.Zaxis, New Point3d(0, 0, 0)))
@@ -3989,31 +4008,52 @@ Public Class mbVeMong
         id_cottamgiac = Lib_Drawing.CreateNewPolyline(Mang_Toa_Do5, True)
         Dim Goc As Double = (GocXoayMatBang * (Math.PI)) / 180
         Dim GocXoay As Double
-        If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 And ThongTinChung.GaChongXoay <> "" Then
-            Dim GocXoayCoGa As Double = Goc - Math.PI
-            If MongNoiChung1 = "Móng 1, Móng 2" Then
-                GocXoay = GocXoayCoGa - Math.PI
-            ElseIf MongNoiChung1 = "Móng 2, Móng 3" Then
-                GocXoay = GocXoayCoGa - Math.PI / 2 - Math.PI
-            ElseIf MongNoiChung1 = "Móng 3, Móng 4" Then
-                GocXoay = GocXoayCoGa
-            ElseIf MongNoiChung1 = "Móng 4, Móng 1" Then
-                GocXoay = GocXoayCoGa - Math.PI / 2
-
-            Else
-                GocXoay = GocXoayCoGa
-            End If
-        ElseIf ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 And ThongTinChung.GaChongXoay = "" Then
+        If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 Then
             Dim GocXoayCoGa As Double = Goc
             If MongNoiChung1 = "Móng 1, Móng 2" Then
-                GocXoay = GocXoayCoGa - Math.PI
+                'GocXoay = GocXoayCoGa - Math.PI / 2
+                If x1 >= 0 And y1 >= 0 Then
+                    GocXoay = 0
+                ElseIf x1 >= 0 And y1 <= 0 Then
+                    GocXoay = -Math.PI / 2
+                ElseIf x1 <= 0 And y1 >= 0 Then
+                    GocXoay = Math.PI / 2
+                Else
+                    GocXoay = -Math.PI
+                End If
             ElseIf MongNoiChung1 = "Móng 2, Móng 3" Then
-                GocXoay = GocXoayCoGa - Math.PI / 2 - Math.PI
+                'GocXoay = GocXoayCoGa - Math.PI / 2
+                If x2 >= 0 And y2 >= 0 Then
+                    GocXoay = 0
+                ElseIf x2 >= 0 And y2 <= 0 Then
+                    GocXoay = -Math.PI / 2
+                ElseIf x2 <= 0 And y2 >= 0 Then
+                    GocXoay = Math.PI / 2
+                Else
+                    GocXoay = -Math.PI
+                End If
             ElseIf MongNoiChung1 = "Móng 3, Móng 4" Then
-                GocXoay = GocXoayCoGa
+                'GocXoay = GocXoayCoGa - Math.PI / 2
+                If x3 >= 0 And y3 >= 0 Then
+                    GocXoay = 0
+                ElseIf x3 >= 0 And y3 <= 0 Then
+                    GocXoay = -Math.PI / 2
+                ElseIf x3 <= 0 And y3 >= 0 Then
+                    GocXoay = Math.PI / 2
+                Else
+                    GocXoay = -Math.PI
+                End If
             ElseIf MongNoiChung1 = "Móng 4, Móng 1" Then
-                GocXoay = GocXoayCoGa - Math.PI / 2
-
+                'GocXoay = GocXoayCoGa - Math.PI / 2
+                If x1 >= 0 And y1 >= 0 Then
+                    GocXoay = Math.PI / 2
+                ElseIf x1 >= 0 And y1 <= 0 Then
+                    GocXoay = 0
+                ElseIf x1 <= 0 And y1 >= 0 Then
+                    GocXoay = -Math.PI
+                Else
+                    GocXoay = -Math.PI / 2
+                End If
             Else
                 GocXoay = GocXoayCoGa
             End If
@@ -4590,6 +4630,7 @@ Public Class mbVeMong
             DimP32.Dimscale = Dimscale
             Dim4.Dimscale = Dimscale
             DimP41.Dimscale = Dimscale
+            DimP42.Dimscale = Dimscale
             Dim4.Dimscale = Dimscale
             acTrans.Commit()
         End Using

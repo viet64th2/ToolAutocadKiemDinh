@@ -53,30 +53,30 @@
   <ItemGroup>
     <Reference Include="accoremgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\accoremgd.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\accoremgd.dll</HintPath>
     </Reference>
     <Reference Include="acdbmgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acdbmgd.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\acdbmgd.dll</HintPath>
     </Reference>
     <Reference Include="acdbmgdbrep, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acdbmgdbrep.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\acdbmgdbrep.dll</HintPath>
     </Reference>
     <Reference Include="acmgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acmgd.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\acmgd.dll</HintPath>
     </Reference>
     <Reference Include="AdWindows, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\AdWindows.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\AdWindows.dll</HintPath>
     </Reference>
     <Reference Include="Autodesk.AutoCAD.Interop">
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\Autodesk.AutoCAD.Interop.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\Autodesk.AutoCAD.Interop.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Autodesk.AutoCAD.Interop.Common">
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2020\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
@@ -271,12 +271,6 @@
     <Compile Include="FormChung\Formtest.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChung\FormThongTinChung.Designer.vb">
-      <DependentUpon>FormThongTinChung.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormChung\FormThongTinChung.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ClassChung\Lib_Drawing.vb" />
     <Compile Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiKG.Designer.vb">
       <DependentUpon>FormMD_3Chan_4Mong_L3_trenmaiKG.vb</DependentUpon>
@@ -378,9 +372,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormChung\Formtest.resx">
       <DependentUpon>Formtest.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormChung\FormThongTinChung.resx">
-      <DependentUpon>FormThongTinChung.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MatDung\FormMD_3Chan_4Mong_L3_trenmaiKG.resx">
       <DependentUpon>FormMD_3Chan_4Mong_L3_trenmaiKG.vb</DependentUpon>

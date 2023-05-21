@@ -220,7 +220,18 @@ Public Class FormMain
             End If
 
         End If
-
+        'lấy móng nối chung
+        If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 Then
+            If ThongTinChung.MongNoiChung.Contains("M1") And ThongTinChung.MongNoiChung.Contains("M2") Then
+                frmTTC.cbMongNoiChung1.SelectedIndex = 0
+            ElseIf ThongTinChung.MongNoiChung.Contains("M2") And ThongTinChung.MongNoiChung.Contains("M3") Then
+                frmTTC.cbMongNoiChung1.SelectedIndex = 1
+            ElseIf ThongTinChung.MongNoiChung.Contains("M3") And ThongTinChung.MongNoiChung.Contains("M4") Then
+                frmTTC.cbMongNoiChung1.SelectedIndex = 2
+            Else
+                frmTTC.cbMongNoiChung1.SelectedIndex = 3
+            End If
+        End If
 
         Dim pathCaoDoChanCot = DuongDanData & "\CaoDoChanCot.txt"
         Dim pathGocXoay = DuongDanData & "\GocMoc.txt"
@@ -524,8 +535,13 @@ Public Class FormMain
             Dim listThongTinChung = fcSPC.getText(DefaultProjectFolder & "\Data" & TenTram & "\TABLEBia.txt")
             Dim li As List(Of String) = fcSPC.LayThongTinChung(listThongTinChung)
             b_somong = Convert.ToInt32(ThongTinChung.SoMong)
-
-            If ThongTinChung.LoaiCot = ("Dây co") Then
+            'lấy móng nối chung
+            If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 Then
+                If File.Exists(DefaultProjectFolder & "\Data" & TenTram & "\MongNoiChung.txt") Then
+                    ThongTinChung.MongNoiChung = fcSPC.ReadText(DefaultProjectFolder & "\Data" & TenTram & "\MongNoiChung.txt")
+                End If
+            End If
+                If ThongTinChung.LoaiCot = ("Dây co") Then
                 insertDataCotDayCo()
             Else
                 ShowForm(frmTTC_TuDung)

@@ -42,6 +42,7 @@ Partial Class FormTTCcotDayCo
         Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTTCcotDayCo))
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -63,7 +64,6 @@ Partial Class FormTTCcotDayCo
         Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTTCcotDayCo))
         Me.BangTTC = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -88,8 +88,57 @@ Partial Class FormTTCcotDayCo
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.BunifuElipse2 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lbSoMocNeo = New System.Windows.Forms.Label()
         Me.lbMong1 = New System.Windows.Forms.Label()
+        Me.txthM3 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.cmbLoaiMong1 = New System.Windows.Forms.ComboBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtzM3 = New System.Windows.Forms.TextBox()
+        Me.txtbM3 = New System.Windows.Forms.TextBox()
+        Me.txtbM4 = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.lbhM4 = New System.Windows.Forms.Label()
+        Me.txtzM2 = New System.Windows.Forms.TextBox()
+        Me.txthM4 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbzM4 = New System.Windows.Forms.Label()
+        Me.txthM2 = New System.Windows.Forms.TextBox()
+        Me.txtzM4 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtCaoDoMong = New System.Windows.Forms.TextBox()
+        Me.txtbM2 = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.cmbMoneo = New System.Windows.Forms.ComboBox()
+        Me.cmbLoaiMong3 = New System.Windows.Forms.ComboBox()
+        Me.lbMongNoiChungCot = New System.Windows.Forms.Label()
+        Me.cmbLoaiMong4 = New System.Windows.Forms.ComboBox()
+        Me.cbMongNoiChung1 = New System.Windows.Forms.ComboBox()
+        Me.lbMong3 = New System.Windows.Forms.Label()
+        Me.lbbM4 = New System.Windows.Forms.Label()
+        Me.cmbLoaiMong2 = New System.Windows.Forms.ComboBox()
+        Me.lbMong2 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.lbMong4 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtbM1 = New System.Windows.Forms.TextBox()
+        Me.txthM0 = New System.Windows.Forms.TextBox()
+        Me.txtbM0 = New System.Windows.Forms.TextBox()
+        Me.txthM1 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtzM0 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtzM1 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.BunifuElipse2 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.dgvToaDoMong = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -98,6 +147,7 @@ Partial Class FormTTCcotDayCo
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.clSuaToaDo = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnTinhLaiToaDo = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.dgvCanhGocCanh = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -114,60 +164,10 @@ Partial Class FormTTCcotDayCo
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GCX = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.cmbLoaiMong1 = New System.Windows.Forms.ComboBox()
-        Me.txtzM3 = New System.Windows.Forms.TextBox()
-        Me.txtbM4 = New System.Windows.Forms.TextBox()
-        Me.lbhM4 = New System.Windows.Forms.Label()
-        Me.txthM4 = New System.Windows.Forms.TextBox()
-        Me.lbzM4 = New System.Windows.Forms.Label()
-        Me.txtzM4 = New System.Windows.Forms.TextBox()
-        Me.txtCaoDoMong = New System.Windows.Forms.TextBox()
-        Me.lbSoMocNeo = New System.Windows.Forms.Label()
-        Me.cmbMoneo = New System.Windows.Forms.ComboBox()
-        Me.lbMongNoiChungCot = New System.Windows.Forms.Label()
-        Me.cbMongNoiChung1 = New System.Windows.Forms.ComboBox()
-        Me.lbbM4 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txthM0 = New System.Windows.Forms.TextBox()
-        Me.txthM1 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtzM0 = New System.Windows.Forms.TextBox()
-        Me.txtzM1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.BunifuElipse1 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtbM0 = New System.Windows.Forms.TextBox()
-        Me.txtbM1 = New System.Windows.Forms.TextBox()
-        Me.lbMong4 = New System.Windows.Forms.Label()
-        Me.lbMong2 = New System.Windows.Forms.Label()
-        Me.cmbLoaiMong2 = New System.Windows.Forms.ComboBox()
-        Me.lbMong3 = New System.Windows.Forms.Label()
-        Me.cmbLoaiMong4 = New System.Windows.Forms.ComboBox()
-        Me.cmbLoaiMong3 = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtbM2 = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txthM2 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtzM2 = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.txtbM3 = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.txthM3 = New System.Windows.Forms.TextBox()
-        Me.btnTinhLaiToaDo = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.btnlai = New Bunifu.Framework.UI.BunifuThinButton2()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.BunifuElipse1 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.BangTTC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BangChieuCaoDot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,6 +175,7 @@ Partial Class FormTTCcotDayCo
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         CType(Me.dgvToaDoMong, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -185,7 +186,6 @@ Partial Class FormTTCcotDayCo
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgvCaoDoDayCo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -495,13 +495,81 @@ Partial Class FormTTCcotDayCo
         Me.Panel2.Location = New System.Drawing.Point(451, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(245, 588)
+        Me.Panel2.Size = New System.Drawing.Size(245, 645)
         Me.Panel2.TabIndex = 68
         '
-        'BunifuElipse2
+        'GroupBox3
         '
-        Me.BunifuElipse2.ElipseRadius = 5
-        Me.BunifuElipse2.TargetControl = Me
+        Me.GroupBox3.Controls.Add(Me.lbSoMocNeo)
+        Me.GroupBox3.Controls.Add(Me.lbMong1)
+        Me.GroupBox3.Controls.Add(Me.txthM3)
+        Me.GroupBox3.Controls.Add(Me.Label13)
+        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong1)
+        Me.GroupBox3.Controls.Add(Me.Label17)
+        Me.GroupBox3.Controls.Add(Me.txtzM3)
+        Me.GroupBox3.Controls.Add(Me.txtbM3)
+        Me.GroupBox3.Controls.Add(Me.txtbM4)
+        Me.GroupBox3.Controls.Add(Me.Label18)
+        Me.GroupBox3.Controls.Add(Me.lbhM4)
+        Me.GroupBox3.Controls.Add(Me.txtzM2)
+        Me.GroupBox3.Controls.Add(Me.txthM4)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.lbzM4)
+        Me.GroupBox3.Controls.Add(Me.txthM2)
+        Me.GroupBox3.Controls.Add(Me.txtzM4)
+        Me.GroupBox3.Controls.Add(Me.Label14)
+        Me.GroupBox3.Controls.Add(Me.txtCaoDoMong)
+        Me.GroupBox3.Controls.Add(Me.txtbM2)
+        Me.GroupBox3.Controls.Add(Me.Label15)
+        Me.GroupBox3.Controls.Add(Me.cmbMoneo)
+        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong3)
+        Me.GroupBox3.Controls.Add(Me.lbMongNoiChungCot)
+        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong4)
+        Me.GroupBox3.Controls.Add(Me.cbMongNoiChung1)
+        Me.GroupBox3.Controls.Add(Me.lbMong3)
+        Me.GroupBox3.Controls.Add(Me.lbbM4)
+        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong2)
+        Me.GroupBox3.Controls.Add(Me.lbMong2)
+        Me.GroupBox3.Controls.Add(Me.Label10)
+        Me.GroupBox3.Controls.Add(Me.lbMong4)
+        Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.Controls.Add(Me.txtbM1)
+        Me.GroupBox3.Controls.Add(Me.txthM0)
+        Me.GroupBox3.Controls.Add(Me.txtbM0)
+        Me.GroupBox3.Controls.Add(Me.txthM1)
+        Me.GroupBox3.Controls.Add(Me.Label8)
+        Me.GroupBox3.Controls.Add(Me.Label2)
+        Me.GroupBox3.Controls.Add(Me.Label20)
+        Me.GroupBox3.Controls.Add(Me.txtzM0)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.txtzM1)
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.Label11)
+        Me.GroupBox3.Controls.Add(Me.Label16)
+        Me.GroupBox3.Controls.Add(Me.Label19)
+        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Location = New System.Drawing.Point(2, 138)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Size = New System.Drawing.Size(225, 538)
+        Me.GroupBox3.TabIndex = 67
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Cấu tạo móng"
+        '
+        'lbSoMocNeo
+        '
+        Me.lbSoMocNeo.AutoSize = True
+        Me.lbSoMocNeo.BackColor = System.Drawing.Color.Transparent
+        Me.lbSoMocNeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbSoMocNeo.Location = New System.Drawing.Point(4, 33)
+        Me.lbSoMocNeo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbSoMocNeo.Name = "lbSoMocNeo"
+        Me.lbSoMocNeo.Size = New System.Drawing.Size(173, 16)
+        Me.lbSoMocNeo.TabIndex = 102
+        Me.lbSoMocNeo.Text = "Số lượng móc neo tại móng:"
         '
         'lbMong1
         '
@@ -513,6 +581,490 @@ Partial Class FormTTCcotDayCo
         Me.lbMong1.Size = New System.Drawing.Size(43, 13)
         Me.lbMong1.TabIndex = 52
         Me.lbMong1.Text = "Móng 1"
+        '
+        'txthM3
+        '
+        Me.txthM3.Location = New System.Drawing.Point(103, 461)
+        Me.txthM3.Margin = New System.Windows.Forms.Padding(2)
+        Me.txthM3.Name = "txthM3"
+        Me.txthM3.Size = New System.Drawing.Size(38, 22)
+        Me.txthM3.TabIndex = 93
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(2, 392)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(172, 16)
+        Me.Label13.TabIndex = 69
+        Me.Label13.Text = "Kích thước chung các móng:"
+        '
+        'cmbLoaiMong1
+        '
+        Me.cmbLoaiMong1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbLoaiMong1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.cmbLoaiMong1.FormattingEnabled = True
+        Me.cmbLoaiMong1.ItemHeight = 64
+        Me.cmbLoaiMong1.Location = New System.Drawing.Point(12, 140)
+        Me.cmbLoaiMong1.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbLoaiMong1.Name = "cmbLoaiMong1"
+        Me.cmbLoaiMong1.Size = New System.Drawing.Size(69, 70)
+        Me.cmbLoaiMong1.TabIndex = 54
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.BackColor = System.Drawing.Color.Transparent
+        Me.Label17.Location = New System.Drawing.Point(75, 464)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(29, 16)
+        Me.Label17.TabIndex = 90
+        Me.Label17.Text = "h3="
+        '
+        'txtzM3
+        '
+        Me.txtzM3.Location = New System.Drawing.Point(177, 461)
+        Me.txtzM3.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtzM3.Name = "txtzM3"
+        Me.txtzM3.Size = New System.Drawing.Size(40, 22)
+        Me.txtzM3.TabIndex = 92
+        '
+        'txtbM3
+        '
+        Me.txtbM3.Location = New System.Drawing.Point(30, 461)
+        Me.txtbM3.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtbM3.Name = "txtbM3"
+        Me.txtbM3.Size = New System.Drawing.Size(42, 22)
+        Me.txtbM3.TabIndex = 94
+        '
+        'txtbM4
+        '
+        Me.txtbM4.Location = New System.Drawing.Point(30, 485)
+        Me.txtbM4.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtbM4.Name = "txtbM4"
+        Me.txtbM4.Size = New System.Drawing.Size(42, 22)
+        Me.txtbM4.TabIndex = 100
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.BackColor = System.Drawing.Color.Transparent
+        Me.Label18.Location = New System.Drawing.Point(1, 464)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(30, 16)
+        Me.Label18.TabIndex = 91
+        Me.Label18.Text = "b3="
+        '
+        'lbhM4
+        '
+        Me.lbhM4.AutoSize = True
+        Me.lbhM4.BackColor = System.Drawing.Color.Transparent
+        Me.lbhM4.Location = New System.Drawing.Point(75, 488)
+        Me.lbhM4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbhM4.Name = "lbhM4"
+        Me.lbhM4.Size = New System.Drawing.Size(29, 16)
+        Me.lbhM4.TabIndex = 96
+        Me.lbhM4.Text = "h4="
+        '
+        'txtzM2
+        '
+        Me.txtzM2.Location = New System.Drawing.Point(177, 437)
+        Me.txtzM2.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtzM2.Name = "txtzM2"
+        Me.txtzM2.Size = New System.Drawing.Size(40, 22)
+        Me.txtzM2.TabIndex = 86
+        '
+        'txthM4
+        '
+        Me.txthM4.Location = New System.Drawing.Point(103, 485)
+        Me.txthM4.Margin = New System.Windows.Forms.Padding(2)
+        Me.txthM4.Name = "txthM4"
+        Me.txthM4.Size = New System.Drawing.Size(38, 22)
+        Me.txthM4.TabIndex = 99
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Location = New System.Drawing.Point(147, 440)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(28, 16)
+        Me.Label1.TabIndex = 83
+        Me.Label1.Text = "z2="
+        '
+        'lbzM4
+        '
+        Me.lbzM4.AutoSize = True
+        Me.lbzM4.BackColor = System.Drawing.Color.Transparent
+        Me.lbzM4.Location = New System.Drawing.Point(147, 488)
+        Me.lbzM4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbzM4.Name = "lbzM4"
+        Me.lbzM4.Size = New System.Drawing.Size(28, 16)
+        Me.lbzM4.TabIndex = 95
+        Me.lbzM4.Text = "z4="
+        '
+        'txthM2
+        '
+        Me.txthM2.Location = New System.Drawing.Point(103, 437)
+        Me.txthM2.Margin = New System.Windows.Forms.Padding(2)
+        Me.txthM2.Name = "txthM2"
+        Me.txthM2.Size = New System.Drawing.Size(38, 22)
+        Me.txthM2.TabIndex = 87
+        '
+        'txtzM4
+        '
+        Me.txtzM4.Location = New System.Drawing.Point(177, 485)
+        Me.txtzM4.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtzM4.Name = "txtzM4"
+        Me.txtzM4.Size = New System.Drawing.Size(40, 22)
+        Me.txtzM4.TabIndex = 98
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Location = New System.Drawing.Point(75, 440)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(29, 16)
+        Me.Label14.TabIndex = 84
+        Me.Label14.Text = "h2="
+        '
+        'txtCaoDoMong
+        '
+        Me.txtCaoDoMong.Location = New System.Drawing.Point(117, 307)
+        Me.txtCaoDoMong.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCaoDoMong.Name = "txtCaoDoMong"
+        Me.txtCaoDoMong.Size = New System.Drawing.Size(70, 22)
+        Me.txtCaoDoMong.TabIndex = 101
+        Me.txtCaoDoMong.Text = "0.0"
+        '
+        'txtbM2
+        '
+        Me.txtbM2.Location = New System.Drawing.Point(30, 437)
+        Me.txtbM2.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtbM2.Name = "txtbM2"
+        Me.txtbM2.Size = New System.Drawing.Size(42, 22)
+        Me.txtbM2.TabIndex = 88
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.Location = New System.Drawing.Point(1, 440)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(30, 16)
+        Me.Label15.TabIndex = 85
+        Me.Label15.Text = "b2="
+        '
+        'cmbMoneo
+        '
+        Me.cmbMoneo.FormattingEnabled = True
+        Me.cmbMoneo.Items.AddRange(New Object() {"1 cái", "2 cái"})
+        Me.cmbMoneo.Location = New System.Drawing.Point(12, 51)
+        Me.cmbMoneo.Name = "cmbMoneo"
+        Me.cmbMoneo.Size = New System.Drawing.Size(193, 24)
+        Me.cmbMoneo.TabIndex = 103
+        Me.cmbMoneo.Text = "2 cái"
+        '
+        'cmbLoaiMong3
+        '
+        Me.cmbLoaiMong3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbLoaiMong3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.cmbLoaiMong3.FormattingEnabled = True
+        Me.cmbLoaiMong3.ItemHeight = 64
+        Me.cmbLoaiMong3.Location = New System.Drawing.Point(130, 226)
+        Me.cmbLoaiMong3.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbLoaiMong3.Name = "cmbLoaiMong3"
+        Me.cmbLoaiMong3.Size = New System.Drawing.Size(82, 70)
+        Me.cmbLoaiMong3.TabIndex = 82
+        '
+        'lbMongNoiChungCot
+        '
+        Me.lbMongNoiChungCot.AutoSize = True
+        Me.lbMongNoiChungCot.BackColor = System.Drawing.Color.Transparent
+        Me.lbMongNoiChungCot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMongNoiChungCot.Location = New System.Drawing.Point(3, 78)
+        Me.lbMongNoiChungCot.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbMongNoiChungCot.Name = "lbMongNoiChungCot"
+        Me.lbMongNoiChungCot.Size = New System.Drawing.Size(210, 16)
+        Me.lbMongNoiChungCot.TabIndex = 104
+        Me.lbMongNoiChungCot.Text = "Hướng dây co bắt vào thanh cánh:"
+        '
+        'cmbLoaiMong4
+        '
+        Me.cmbLoaiMong4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbLoaiMong4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.cmbLoaiMong4.FormattingEnabled = True
+        Me.cmbLoaiMong4.ItemHeight = 64
+        Me.cmbLoaiMong4.Location = New System.Drawing.Point(130, 140)
+        Me.cmbLoaiMong4.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbLoaiMong4.Name = "cmbLoaiMong4"
+        Me.cmbLoaiMong4.Size = New System.Drawing.Size(82, 70)
+        Me.cmbLoaiMong4.TabIndex = 81
+        '
+        'cbMongNoiChung1
+        '
+        Me.cbMongNoiChung1.FormattingEnabled = True
+        Me.cbMongNoiChung1.Items.AddRange(New Object() {"Móng 1, Móng 2", "Móng 2, Móng 3", "Móng 3, Móng 4", "Móng 4, Móng 1"})
+        Me.cbMongNoiChung1.Location = New System.Drawing.Point(11, 97)
+        Me.cbMongNoiChung1.Name = "cbMongNoiChung1"
+        Me.cbMongNoiChung1.Size = New System.Drawing.Size(194, 24)
+        Me.cbMongNoiChung1.TabIndex = 105
+        '
+        'lbMong3
+        '
+        Me.lbMong3.AutoSize = True
+        Me.lbMong3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMong3.Location = New System.Drawing.Point(144, 211)
+        Me.lbMong3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbMong3.Name = "lbMong3"
+        Me.lbMong3.Size = New System.Drawing.Size(43, 13)
+        Me.lbMong3.TabIndex = 79
+        Me.lbMong3.Text = "Móng 3"
+        '
+        'lbbM4
+        '
+        Me.lbbM4.AutoSize = True
+        Me.lbbM4.BackColor = System.Drawing.Color.Transparent
+        Me.lbbM4.Location = New System.Drawing.Point(1, 488)
+        Me.lbbM4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbbM4.Name = "lbbM4"
+        Me.lbbM4.Size = New System.Drawing.Size(30, 16)
+        Me.lbbM4.TabIndex = 97
+        Me.lbbM4.Text = "b4="
+        '
+        'cmbLoaiMong2
+        '
+        Me.cmbLoaiMong2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbLoaiMong2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.cmbLoaiMong2.FormattingEnabled = True
+        Me.cmbLoaiMong2.ItemHeight = 64
+        Me.cmbLoaiMong2.Location = New System.Drawing.Point(12, 226)
+        Me.cmbLoaiMong2.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbLoaiMong2.Name = "cmbLoaiMong2"
+        Me.cmbLoaiMong2.Size = New System.Drawing.Size(69, 70)
+        Me.cmbLoaiMong2.TabIndex = 78
+        '
+        'lbMong2
+        '
+        Me.lbMong2.AutoSize = True
+        Me.lbMong2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMong2.Location = New System.Drawing.Point(28, 211)
+        Me.lbMong2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbMong2.Name = "lbMong2"
+        Me.lbMong2.Size = New System.Drawing.Size(43, 13)
+        Me.lbMong2.TabIndex = 77
+        Me.lbMong2.Text = "Móng 2"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Location = New System.Drawing.Point(147, 416)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(28, 16)
+        Me.Label10.TabIndex = 55
+        Me.Label10.Text = "z1="
+        '
+        'lbMong4
+        '
+        Me.lbMong4.AutoSize = True
+        Me.lbMong4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbMong4.Location = New System.Drawing.Point(144, 124)
+        Me.lbMong4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbMong4.Name = "lbMong4"
+        Me.lbMong4.Size = New System.Drawing.Size(43, 13)
+        Me.lbMong4.TabIndex = 76
+        Me.lbMong4.Text = "Móng 4"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Location = New System.Drawing.Point(75, 416)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(29, 16)
+        Me.Label9.TabIndex = 57
+        Me.Label9.Text = "h1="
+        '
+        'txtbM1
+        '
+        Me.txtbM1.Location = New System.Drawing.Point(30, 413)
+        Me.txtbM1.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtbM1.Name = "txtbM1"
+        Me.txtbM1.Size = New System.Drawing.Size(42, 22)
+        Me.txtbM1.TabIndex = 74
+        '
+        'txthM0
+        '
+        Me.txthM0.Location = New System.Drawing.Point(103, 359)
+        Me.txthM0.Margin = New System.Windows.Forms.Padding(2)
+        Me.txthM0.Name = "txthM0"
+        Me.txthM0.Size = New System.Drawing.Size(38, 22)
+        Me.txthM0.TabIndex = 73
+        '
+        'txtbM0
+        '
+        Me.txtbM0.Location = New System.Drawing.Point(31, 359)
+        Me.txtbM0.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtbM0.Name = "txtbM0"
+        Me.txtbM0.Size = New System.Drawing.Size(42, 22)
+        Me.txtbM0.TabIndex = 75
+        '
+        'txthM1
+        '
+        Me.txthM1.Location = New System.Drawing.Point(103, 413)
+        Me.txthM1.Margin = New System.Windows.Forms.Padding(2)
+        Me.txthM1.Name = "txthM1"
+        Me.txthM1.Size = New System.Drawing.Size(38, 22)
+        Me.txthM1.TabIndex = 72
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Location = New System.Drawing.Point(191, 392)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(38, 16)
+        Me.Label8.TabIndex = 59
+        Me.Label8.Text = "(mm)"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(151, 361)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(28, 16)
+        Me.Label2.TabIndex = 56
+        Me.Label2.Text = "z0="
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.BackColor = System.Drawing.Color.Transparent
+        Me.Label20.Location = New System.Drawing.Point(197, 310)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(27, 16)
+        Me.Label20.TabIndex = 60
+        Me.Label20.Text = "(m)"
+        '
+        'txtzM0
+        '
+        Me.txtzM0.Location = New System.Drawing.Point(179, 359)
+        Me.txtzM0.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtzM0.Name = "txtzM0"
+        Me.txtzM0.Size = New System.Drawing.Size(40, 22)
+        Me.txtzM0.TabIndex = 71
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Location = New System.Drawing.Point(191, 337)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(38, 16)
+        Me.Label6.TabIndex = 61
+        Me.Label6.Text = "(mm)"
+        '
+        'txtzM1
+        '
+        Me.txtzM1.Location = New System.Drawing.Point(177, 413)
+        Me.txtzM1.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtzM1.Name = "txtzM1"
+        Me.txtzM1.Size = New System.Drawing.Size(40, 22)
+        Me.txtzM1.TabIndex = 70
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Location = New System.Drawing.Point(1, 416)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(30, 16)
+        Me.Label7.TabIndex = 62
+        Me.Label7.Text = "b1="
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Location = New System.Drawing.Point(79, 361)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(29, 16)
+        Me.Label5.TabIndex = 58
+        Me.Label5.Text = "h0="
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Location = New System.Drawing.Point(8, 361)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(30, 16)
+        Me.Label11.TabIndex = 63
+        Me.Label11.Text = "b0="
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.Location = New System.Drawing.Point(147, 464)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(28, 16)
+        Me.Label16.TabIndex = 89
+        Me.Label16.Text = "z3="
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(1, 310)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(108, 16)
+        Me.Label19.TabIndex = 66
+        Me.Label19.Text = "Cao độ chân cột:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(4, 337)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(129, 16)
+        Me.Label12.TabIndex = 65
+        Me.Label12.Text = "Kích thước móng M0:"
+        '
+        'BunifuElipse2
+        '
+        Me.BunifuElipse2.ElipseRadius = 5
+        Me.BunifuElipse2.TargetControl = Me
         '
         'GroupBox8
         '
@@ -632,6 +1184,32 @@ Partial Class FormTTCcotDayCo
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(425, 1001)
         Me.Panel1.TabIndex = 12
+        '
+        'btnTinhLaiToaDo
+        '
+        Me.btnTinhLaiToaDo.ActiveBorderThickness = 2
+        Me.btnTinhLaiToaDo.ActiveCornerRadius = 20
+        Me.btnTinhLaiToaDo.ActiveFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnTinhLaiToaDo.ActiveForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDo.ActiveLineColor = System.Drawing.Color.DimGray
+        Me.btnTinhLaiToaDo.BackColor = System.Drawing.SystemColors.Control
+        Me.btnTinhLaiToaDo.BackgroundImage = CType(resources.GetObject("btnTinhLaiToaDo.BackgroundImage"), System.Drawing.Image)
+        Me.btnTinhLaiToaDo.ButtonText = "Tính lại toạ độ"
+        Me.btnTinhLaiToaDo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnTinhLaiToaDo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnTinhLaiToaDo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.22642!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTinhLaiToaDo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDo.IdleBorderThickness = 1
+        Me.btnTinhLaiToaDo.IdleCornerRadius = 20
+        Me.btnTinhLaiToaDo.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnTinhLaiToaDo.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDo.IdleLineColor = System.Drawing.Color.DimGray
+        Me.btnTinhLaiToaDo.Location = New System.Drawing.Point(0, 918)
+        Me.btnTinhLaiToaDo.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnTinhLaiToaDo.Name = "btnTinhLaiToaDo"
+        Me.btnTinhLaiToaDo.Size = New System.Drawing.Size(425, 43)
+        Me.btnTinhLaiToaDo.TabIndex = 48
+        Me.btnTinhLaiToaDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox10
         '
@@ -899,602 +1477,11 @@ Partial Class FormTTCcotDayCo
         '
         Me.Panel3.Controls.Add(Me.btnlai)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 588)
+        Me.Panel3.Location = New System.Drawing.Point(0, 645)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(696, 41)
         Me.Panel3.TabIndex = 53
-        '
-        'cmbLoaiMong1
-        '
-        Me.cmbLoaiMong1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbLoaiMong1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
-        Me.cmbLoaiMong1.FormattingEnabled = True
-        Me.cmbLoaiMong1.ItemHeight = 64
-        Me.cmbLoaiMong1.Location = New System.Drawing.Point(12, 140)
-        Me.cmbLoaiMong1.Margin = New System.Windows.Forms.Padding(2)
-        Me.cmbLoaiMong1.Name = "cmbLoaiMong1"
-        Me.cmbLoaiMong1.Size = New System.Drawing.Size(69, 70)
-        Me.cmbLoaiMong1.TabIndex = 54
-        '
-        'txtzM3
-        '
-        Me.txtzM3.Location = New System.Drawing.Point(177, 461)
-        Me.txtzM3.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtzM3.Name = "txtzM3"
-        Me.txtzM3.Size = New System.Drawing.Size(40, 22)
-        Me.txtzM3.TabIndex = 92
-        '
-        'txtbM4
-        '
-        Me.txtbM4.Location = New System.Drawing.Point(30, 485)
-        Me.txtbM4.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtbM4.Name = "txtbM4"
-        Me.txtbM4.Size = New System.Drawing.Size(42, 22)
-        Me.txtbM4.TabIndex = 100
-        '
-        'lbhM4
-        '
-        Me.lbhM4.AutoSize = True
-        Me.lbhM4.BackColor = System.Drawing.Color.Transparent
-        Me.lbhM4.Location = New System.Drawing.Point(75, 488)
-        Me.lbhM4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbhM4.Name = "lbhM4"
-        Me.lbhM4.Size = New System.Drawing.Size(29, 16)
-        Me.lbhM4.TabIndex = 96
-        Me.lbhM4.Text = "h4="
-        '
-        'txthM4
-        '
-        Me.txthM4.Location = New System.Drawing.Point(103, 485)
-        Me.txthM4.Margin = New System.Windows.Forms.Padding(2)
-        Me.txthM4.Name = "txthM4"
-        Me.txthM4.Size = New System.Drawing.Size(38, 22)
-        Me.txthM4.TabIndex = 99
-        '
-        'lbzM4
-        '
-        Me.lbzM4.AutoSize = True
-        Me.lbzM4.BackColor = System.Drawing.Color.Transparent
-        Me.lbzM4.Location = New System.Drawing.Point(147, 488)
-        Me.lbzM4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbzM4.Name = "lbzM4"
-        Me.lbzM4.Size = New System.Drawing.Size(28, 16)
-        Me.lbzM4.TabIndex = 95
-        Me.lbzM4.Text = "z4="
-        '
-        'txtzM4
-        '
-        Me.txtzM4.Location = New System.Drawing.Point(177, 485)
-        Me.txtzM4.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtzM4.Name = "txtzM4"
-        Me.txtzM4.Size = New System.Drawing.Size(40, 22)
-        Me.txtzM4.TabIndex = 98
-        '
-        'txtCaoDoMong
-        '
-        Me.txtCaoDoMong.Location = New System.Drawing.Point(117, 307)
-        Me.txtCaoDoMong.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtCaoDoMong.Name = "txtCaoDoMong"
-        Me.txtCaoDoMong.Size = New System.Drawing.Size(70, 22)
-        Me.txtCaoDoMong.TabIndex = 101
-        Me.txtCaoDoMong.Text = "0.0"
-        '
-        'lbSoMocNeo
-        '
-        Me.lbSoMocNeo.AutoSize = True
-        Me.lbSoMocNeo.BackColor = System.Drawing.Color.Transparent
-        Me.lbSoMocNeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbSoMocNeo.Location = New System.Drawing.Point(4, 33)
-        Me.lbSoMocNeo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbSoMocNeo.Name = "lbSoMocNeo"
-        Me.lbSoMocNeo.Size = New System.Drawing.Size(173, 16)
-        Me.lbSoMocNeo.TabIndex = 102
-        Me.lbSoMocNeo.Text = "Số lượng móc neo tại móng:"
-        '
-        'cmbMoneo
-        '
-        Me.cmbMoneo.FormattingEnabled = True
-        Me.cmbMoneo.Items.AddRange(New Object() {"1 cái", "2 cái"})
-        Me.cmbMoneo.Location = New System.Drawing.Point(12, 51)
-        Me.cmbMoneo.Name = "cmbMoneo"
-        Me.cmbMoneo.Size = New System.Drawing.Size(193, 24)
-        Me.cmbMoneo.TabIndex = 103
-        Me.cmbMoneo.Text = "2 cái"
-        '
-        'lbMongNoiChungCot
-        '
-        Me.lbMongNoiChungCot.AutoSize = True
-        Me.lbMongNoiChungCot.BackColor = System.Drawing.Color.Transparent
-        Me.lbMongNoiChungCot.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMongNoiChungCot.Location = New System.Drawing.Point(3, 78)
-        Me.lbMongNoiChungCot.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbMongNoiChungCot.Name = "lbMongNoiChungCot"
-        Me.lbMongNoiChungCot.Size = New System.Drawing.Size(210, 16)
-        Me.lbMongNoiChungCot.TabIndex = 104
-        Me.lbMongNoiChungCot.Text = "Hướng dây co bắt vào thanh cánh:"
-        '
-        'cbMongNoiChung1
-        '
-        Me.cbMongNoiChung1.FormattingEnabled = True
-        Me.cbMongNoiChung1.Items.AddRange(New Object() {"Móng 1, Móng 2", "Móng 2, Móng 3", "Móng 3, Móng 4", "Móng 4, Móng 1"})
-        Me.cbMongNoiChung1.Location = New System.Drawing.Point(11, 97)
-        Me.cbMongNoiChung1.Name = "cbMongNoiChung1"
-        Me.cbMongNoiChung1.Size = New System.Drawing.Size(194, 24)
-        Me.cbMongNoiChung1.TabIndex = 105
-        '
-        'lbbM4
-        '
-        Me.lbbM4.AutoSize = True
-        Me.lbbM4.BackColor = System.Drawing.Color.Transparent
-        Me.lbbM4.Location = New System.Drawing.Point(1, 488)
-        Me.lbbM4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbbM4.Name = "lbbM4"
-        Me.lbbM4.Size = New System.Drawing.Size(30, 16)
-        Me.lbbM4.TabIndex = 97
-        Me.lbbM4.Text = "b4="
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.lbSoMocNeo)
-        Me.GroupBox3.Controls.Add(Me.lbMong1)
-        Me.GroupBox3.Controls.Add(Me.txthM3)
-        Me.GroupBox3.Controls.Add(Me.Label13)
-        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong1)
-        Me.GroupBox3.Controls.Add(Me.Label17)
-        Me.GroupBox3.Controls.Add(Me.txtzM3)
-        Me.GroupBox3.Controls.Add(Me.txtbM3)
-        Me.GroupBox3.Controls.Add(Me.txtbM4)
-        Me.GroupBox3.Controls.Add(Me.Label18)
-        Me.GroupBox3.Controls.Add(Me.lbhM4)
-        Me.GroupBox3.Controls.Add(Me.txtzM2)
-        Me.GroupBox3.Controls.Add(Me.txthM4)
-        Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Controls.Add(Me.lbzM4)
-        Me.GroupBox3.Controls.Add(Me.txthM2)
-        Me.GroupBox3.Controls.Add(Me.txtzM4)
-        Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.txtCaoDoMong)
-        Me.GroupBox3.Controls.Add(Me.txtbM2)
-        Me.GroupBox3.Controls.Add(Me.Label15)
-        Me.GroupBox3.Controls.Add(Me.cmbMoneo)
-        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong3)
-        Me.GroupBox3.Controls.Add(Me.lbMongNoiChungCot)
-        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong4)
-        Me.GroupBox3.Controls.Add(Me.cbMongNoiChung1)
-        Me.GroupBox3.Controls.Add(Me.lbMong3)
-        Me.GroupBox3.Controls.Add(Me.lbbM4)
-        Me.GroupBox3.Controls.Add(Me.cmbLoaiMong2)
-        Me.GroupBox3.Controls.Add(Me.lbMong2)
-        Me.GroupBox3.Controls.Add(Me.Label10)
-        Me.GroupBox3.Controls.Add(Me.lbMong4)
-        Me.GroupBox3.Controls.Add(Me.Label9)
-        Me.GroupBox3.Controls.Add(Me.txtbM1)
-        Me.GroupBox3.Controls.Add(Me.txthM0)
-        Me.GroupBox3.Controls.Add(Me.txtbM0)
-        Me.GroupBox3.Controls.Add(Me.txthM1)
-        Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Controls.Add(Me.Label20)
-        Me.GroupBox3.Controls.Add(Me.txtzM0)
-        Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.txtzM1)
-        Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Controls.Add(Me.Label16)
-        Me.GroupBox3.Controls.Add(Me.Label19)
-        Me.GroupBox3.Controls.Add(Me.Label12)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(2, 138)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox3.Size = New System.Drawing.Size(225, 538)
-        Me.GroupBox3.TabIndex = 67
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Cấu tạo móng"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Location = New System.Drawing.Point(147, 416)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(28, 16)
-        Me.Label10.TabIndex = 55
-        Me.Label10.Text = "z1="
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "MongLoai1.png")
-        Me.ImageList1.Images.SetKeyName(1, "MongLoai2.png")
-        Me.ImageList1.Images.SetKeyName(2, "loaimong3.jpg")
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(75, 416)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(29, 16)
-        Me.Label9.TabIndex = 57
-        Me.Label9.Text = "h1="
-        '
-        'txthM0
-        '
-        Me.txthM0.Location = New System.Drawing.Point(103, 359)
-        Me.txthM0.Margin = New System.Windows.Forms.Padding(2)
-        Me.txthM0.Name = "txthM0"
-        Me.txthM0.Size = New System.Drawing.Size(38, 22)
-        Me.txthM0.TabIndex = 73
-        '
-        'txthM1
-        '
-        Me.txthM1.Location = New System.Drawing.Point(103, 413)
-        Me.txthM1.Margin = New System.Windows.Forms.Padding(2)
-        Me.txthM1.Name = "txthM1"
-        Me.txthM1.Size = New System.Drawing.Size(38, 22)
-        Me.txthM1.TabIndex = 72
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(151, 361)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(28, 16)
-        Me.Label2.TabIndex = 56
-        Me.Label2.Text = "z0="
-        '
-        'txtzM0
-        '
-        Me.txtzM0.Location = New System.Drawing.Point(179, 359)
-        Me.txtzM0.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtzM0.Name = "txtzM0"
-        Me.txtzM0.Size = New System.Drawing.Size(40, 22)
-        Me.txtzM0.TabIndex = 71
-        '
-        'txtzM1
-        '
-        Me.txtzM1.Location = New System.Drawing.Point(177, 413)
-        Me.txtzM1.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtzM1.Name = "txtzM1"
-        Me.txtzM1.Size = New System.Drawing.Size(40, 22)
-        Me.txtzM1.TabIndex = 70
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(79, 361)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(29, 16)
-        Me.Label5.TabIndex = 58
-        Me.Label5.Text = "h0="
-        '
-        'BunifuElipse1
-        '
-        Me.BunifuElipse1.ElipseRadius = 5
-        Me.BunifuElipse1.TargetControl = Me
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Location = New System.Drawing.Point(147, 464)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(28, 16)
-        Me.Label16.TabIndex = 89
-        Me.Label16.Text = "z3="
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(4, 337)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(129, 16)
-        Me.Label12.TabIndex = 65
-        Me.Label12.Text = "Kích thước móng M0:"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.BackColor = System.Drawing.Color.Transparent
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(1, 310)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(108, 16)
-        Me.Label19.TabIndex = 66
-        Me.Label19.Text = "Cao độ chân cột:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Location = New System.Drawing.Point(8, 361)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(30, 16)
-        Me.Label11.TabIndex = 63
-        Me.Label11.Text = "b0="
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(1, 416)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(30, 16)
-        Me.Label7.TabIndex = 62
-        Me.Label7.Text = "b1="
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(191, 337)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(38, 16)
-        Me.Label6.TabIndex = 61
-        Me.Label6.Text = "(mm)"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.BackColor = System.Drawing.Color.Transparent
-        Me.Label20.Location = New System.Drawing.Point(197, 310)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(27, 16)
-        Me.Label20.TabIndex = 60
-        Me.Label20.Text = "(m)"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(191, 392)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(38, 16)
-        Me.Label8.TabIndex = 59
-        Me.Label8.Text = "(mm)"
-        '
-        'txtbM0
-        '
-        Me.txtbM0.Location = New System.Drawing.Point(31, 359)
-        Me.txtbM0.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtbM0.Name = "txtbM0"
-        Me.txtbM0.Size = New System.Drawing.Size(42, 22)
-        Me.txtbM0.TabIndex = 75
-        '
-        'txtbM1
-        '
-        Me.txtbM1.Location = New System.Drawing.Point(30, 413)
-        Me.txtbM1.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtbM1.Name = "txtbM1"
-        Me.txtbM1.Size = New System.Drawing.Size(42, 22)
-        Me.txtbM1.TabIndex = 74
-        '
-        'lbMong4
-        '
-        Me.lbMong4.AutoSize = True
-        Me.lbMong4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMong4.Location = New System.Drawing.Point(144, 124)
-        Me.lbMong4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbMong4.Name = "lbMong4"
-        Me.lbMong4.Size = New System.Drawing.Size(43, 13)
-        Me.lbMong4.TabIndex = 76
-        Me.lbMong4.Text = "Móng 4"
-        '
-        'lbMong2
-        '
-        Me.lbMong2.AutoSize = True
-        Me.lbMong2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMong2.Location = New System.Drawing.Point(28, 211)
-        Me.lbMong2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbMong2.Name = "lbMong2"
-        Me.lbMong2.Size = New System.Drawing.Size(43, 13)
-        Me.lbMong2.TabIndex = 77
-        Me.lbMong2.Text = "Móng 2"
-        '
-        'cmbLoaiMong2
-        '
-        Me.cmbLoaiMong2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbLoaiMong2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
-        Me.cmbLoaiMong2.FormattingEnabled = True
-        Me.cmbLoaiMong2.ItemHeight = 64
-        Me.cmbLoaiMong2.Location = New System.Drawing.Point(12, 226)
-        Me.cmbLoaiMong2.Margin = New System.Windows.Forms.Padding(2)
-        Me.cmbLoaiMong2.Name = "cmbLoaiMong2"
-        Me.cmbLoaiMong2.Size = New System.Drawing.Size(69, 70)
-        Me.cmbLoaiMong2.TabIndex = 78
-        '
-        'lbMong3
-        '
-        Me.lbMong3.AutoSize = True
-        Me.lbMong3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMong3.Location = New System.Drawing.Point(144, 211)
-        Me.lbMong3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbMong3.Name = "lbMong3"
-        Me.lbMong3.Size = New System.Drawing.Size(43, 13)
-        Me.lbMong3.TabIndex = 79
-        Me.lbMong3.Text = "Móng 3"
-        '
-        'cmbLoaiMong4
-        '
-        Me.cmbLoaiMong4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbLoaiMong4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
-        Me.cmbLoaiMong4.FormattingEnabled = True
-        Me.cmbLoaiMong4.ItemHeight = 64
-        Me.cmbLoaiMong4.Location = New System.Drawing.Point(130, 140)
-        Me.cmbLoaiMong4.Margin = New System.Windows.Forms.Padding(2)
-        Me.cmbLoaiMong4.Name = "cmbLoaiMong4"
-        Me.cmbLoaiMong4.Size = New System.Drawing.Size(82, 70)
-        Me.cmbLoaiMong4.TabIndex = 81
-        '
-        'cmbLoaiMong3
-        '
-        Me.cmbLoaiMong3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbLoaiMong3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
-        Me.cmbLoaiMong3.FormattingEnabled = True
-        Me.cmbLoaiMong3.ItemHeight = 64
-        Me.cmbLoaiMong3.Location = New System.Drawing.Point(130, 226)
-        Me.cmbLoaiMong3.Margin = New System.Windows.Forms.Padding(2)
-        Me.cmbLoaiMong3.Name = "cmbLoaiMong3"
-        Me.cmbLoaiMong3.Size = New System.Drawing.Size(82, 70)
-        Me.cmbLoaiMong3.TabIndex = 82
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(1, 440)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(30, 16)
-        Me.Label15.TabIndex = 85
-        Me.Label15.Text = "b2="
-        '
-        'txtbM2
-        '
-        Me.txtbM2.Location = New System.Drawing.Point(30, 437)
-        Me.txtbM2.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtbM2.Name = "txtbM2"
-        Me.txtbM2.Size = New System.Drawing.Size(42, 22)
-        Me.txtbM2.TabIndex = 88
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Location = New System.Drawing.Point(75, 440)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(29, 16)
-        Me.Label14.TabIndex = 84
-        Me.Label14.Text = "h2="
-        '
-        'txthM2
-        '
-        Me.txthM2.Location = New System.Drawing.Point(103, 437)
-        Me.txthM2.Margin = New System.Windows.Forms.Padding(2)
-        Me.txthM2.Name = "txthM2"
-        Me.txthM2.Size = New System.Drawing.Size(38, 22)
-        Me.txthM2.TabIndex = 87
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(147, 440)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(28, 16)
-        Me.Label1.TabIndex = 83
-        Me.Label1.Text = "z2="
-        '
-        'txtzM2
-        '
-        Me.txtzM2.Location = New System.Drawing.Point(177, 437)
-        Me.txtzM2.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtzM2.Name = "txtzM2"
-        Me.txtzM2.Size = New System.Drawing.Size(40, 22)
-        Me.txtzM2.TabIndex = 86
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.BackColor = System.Drawing.Color.Transparent
-        Me.Label18.Location = New System.Drawing.Point(1, 464)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(30, 16)
-        Me.Label18.TabIndex = 91
-        Me.Label18.Text = "b3="
-        '
-        'txtbM3
-        '
-        Me.txtbM3.Location = New System.Drawing.Point(30, 461)
-        Me.txtbM3.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtbM3.Name = "txtbM3"
-        Me.txtbM3.Size = New System.Drawing.Size(42, 22)
-        Me.txtbM3.TabIndex = 94
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Location = New System.Drawing.Point(75, 464)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(29, 16)
-        Me.Label17.TabIndex = 90
-        Me.Label17.Text = "h3="
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(2, 392)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(172, 16)
-        Me.Label13.TabIndex = 69
-        Me.Label13.Text = "Kích thước chung các móng:"
-        '
-        'txthM3
-        '
-        Me.txthM3.Location = New System.Drawing.Point(103, 461)
-        Me.txthM3.Margin = New System.Windows.Forms.Padding(2)
-        Me.txthM3.Name = "txthM3"
-        Me.txthM3.Size = New System.Drawing.Size(38, 22)
-        Me.txthM3.TabIndex = 93
-        '
-        'btnTinhLaiToaDo
-        '
-        Me.btnTinhLaiToaDo.ActiveBorderThickness = 2
-        Me.btnTinhLaiToaDo.ActiveCornerRadius = 20
-        Me.btnTinhLaiToaDo.ActiveFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnTinhLaiToaDo.ActiveForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDo.ActiveLineColor = System.Drawing.Color.DimGray
-        Me.btnTinhLaiToaDo.BackColor = System.Drawing.SystemColors.Control
-        Me.btnTinhLaiToaDo.BackgroundImage = CType(resources.GetObject("btnTinhLaiToaDo.BackgroundImage"), System.Drawing.Image)
-        Me.btnTinhLaiToaDo.ButtonText = "Tính lại toạ độ"
-        Me.btnTinhLaiToaDo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnTinhLaiToaDo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnTinhLaiToaDo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.22642!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTinhLaiToaDo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDo.IdleBorderThickness = 1
-        Me.btnTinhLaiToaDo.IdleCornerRadius = 20
-        Me.btnTinhLaiToaDo.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnTinhLaiToaDo.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDo.IdleLineColor = System.Drawing.Color.DimGray
-        Me.btnTinhLaiToaDo.Location = New System.Drawing.Point(0, 918)
-        Me.btnTinhLaiToaDo.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnTinhLaiToaDo.Name = "btnTinhLaiToaDo"
-        Me.btnTinhLaiToaDo.Size = New System.Drawing.Size(425, 43)
-        Me.btnTinhLaiToaDo.TabIndex = 48
-        Me.btnTinhLaiToaDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnlai
         '
@@ -1522,20 +1509,34 @@ Partial Class FormTTCcotDayCo
         Me.btnlai.TabIndex = 47
         Me.btnlai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "MongLoai1.png")
+        Me.ImageList1.Images.SetKeyName(1, "MongLoai2.png")
+        Me.ImageList1.Images.SetKeyName(2, "loaimong3.jpg")
+        '
+        'BunifuElipse1
+        '
+        Me.BunifuElipse1.ElipseRadius = 5
+        Me.BunifuElipse1.TargetControl = Me
+        '
         'Panel4
         '
         Me.Panel4.AutoScroll = True
         Me.Panel4.Controls.Add(Me.Panel1)
-        Me.Panel4.Location = New System.Drawing.Point(0, 2)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(446, 586)
+        Me.Panel4.Size = New System.Drawing.Size(451, 645)
         Me.Panel4.TabIndex = 69
         '
         'FormTTCcotDayCo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(696, 629)
+        Me.ClientSize = New System.Drawing.Size(696, 686)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
@@ -1549,6 +1550,8 @@ Partial Class FormTTCcotDayCo
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         CType(Me.dgvToaDoMong, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -1559,8 +1562,6 @@ Partial Class FormTTCcotDayCo
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.dgvCaoDoDayCo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
