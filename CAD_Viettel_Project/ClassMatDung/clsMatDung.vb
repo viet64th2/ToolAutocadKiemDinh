@@ -233,7 +233,7 @@ Public Class clsMatDung
         '' Text
         For i As Integer = 0 To SoDot - 1
             Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            Lib_Drawing.CreateNewMText(New Point3d(ToaDoXText, CaoDoChanDot(i + 1) - caodot / 2, 0), "Đốt " & i + 1, TiLeChu)
+            Lib_Drawing.CreateNewMText1(New Point3d(ToaDoXText - TiLeChu * 1.5, CaoDoChanDot(i + 1) - caodot / 1.5, 0), "Đốt " & i + 1, TiLeChu, Math.PI / 2)
         Next
 #End Region
 #Region " Vẽ Dây co"
@@ -462,7 +462,7 @@ Public Class clsMatDung
         '' Text
         For i As Integer = 0 To SoDot - 1
             Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            Lib_Drawing.CreateNewMText(New Point3d(ToaDoXText, CaoDoChanDot(i + 1) - caodot / 2, 0), "Đốt " & i + 1, TiLeChu)
+            Lib_Drawing.CreateNewMText1(New Point3d(ToaDoXText - TiLeChu * 1.5, CaoDoChanDot(i + 1) - caodot / 1.5, 0), "Đốt " & i + 1, TiLeChu, Math.PI / 2)
         Next
 #End Region
 #Region " Vẽ Dây co"
@@ -508,45 +508,45 @@ Public Class clsMatDung
             Dim Toa_Do_M1(5) As Point2d ' Vẽ móng
             Toa_Do_M1(0) = New Point2d(-xM1 - RongMong1 / 2, zM1)
             Toa_Do_M1(1) = New Point2d(-xM1 + RongMong1 / 2, zM1)
-            Toa_Do_M1(2) = New Point2d(-xM1 + RongMong1 / 2, -RongMong1 * 3)
-            Toa_Do_M1(3) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, -RongMong1 * 3)
-            Toa_Do_M1(4) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, -RongMong1 * 4)
-            Toa_Do_M1(5) = New Point2d(-xM1 - RongMong1 / 2, -RongMong1 * 4)
+            Toa_Do_M1(2) = New Point2d(-xM1 + RongMong1 / 2, -RongMong1 * 3 + zM1)
+            Toa_Do_M1(3) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, -RongMong1 * 3 + zM1)
+            Toa_Do_M1(4) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, -RongMong1 * 4 + zM1)
+            Toa_Do_M1(5) = New Point2d(-xM1 - RongMong1 / 2, -RongMong1 * 4 + zM1)
             id_mong1 = Lib_Drawing.CreateNewPolyline(Toa_Do_M1, True)
             Dim Toa_Do_M12(4) As Point2d 'Vẽ chi tiết móng
-            Toa_Do_M12(0) = New Point2d(-xM1 - RongMong1 / 2, -RongMong1 * 3)
-            Toa_Do_M12(1) = New Point2d(-xM1, -RongMong1 * 3)
+            Toa_Do_M12(0) = New Point2d(-xM1 - RongMong1 / 2, -RongMong1 * 3 + zM1)
+            Toa_Do_M12(1) = New Point2d(-xM1, -RongMong1 * 3 + zM1)
             Toa_Do_M12(2) = New Point2d(-xM1, zM1 - CaoMong1)
             Toa_Do_M12(3) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, zM1 - CaoMong1)
-            Toa_Do_M12(4) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, -RongMong1 * 3)
+            Toa_Do_M12(4) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3, -RongMong1 * 3 + zM1)
             id_mong12 = Lib_Drawing.CreateNewPolyline(Toa_Do_M12, False)
             Dim Toa_Do_M13(3) As Point2d ' Vẽ lớp lót bê tông
-            Toa_Do_M13(0) = New Point2d(-xM1 - RongMong1 / 2 - 100, -RongMong1 * 4)
-            Toa_Do_M13(1) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3 + 100, -RongMong1 * 4)
-            Toa_Do_M13(2) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3 + 100, -RongMong1 * 4 - 100)
-            Toa_Do_M13(3) = New Point2d(-xM1 - RongMong1 / 2 - 100, -RongMong1 * 4 - 100)
+            Toa_Do_M13(0) = New Point2d(-xM1 - RongMong1 / 2 - 100, -RongMong1 * 4 + zM1)
+            Toa_Do_M13(1) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3 + 100, -RongMong1 * 4 + zM1)
+            Toa_Do_M13(2) = New Point2d(-xM1 - RongMong1 / 2 + RongMong1 * 3 + 100, -RongMong1 * 4 - 100 + zM1)
+            Toa_Do_M13(3) = New Point2d(-xM1 - RongMong1 / 2 - 100, -RongMong1 * 4 - 100 + zM1)
             id_mong13 = Lib_Drawing.CreateNewPolyline(Toa_Do_M13, True)
             'móng 2
             Dim Toa_Do_M2(5) As Point2d 'Vẽ móng
             Toa_Do_M2(0) = New Point2d(xM2 + RongMong2 / 2, zM2)
             Toa_Do_M2(1) = New Point2d(xM2 - RongMong2 / 2, zM2)
-            Toa_Do_M2(2) = New Point2d(xM2 - RongMong2 / 2, -RongMong2 * 3)
-            Toa_Do_M2(3) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, -RongMong2 * 3)
-            Toa_Do_M2(4) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, -RongMong2 * 4)
-            Toa_Do_M2(5) = New Point2d(xM2 + RongMong2 / 2, -RongMong2 * 4)
+            Toa_Do_M2(2) = New Point2d(xM2 - RongMong2 / 2, -RongMong2 * 3 + zM2)
+            Toa_Do_M2(3) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, -RongMong2 * 3 + zM2)
+            Toa_Do_M2(4) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, -RongMong2 * 4 + zM2)
+            Toa_Do_M2(5) = New Point2d(xM2 + RongMong2 / 2, -RongMong2 * 4 + zM2)
             id_mong2 = Lib_Drawing.CreateNewPolyline(Toa_Do_M2, True)
             Dim Toa_Do_M22(4) As Point2d 'Vẽ chi tiết móng
-            Toa_Do_M22(0) = New Point2d(xM2 + RongMong2 / 2, -RongMong2 * 3)
-            Toa_Do_M22(1) = New Point2d(xM2, -RongMong2 * 3)
-            Toa_Do_M22(2) = New Point2d(xM2, zM2 - CaoMong2)
+            Toa_Do_M22(0) = New Point2d(xM2 + RongMong2 / 2, -RongMong2 * 3 + zM2)
+            Toa_Do_M22(1) = New Point2d(xM2, -RongMong2 * 3 + zM2)
+            Toa_Do_M22(2) = New Point2d(xM2, zM2 - CaoMong2 + zM2)
             Toa_Do_M22(3) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, zM2 - CaoMong2)
-            Toa_Do_M22(4) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, -RongMong2 * 3)
+            Toa_Do_M22(4) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3, -RongMong2 * 3 + zM2)
             id_mong22 = Lib_Drawing.CreateNewPolyline(Toa_Do_M22, False)
             Dim Toa_Do_M23(3) As Point2d ' Vẽ lớp lót bê tông
-            Toa_Do_M23(0) = New Point2d(xM2 + RongMong2 / 2 + 100, -RongMong2 * 4)
-            Toa_Do_M23(1) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3 - 100, -RongMong2 * 4)
-            Toa_Do_M23(2) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3 - 100, -RongMong2 * 4 - 100)
-            Toa_Do_M23(3) = New Point2d(xM2 + RongMong2 / 2 + 100, -RongMong2 * 4 - 100)
+            Toa_Do_M23(0) = New Point2d(xM2 + RongMong2 / 2 + 100, -RongMong2 * 4 + zM2)
+            Toa_Do_M23(1) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3 - 100, -RongMong2 * 4 + zM2)
+            Toa_Do_M23(2) = New Point2d(xM2 + RongMong2 / 2 - RongMong2 * 3 - 100, -RongMong2 * 4 - 100 + zM2)
+            Toa_Do_M23(3) = New Point2d(xM2 + RongMong2 / 2 + 100, -RongMong2 * 4 - 100 + zM2)
             id_mong23 = Lib_Drawing.CreateNewPolyline(Toa_Do_M23, True)
             clsMatDung.VeDatMongCoL2(New Point3d(-xM1, zM1, 0), CaoMong1, RongMong1)
             clsMatDung.VeDatMongCoL2(New Point3d(xM2, zM2, 0), CaoMong2, RongMong2)
@@ -562,41 +562,41 @@ Public Class clsMatDung
             Dim Toa_Do_M1(4) As Point2d ' Vẽ móng      
             Toa_Do_M1(0) = New Point2d(-xM1 - RongMong1 / 2, zM1)
             Toa_Do_M1(1) = New Point2d(-xM1 + RongMong1 / 2, zM1)
-            Toa_Do_M1(2) = New Point2d(-xM1 + RongMong1 / 2, -RongMong1 * 4)
-            Toa_Do_M1(3) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3, -RongMong1 * 4)
-            Toa_Do_M1(4) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3, -RongMong1 * 3.5)
+            Toa_Do_M1(2) = New Point2d(-xM1 + RongMong1 / 2, -RongMong1 * 4 + zM1)
+            Toa_Do_M1(3) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3, -RongMong1 * 4 + zM1)
+            Toa_Do_M1(4) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3, -RongMong1 * 3.5 + zM1)
             id_mong1 = Lib_Drawing.CreateNewPolyline(Toa_Do_M1, True)
             Dim Toa_Do_M12(3) As Point2d ' Vẽ  chi tiết trong móng
-            Toa_Do_M12(0) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3, -RongMong1 * 3.5)
-            Toa_Do_M12(1) = New Point2d(-xM1, -RongMong1 * 3.5)
-            Toa_Do_M12(2) = New Point2d(-xM1, -RongMong1 / 2)
-            Toa_Do_M12(3) = New Point2d(-xM1 + RongMong1 / 2, -RongMong1 / 2)
+            Toa_Do_M12(0) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3, -RongMong1 * 3.5 + zM1)
+            Toa_Do_M12(1) = New Point2d(-xM1, -RongMong1 * 3.5 + zM1)
+            Toa_Do_M12(2) = New Point2d(-xM1, -RongMong1 / 2 + zM1)
+            Toa_Do_M12(3) = New Point2d(-xM1 + RongMong1 / 2, -RongMong1 / 2 + zM1)
             id_mong12 = Lib_Drawing.CreateNewPolyline(Toa_Do_M12, False)
             Dim Toa_Do_M13(3) As Point2d ' Vẽ  lớp lót bê tông
-            Toa_Do_M13(0) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3 - 100, -RongMong1 * 4)
-            Toa_Do_M13(1) = New Point2d(-xM1 + RongMong1 / 2 + 100, -RongMong1 * 4)
-            Toa_Do_M13(2) = New Point2d(-xM1 + RongMong1 / 2 + 100, -RongMong1 * 4 - 100)
-            Toa_Do_M13(3) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3 - 100, -RongMong1 * 4 - 100)
+            Toa_Do_M13(0) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3 - 100, -RongMong1 * 4 + zM1)
+            Toa_Do_M13(1) = New Point2d(-xM1 + RongMong1 / 2 + 100, -RongMong1 * 4 + zM1)
+            Toa_Do_M13(2) = New Point2d(-xM1 + RongMong1 / 2 + 100, -RongMong1 * 4 - 100 + zM1)
+            Toa_Do_M13(3) = New Point2d(-xM1 + RongMong1 / 2 - RongMong1 * 3 - 100, -RongMong1 * 4 - 100 + zM1)
             id_mong13 = Lib_Drawing.CreateNewPolyline(Toa_Do_M13, True)
             'móng 2
             Dim Toa_Do_M2(4) As Point2d
             Toa_Do_M2(0) = New Point2d(xM2 + RongMong2 / 2, zM2)
             Toa_Do_M2(1) = New Point2d(xM2 - RongMong2 / 2, zM2)
-            Toa_Do_M2(2) = New Point2d(xM2 - RongMong2 / 2, -RongMong2 * 4)
-            Toa_Do_M2(3) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3, -RongMong2 * 4)
-            Toa_Do_M2(4) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3, -RongMong2 * 3.5)
+            Toa_Do_M2(2) = New Point2d(xM2 - RongMong2 / 2, -RongMong2 * 4 + zM2)
+            Toa_Do_M2(3) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3, -RongMong2 * 4 + zM2)
+            Toa_Do_M2(4) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3, -RongMong2 * 3.5 + zM2)
             id_mong2 = Lib_Drawing.CreateNewPolyline(Toa_Do_M2, True)
             Dim Toa_Do_M22(3) As Point2d ' Vẽ  chi tiết trong móng
-            Toa_Do_M22(0) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3, -RongMong2 * 3.5)
-            Toa_Do_M22(1) = New Point2d(xM2, -RongMong2 * 3.5)
-            Toa_Do_M22(2) = New Point2d(xM2, -RongMong2 / 2)
-            Toa_Do_M22(3) = New Point2d(xM2 - RongMong2 / 2, -RongMong2 / 2)
+            Toa_Do_M22(0) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3, -RongMong2 * 3.5 + zM2)
+            Toa_Do_M22(1) = New Point2d(xM2, -RongMong2 * 3.5 + zM2)
+            Toa_Do_M22(2) = New Point2d(xM2, -RongMong2 / 2 + zM2)
+            Toa_Do_M22(3) = New Point2d(xM2 - RongMong2 / 2, -RongMong2 / 2 + zM2)
             id_mong22 = Lib_Drawing.CreateNewPolyline(Toa_Do_M22, False)
             Dim Toa_Do_M23(3) As Point2d ' Vẽ  lóp lót bê tông
-            Toa_Do_M23(0) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3 + 100, -RongMong2 * 4)
-            Toa_Do_M23(1) = New Point2d(xM2 - RongMong2 / 2 - 100, -RongMong2 * 4)
-            Toa_Do_M23(2) = New Point2d(xM2 - RongMong2 / 2 - 100, -RongMong2 * 4 - 100)
-            Toa_Do_M23(3) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3 + 100, -RongMong2 * 4 - 100)
+            Toa_Do_M23(0) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3 + 100, -RongMong2 * 4 + zM2)
+            Toa_Do_M23(1) = New Point2d(xM2 - RongMong2 / 2 - 100, -RongMong2 * 4 + zM2)
+            Toa_Do_M23(2) = New Point2d(xM2 - RongMong2 / 2 - 100, -RongMong2 * 4 - 100 + zM2)
+            Toa_Do_M23(3) = New Point2d(xM2 - RongMong2 / 2 + RongMong2 * 3 + 100, -RongMong2 * 4 - 100 + zM2)
             id_mong23 = Lib_Drawing.CreateNewPolyline(Toa_Do_M23, True)
             'Vẽ mặt đất cho móng co
             clsMatDung.VeDatMongCoL1(New Point3d(-xM1, zM1, 0), CaoMong1, RongMong1)
@@ -760,7 +760,7 @@ Public Class clsMatDung
         Dim H As New List(Of Double)
         Dim CaoDoChanDot As New List(Of Double)
 
-        Dim ToaDoXDimTong As Double = -XM1 - TiLeChu * 20
+        Dim ToaDoXDimTong As Double = -XM1 - TiLeChu * 13
         Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu * 3
         Dim SoDot As Integer = frmTTC.BangChieuCaoDot.RowCount
         CaoDoChanDot.Add(0)
@@ -978,8 +978,9 @@ Public Class clsMatDung
             diem2 = line.EndPoint
             Dim khoangcachmong = Math.Sqrt((x1 * x1) + (y1 * y1))
             Dim chieucaocot = CaoDayCo * 1000
-            Dim chieudaiday = Math.Round(Math.Sqrt((chieucaocot * chieucaocot) + (khoangcachmong * khoangcachmong)), 2)
-            NoiDung = "L=" & Convert.ToString(Math.Round(Val(chieudaiday / 1000), 2)) & "(m)"
+            'Dim chieudaiday = Math.Round(Math.Sqrt((chieucaocot * chieucaocot) + (khoangcachmong * khoangcachmong)), 2)
+            Dim chieudaiday = line.Length
+            NoiDung = "L=" & Convert.ToString(Math.Round(Val(chieudaiday / 1000), 1)) & "m"
             acTrans.Commit()
         End Using
 

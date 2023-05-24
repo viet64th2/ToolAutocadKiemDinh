@@ -51,26 +51,29 @@ Public Class FormMD_3Chan_4Mong_L3_KG
         Next
 
         'Tinh be rong ngang
-        Dim rongMB As Single = Math.Sqrt(((x1 - x2) ^ 2) + ((y1 - y2) ^ 2))
-        Dim daiMB As Single = Math.Sqrt(((x2 - x3) ^ 2) + ((y2 - y3) ^ 2))
+        'Dim rongMB As Single = Math.Sqrt(((x1 - x2) ^ 2) + ((y1 - y2) ^ 2))
+        'Dim daiMB As Single = Math.Sqrt(((x2 - x3) ^ 2) + ((y2 - y3) ^ 2))
+        Dim KCM1 = Math.Sqrt(((x1 - 0) ^ 2) + ((y1 - 0) ^ 2))
+        Dim KCM2 = Math.Sqrt(((x2 - 0) ^ 2) + ((y2 - 0) ^ 2))
+        Dim KCM3 = Math.Sqrt(((x3 - 0) ^ 2) + ((y3 - 0) ^ 2))
         Dim c As Double = ThongTinChung.ChieuCao
 
         If cmbmat.Text = "X-Z" Then
             If ThongTinChung.SoChanCot <> 3 Then
-                clsMatDung.MatX_Z_KoGa(c, b_a, rongMB / 2, rongMB / 2, listCaoDo, LoaiDot, b_zMong1, b_zMong2, b_bMong1, b_bMong2, b_z0mong, b_b0mong, ThongTinChung.LoaiMong1, z1, z2, ThongTinChung.ViTriDat, listViTriGaChongXay, frmTTC.dgvCaoDoDayCo.RowCount)
-                clsMatDung.VeCaoDo(listCaoDo, 2, 3, z1, z3, rongMB / 2, rongMB / 2, b_hmong, b_hmong, 0, TiLeChu * 2)
-                clsMatDung.VeCaoDoDot(rongMB / 2, TiLeChu * 2)
+                clsMatDung.MatY_Z_KoGa(c, b_a, KCM1, KCM2, listCaoDo, LoaiDot, b_zMong1, b_zMong2, b_bMong1, b_bMong2, b_z0mong, b_b0mong, ThongTinChung.LoaiMong1, z1, z2, ThongTinChung.ViTriDat, listViTriGaChongXay, frmTTC.dgvCaoDoDayCo.RowCount)
+                clsMatDung.VeCaoDo(listCaoDo, 2, 3, z1, z3, KCM1, KCM2, b_hmong, b_hmong, 0, TiLeChu * 2)
+                clsMatDung.VeCaoDoDot(KCM1, TiLeChu * 2)
 
             Else
-                clsMatDung.MatX_Z_KoGa(c, b_a, daiMB / 2, daiMB / 2, listCaoDo, LoaiDot, b_zMong1, b_zMong2, b_bMong1, b_bMong2, b_z0mong, b_b0mong, ThongTinChung.LoaiMong1, z1, z2, ThongTinChung.ViTriDat, listViTriGaChongXay, frmTTC.dgvCaoDoDayCo.RowCount)
-                clsMatDung.VeCaoDo(listCaoDo, 2, 3, z2, z3, daiMB / 2, daiMB / 2, b_hmong, b_hmong, 0, TiLeChu * 2)
-                clsMatDung.VeCaoDoDot(rongMB / 2, TiLeChu * 2)
+                clsMatDung.MatY_Z_KoGa(c, b_a, KCM1, KCM2, listCaoDo, LoaiDot, b_zMong1, b_zMong2, b_bMong1, b_bMong2, b_z0mong, b_b0mong, ThongTinChung.LoaiMong1, z1, z2, ThongTinChung.ViTriDat, listViTriGaChongXay, frmTTC.dgvCaoDoDayCo.RowCount)
+                clsMatDung.VeCaoDo(listCaoDo, 2, 3, z2, z3, KCM1, KCM2, b_hmong, b_hmong, 0, TiLeChu * 2)
+                clsMatDung.VeCaoDoDot(KCM1, TiLeChu * 2)
 
             End If
         ElseIf cmbmat.Text = "Y-Z" Then
-            clsMatDung.MatY_Z_KoGa(c, b_a, daiMB / 2, daiMB / 2, listCaoDo, LoaiDot, b_zMong2, b_zMong3, b_bMong2, b_bMong3, b_z0mong, b_b0mong, ThongTinChung.LoaiMong1, z2, z3, ThongTinChung.ViTriDat, listViTriGaChongXay, frmTTC.dgvCaoDoDayCo.RowCount)
-            clsMatDung.VeCaoDo(listCaoDo, 2, 3, z2, z3, daiMB / 2, daiMB / 2, b_hmong, b_hmong, 0, TiLeChu * 2)
-            clsMatDung.VeCaoDoDot(daiMB / 2, TiLeChu * 2)
+            clsMatDung.MatY_Z_KoGa(c, b_a, KCM1, KCM3, listCaoDo, LoaiDot, b_zMong2, b_zMong3, b_bMong2, b_bMong3, b_z0mong, b_b0mong, ThongTinChung.LoaiMong1, z2, z3, ThongTinChung.ViTriDat, listViTriGaChongXay, frmTTC.dgvCaoDoDayCo.RowCount)
+            clsMatDung.VeCaoDo(listCaoDo, 2, 3, z2, z3, KCM1, KCM3, b_hmong, b_hmong, 0, TiLeChu * 2)
+            clsMatDung.VeCaoDoDot(KCM1, TiLeChu * 2)
         End If
 
         MsgBox("Đã vẽ xong! Tắt bỏ để xem")

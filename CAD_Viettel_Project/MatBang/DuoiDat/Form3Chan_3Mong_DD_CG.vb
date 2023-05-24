@@ -26,12 +26,13 @@ Public Class Form3Chan_3Mong_DD_CG
         Dim TextHight As Double = TiLeChu
         Dim Linetylescale As Double = Tile
         Dim Dimscale As Double = TextHight
+
         mbVeMong.Ve_Mong_0(b_b0mong, b_h0mong, x1, y1, "1", Linetylescale, TextHight)
         mbVeMong.Ve_Cot_Tam_Giac_update(b_a, x1, y1, "5", "2", Linetylescale, Dimscale, TextHight, x1, y1, x2, y2, x3, y3, x4, y4, 3)
         mbVeMong.Ga_Chong_Xoay_MB_TamGiac(b_a, x1, y1, "0", "2", Linetylescale, Dimscale, TextHight, x1, y1, x2, y2, x3, y3, x4, y4, 3)
-        mbVeMong.VeMong(x1, y1, b_bMong1, b_hMong1, b_a, b_bmove, b_hmove, "Móng 1", TextHight, Linetylescale, "1", "Dưới đất", b_Mong1)
-        mbVeMong.VeMong(x2, y2, b_bMong2, b_hMong2, b_a, b_bmove, b_hmove, "Móng 2", TextHight, Linetylescale, "1", "Dưới đất", b_Mong2)
-        mbVeMong.VeMong(x3, y3, b_bMong3, b_hMong3, b_a, b_bmove, b_hmove, "Móng 3", TextHight, Linetylescale, "1", "Dưới đất", b_Mong3)
+        mbVeMong.VeMong(x1, y1, b_bMong1, b_hMong1, b_a, b_bmove, b_hmove, "Móng M1", TextHight, Linetylescale, "1", "Dưới đất", b_Mong1)
+        mbVeMong.VeMong(x2, y2, b_bMong2, b_hMong2, b_a, b_bmove, b_hmove, "Móng M2", TextHight, Linetylescale, "1", "Dưới đất", b_Mong2)
+        mbVeMong.VeMong(x3, y3, b_bMong3, b_hMong3, b_a, b_bmove, b_hmove, "Móng M3", TextHight, Linetylescale, "1", "Dưới đất", b_Mong3)
         MsgBox("Đã vẽ xong! Tắt bỏ để xem")
     End Sub
 End Class

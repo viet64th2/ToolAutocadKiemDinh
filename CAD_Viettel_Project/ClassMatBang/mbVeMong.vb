@@ -85,7 +85,18 @@ Public Class mbVeMong
                 TextMong0(2) = New Point2d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3 + TextHight * 9, b_h0mong / 2 + b_h0mong / 10 + TextHight)
                 Dim id_TextMong0 As ObjectId
                 id_TextMong0 = Lib_Drawing.CreateNewPolyline(TextMong0, False)
-                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng 0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng M0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                'Cao độ mặt đất của móng
+                Dim CaoDo As String
+
+                If frmTTC.txtCaoDoMong.Text > 0 Then
+                    CaoDo = "+" & Format(frmTTC.txtCaoDoMong.Text, "00.00")
+                ElseIf frmTTC.txtCaoDoMong.Text = 0 Then
+                    CaoDo = "%%p" & Format(frmTTC.txtCaoDoMong.Text, "00.00")
+                Else
+                    CaoDo = Format(frmTTC.txtCaoDoMong.Text, "00.00")
+                End If
+                Lib_Drawing.insertBlock(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 12, b_h0mong / 2 + b_h0mong / 10 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
             End If
         Next
         've 4 duong noi mong 
@@ -247,7 +258,18 @@ Public Class mbVeMong
                 TextMong0(2) = New Point2d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3 + TextHight * 9, b_h0mong / 2 + b_h0mong / 10 + TextHight)
                 Dim id_TextMong0 As ObjectId
                 id_TextMong0 = Lib_Drawing.CreateNewPolyline(TextMong0, False)
-                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng 0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng M0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                'Cao độ mặt đất của móng
+                Dim CaoDo As String
+
+                If frmTTC.txtCaoDoMong.Text > 0 Then
+                    CaoDo = "+" & Format(frmTTC.txtCaoDoMong.Text, "00.00")
+                ElseIf frmTTC.txtCaoDoMong.Text = 0 Then
+                    CaoDo = "%%p" & Format(frmTTC.txtCaoDoMong.Text, "00.00")
+                Else
+                    CaoDo = Format(frmTTC.txtCaoDoMong.Text, "00.00")
+                End If
+                Lib_Drawing.insertBlock(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 12, b_h0mong / 2 + b_h0mong / 10 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
             End If
         Next
         'Ve day noi 
@@ -1100,17 +1122,7 @@ Public Class mbVeMong
     End Sub
     Public Shared Sub VeMong(Toado_x As Double, Toado_y As Double, b_bvemong As Double, b_hvemong As Double, b_bmove As Double, b_hmove As Double, b_a As Double, Text As String, TextHight As Double, LinetypeScale As Double, Layer As String, vitridat As String, LoaiMong As Integer)
         Dim layermong As String = "10"
-        'loai mong 1 
-        'b_bmove = b_bmong / 2 - b_bmong / 5
-        'b_hmove = 0
-        '' ma tran dau 
-        'vtri1(-x,+y)          trivi2(+x,+y)
 
-        'vtri4(-x,-y)          vitri3(x,-y)
-        '' Hình 1       móng 1- vtri1,móng 2- vi trí 3, móng 3 - vị trí 4  
-        '' Hình 2       móng 1- vtri1, móng 2- vi trí 4, móng 3 - vị trí 2
-        '' Hình 3       móng 1- vtri1, móng 2- vi trí 3+4(x=0,-y), móng 3 - vị trí 2 
-        '' Hình 4       móng 1- vtri1+vtri2(-x,y=0), móng 2- vi trí 3, móng 3 - vị trí 2 
         'Dim score As Integer
         Dim vuongtrong As Polyline
         Dim vuongngoai As Polyline
@@ -1118,6 +1130,28 @@ Public Class mbVeMong
         Dim acCurDb As Database = acDoc.Database
         Dim curUCSMatrix As Matrix3d = acDoc.Editor.CurrentUserCoordinateSystem
         Dim curUCS As CoordinateSystem3d = curUCSMatrix.CoordinateSystem3d
+
+        Dim CaoDo As String
+        If Text.Contains("1") Then
+            b_CaoDoMong = Val(frmTTC.dgvToaDoMong.Rows(0).Cells(3).Value)
+        ElseIf Text.Contains("2") Then
+            b_CaoDoMong = Val(frmTTC.dgvToaDoMong.Rows(1).Cells(3).Value)
+        ElseIf Text.Contains("3") Then
+            b_CaoDoMong = Val(frmTTC.dgvToaDoMong.Rows(2).Cells(3).Value)
+        ElseIf Text.Contains("4") Then
+            b_CaoDoMong = Val(frmTTC.dgvToaDoMong.Rows(3).Cells(3).Value)
+        ElseIf Text.Contains("0") Then
+            b_CaoDoMong = Val(frmTTC.txtCaoDoMong.Text)
+        End If
+        If b_CaoDoMong > 0 Then
+            CaoDo = "+" & Format(b_CaoDoMong, "00.00")
+        ElseIf b_CaoDoMong = 0 Then
+            CaoDo = "%%p" & Format(b_CaoDoMong, "00.00")
+        Else
+            CaoDo = Format(b_CaoDoMong, "00.00")
+        End If
+        'Lib_Drawing.insertBlock(New Point3d(2000, -hmongchinh, 0), "ct", Tile / 2, "+" & CaoDo)
+
 #Region "Vẽ móng dưới đất"
         If (vitridat = "Dưới đất") Then
             Dim ofset As Double = 100
@@ -1205,7 +1239,11 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
+                    'Tên móng
                     id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight, Toado_y + b_hvemong * 3 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) 've hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1310,6 +1348,9 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 8, Toado_y + b_hvemong * 3 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) 've hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1415,6 +1456,9 @@ Public Class mbVeMong
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     'kaitomajickid
                     Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight, Toado_y - b_hvemong * 3 - TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) 've hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1518,6 +1562,8 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 8, Toado_y - b_hvemong * 3 - TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) ' ve hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1611,6 +1657,8 @@ Public Class mbVeMong
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
                     id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight, Toado_y + b_hvemong * 3 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) ' ve hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1718,6 +1766,8 @@ Public Class mbVeMong
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
                     id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 8, Toado_y + b_hvemong * 3 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) ' ve hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1825,6 +1875,9 @@ Public Class mbVeMong
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
                     id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight, Toado_y - b_hvemong * 3 - TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) ' ve hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -1932,6 +1985,8 @@ Public Class mbVeMong
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
                     id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    'Cao độ mặt đất của móng
+                    Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 8, Toado_y - b_hvemong * 3 - TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
                     Dim id_c As ObjectId
                     id_c = Lib_Drawing.CreateCircle(New Point3d(Toado_x, Toado_y, 0), Math.Min(b_bvemong, b_hvemong) / 3) ' ve hinh tron
                     Dim id_coll As New ObjectIdCollection
@@ -2012,6 +2067,8 @@ Public Class mbVeMong
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                 Dim id_Text As ObjectId
                 id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                'Cao độ mặt đất của móng
+                Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
             ElseIf ((Toado_x) >= 0 And (Toado_y) >= 0) Then 'vitri2
                 b_bmove = 0
                 b_hmove = 0
@@ -2035,6 +2092,8 @@ Public Class mbVeMong
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                 Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                'Cao độ mặt đất của móng
+                Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 8, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
             ElseIf ((Toado_x) <= 0 And (Toado_y) <= 0) Then 'vitri4
                 b_bmove = 0
                 b_hmove = 0
@@ -2058,6 +2117,8 @@ Public Class mbVeMong
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                 Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+
             ElseIf ((Toado_x) >= 0 And (Toado_y) <= 0) Then 'vitri3
                 b_bmove = 0
                 b_hmove = 0
@@ -2081,9 +2142,11 @@ Public Class mbVeMong
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                 Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                'Cao độ mặt đất của móng
+                Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 8, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
             End If
         Else
-        '
+            '
         End If
 #End Region
     End Sub
@@ -3921,25 +3984,28 @@ Public Class mbVeMong
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x1) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y1) >= 0 Then
-                    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
-                    Dim goc As Double = TinhGocDuongThangMB(ID_Line1)
-                    TaoTextTrenMB(ID_Line1, goc, "Kaitomajickid1412")
+                    'ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(0, 0, 0))
+                    Dim goc As Double = TinhGocDuongThangMB(ID_Line1, DiemNoiDay)
+                    TaoTextTrenMB(ID_Line1, goc, "Kaitomajickid1412", DiemNoiDay)
                 End If
             Next
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x2) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y2) >= 0 Then
-                    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
-                    Dim goc As Double = TinhGocDuongThangMB(ID_Line2)
-                    TaoTextTrenMB(ID_Line2, goc, "Kaitomajickid1412")
+                    'ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(0, 0, 0))
+                    Dim goc As Double = TinhGocDuongThangMB(ID_Line2, DiemNoiDay)
+                    TaoTextTrenMB(ID_Line2, goc, "Kaitomajickid1412", DiemNoiDay)
                 End If
             Next
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x3) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y3) >= 0 Then
-                    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
-                    Dim goc As Double = TinhGocDuongThangMB(ID_Line3)
-                    TaoTextTrenMB(ID_Line3, goc, "Kaitomajickid1412")
+                    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(0, 0, 0))
+                    'ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    Dim goc As Double = TinhGocDuongThangMB(ID_Line3, DiemNoiDay)
+                    TaoTextTrenMB(ID_Line3, goc, "Kaitomajickid1412", DiemNoiDay)
                 End If
             Next
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
@@ -3955,25 +4021,29 @@ Public Class mbVeMong
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x1) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y1) >= 0 Then
-                    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    'ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(0, 0, 0))
                 End If
             Next
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x2) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y2) >= 0 Then
-                    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    'ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(0, 0, 0))
                 End If
             Next
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x3) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y3) >= 0 Then
-                    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    'ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(0, 0, 0))
                 End If
             Next
             For i = 0 To 2 Step 1
                 Dim DiemNoiDay As Point2d = cottamgiac.GetPoint2dAt(i)
                 If (Math.Round((DiemNoiDay.X), 2) * x4) >= 0 And (Math.Round((DiemNoiDay.Y), 2) * y4) >= 0 Then
-                    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4, y4, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    'ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4, y4, 0), New Point3d(DiemNoiDay.X, DiemNoiDay.Y, 0))
+                    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4, y4, 0), New Point3d(0, 0, 0))
                 End If
             Next
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
@@ -4925,7 +4995,7 @@ Public Class mbVeMong
             tr.Commit()
         End Using
     End Sub
-    Public Shared Function TinhGocDuongThangMB(id As ObjectId)
+    Public Shared Function TinhGocDuongThangMB(id As ObjectId, DiemNoiDay As Point2d)
         Dim acDoc As Document = Application.DocumentManager.MdiActiveDocument
         Dim acCurDb As Database = acDoc.Database
         acCurDb = Application.DocumentManager.MdiActiveDocument.Database
@@ -4940,34 +5010,38 @@ Public Class mbVeMong
             Diem2 = line.EndPoint
             acTrans.Commit()
         End Using
-        If (Diem1.X <= 0 And Diem2.X >= 0) Then
-            tu = Math.Abs(Diem2.X) - Math.Abs(Diem1.X)
-        ElseIf (Diem1.X <= 0 And Diem2.X <= 0) Then
-            tu = Math.Abs(Diem2.X) - Math.Abs(Diem1.X)
-        ElseIf (Diem1.X >= 0 And Diem2.X >= 0) Then
-            tu = Math.Abs(Diem1.X) - Math.Abs(Diem2.X)
-        ElseIf (Diem1.X >= 0 And Diem2.X <= 0) Then
-            tu = Math.Abs(Diem1.X) - Math.Abs(Diem2.X)
+        If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
+            tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
+        ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
+            tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
+        ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
+            tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
+        ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
+            tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
         End If
-        mau = line.Length
+        'mau = line.Length
+        mau = Math.Sqrt((Diem1.X - DiemNoiDay.X) * (Diem1.X - DiemNoiDay.X) + (Diem1.Y - DiemNoiDay.Y) * (Diem1.Y - DiemNoiDay.Y))
         cos = tu / mau
         goc = Math.Acos(cos)
+        Dim gocd = goc * 180 / Math.PI
         Return goc
     End Function
-    Public Shared Sub TaoTextTrenMB(id As ObjectId, GocXoay As Double, NoiDung As String)
+    Public Shared Sub TaoTextTrenMB(id As ObjectId, GocXoay As Double, NoiDung As String, DiemNoiDay As Point2d)
         Dim acDoc As Document = Application.DocumentManager.MdiActiveDocument
         Dim acCurDb As Database = acDoc.Database
         Dim curUCSMatrix As Matrix3d = acDoc.Editor.CurrentUserCoordinateSystem
         Dim curUCS As CoordinateSystem3d = curUCSMatrix.CoordinateSystem3d
-        Dim diem1, diem2 As New Point3d
+        Dim diem1 As New Point3d
+        Dim diem2 As New Point2d
+
         Dim line As New Line
         Dim lineclon As New Line
         Dim id_lineclon As ObjectId
         Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
             line = acTrans.GetObject(id, OpenMode.ForWrite)
             diem1 = line.StartPoint
-            diem2 = line.EndPoint
-            NoiDung = "L=" & Convert.ToString(Math.Round(Val(line.Length / 1000), 2)) & "(m)"
+            diem2 = DiemNoiDay
+            NoiDung = "L=" & Convert.ToString(Math.Round(Val(line.Length / 1000), 1)) & "m"
             acTrans.Commit()
         End Using
 

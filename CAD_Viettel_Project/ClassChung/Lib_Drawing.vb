@@ -487,7 +487,9 @@ Public Class Lib_Drawing
             Dim BlTb As BlockTable = tr.GetObject(db.BlockTableId, OpenMode.ForRead)
             ' Khai báo biến và gán nó là không gian model space
             Dim BlTbRe As BlockTableRecord = tr.GetObject(BlTb(BlockTableRecord.ModelSpace), OpenMode.ForWrite)
-
+            If Math.Round(GocXoay, 2) = 3.14 Then
+                GocXoay = 0
+            End If
             '  -------------- KHAI BÁO ĐỐI TƯỢNG LÀ ARC -----------------
             '' Create a multiline text object
             Dim acMText As MText = New MText()

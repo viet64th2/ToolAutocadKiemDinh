@@ -45,10 +45,15 @@ Public Class CanhraTD
         diem = XoayPoint3D(diem.X, diem.Y, diem.Z, GocRad)
         diem1 = XoayPoint3D(diem1.X, diem1.Y, diem1.Z, GocRad)
         diem2 = XoayPoint3D(diem2.X, diem2.Y, diem2.Z, GocRad)
+        'Lấy lại cao độ móng cũ
+        Dim z1 = frmTTC.dgvToaDoMong.Rows(0).Cells(3).Value
+        Dim z2 = frmTTC.dgvToaDoMong.Rows(1).Cells(3).Value
+        Dim z3 = frmTTC.dgvToaDoMong.Rows(2).Cells(3).Value
+
         frmTTC.dgvToaDoMong.RowCount = 0
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M1", Math.Round(diem.X, 3), Math.Round(diem.Y, 3), diem.Z, "Sửa"})
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M2", Math.Round(diem1.X, 3), Math.Round(diem1.Y, 3), diem1.Z, "Sửa"})
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M3", Math.Round(diem2.X, 3), Math.Round(diem2.Y, 3), diem2.Z, "Sửa"})
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M1", diem.X, diem.Y, z1, "Sửa"})
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M2", diem1.X, diem1.Y, z2, "Sửa"})
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M3", diem2.X, diem2.Y, z3, "Sửa"})
 
     End Sub
     Public Shared Sub CanhCanhraTD_4Mong(Canhtruc1 As Double, Canhtruc2 As Double, Canhtruc3 As Double, Canhtruc4 As Double, Canh1 As Double, Canh2 As Double, Canh3 As Double, Canh4 As Double)
@@ -95,6 +100,11 @@ Public Class CanhraTD
         mbVeMong.Erase_E(id_1)
         mbVeMong.Erase_E(id_2)
         mbVeMong.Erase_E(id_3)
+        'Lấy lại cao độ móng cũ
+        Dim z1 = frmTTC.dgvToaDoMong.Rows(0).Cells(3).Value
+        Dim z2 = frmTTC.dgvToaDoMong.Rows(1).Cells(3).Value
+        Dim z3 = frmTTC.dgvToaDoMong.Rows(2).Cells(3).Value
+        Dim z4 = frmTTC.dgvToaDoMong.Rows(3).Cells(3).Value
         frmTTC.dgvToaDoMong.RowCount = 0
         Dim Canh11 As Double = Convert.ToDecimal(frmTTC.dgvCanhCanhCanh.Rows(0).Cells(1).Value)
         Dim Canh22 As Double = Convert.ToDecimal(frmTTC.dgvCanhCanhCanh.Rows(3).Cells(1).Value)
@@ -108,12 +118,12 @@ Public Class CanhraTD
         diem1 = XoayPoint3D(diem1.X, diem1.Y, diem1.Z, GocRad)
         diem2 = XoayPoint3D(diem2.X, diem2.Y, diem2.Z, GocRad)
         diem3 = XoayPoint3D(diem3.X, diem3.Y, diem3.Z, GocRad)
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M1", Math.Round(diem.X, 3), Math.Round(diem.Y, 3), diem.Z, "Sửa"})
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M2", Math.Round(diem1.X, 3), Math.Round(diem1.Y, 3), diem1.Z, "Sửa"})
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M3", Math.Round(diem2.X, 3), Math.Round(diem2.Y, 3), diem2.Z, "Sửa"})
-        frmTTC.dgvToaDoMong.Rows.Add({"Móng M4", Math.Round(diem3.X, 3), Math.Round(diem3.Y, 3), diem3.Z, "Sửa"})
-        'frmTTC.txtGocXoay.Text = Math.Round((GocRad * 180 / 3.14), 3)
 
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M1", diem.X, diem.Y, z1, "Sửa"})
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M2", diem1.X, diem1.Y, z2, "Sửa"})
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M3", diem2.X, diem2.Y, z3, "Sửa"})
+        frmTTC.dgvToaDoMong.Rows.Add({"Móng M4", diem3.X, diem3.Y, z4, "Sửa"})
+ 
     End Sub
 
     Public Shared Function TinhGoc(canha As Double, canhb As Double, canhc As Double)

@@ -127,7 +127,7 @@ Partial Class FormMD_3Chan_4Mong_L3_CG
         Me.cmbmat.Name = "cmbmat"
         Me.cmbmat.Size = New System.Drawing.Size(72, 23)
         Me.cmbmat.TabIndex = 57
-        Me.cmbmat.Text = "X-Z"
+        Me.cmbmat.Text = "Y-Z"
         '
         'btnlai
         '
