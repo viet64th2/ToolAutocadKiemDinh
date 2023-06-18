@@ -17,7 +17,6 @@ Imports System.Runtime.InteropServices
 Imports Autodesk.Windows
 Imports System.Windows.Input
 Public Class FormPrint
-    Dim fcSPC As New mdSPCFunction_TA
     Dim path As String
     Dim TenTram As String = ""
     'Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -62,7 +61,7 @@ Public Class FormPrint
     End Sub
 
     Private Sub FormPrint_Load(sender As Object, e As EventArgs) Handles Me.Load
-        path = fcSPC.ReadText("C:\ProgramData\PathSupport.txt")
+        path = ReadText("C:\ProgramData\PathSupport.txt")
 
         Dim List() As String = path.Split("\")
         TenTram = List(List.Length - 1)

@@ -1,6 +1,6 @@
 ﻿Public Class FormTTCcotTuDung
     Dim intRowIndex As Integer = -1
-    Dim fc As New mdSPCFunction_TA
+
 
 
 

@@ -16,15 +16,36 @@ Imports System.Windows.Input
 Imports System.Windows.Media.Imaging
 Imports System.Windows
 
-Public Class mdSPCFunction_TA
+Public Module mdSPCFunction_TA
+
+    Public Function XoayPoint3D(ToaDox As Double, ToaDoy As Double, ToaDoz As Double, Goc As Double) As Point3d
+        Dim point3d As Point3d
+        Dim Diem(1) As Double
+        Diem(0) = ToaDox * Math.Cos(Goc) - ToaDoy * Math.Sin(Goc)
+        Diem(1) = ToaDox * Math.Sin(Goc) + ToaDoy * Math.Cos(Goc)
+        point3d = New Point3d(Diem(0), Diem(1), ToaDoz)
+        Return point3d
+    End Function
+    Public Function Xoay(DiemXoay As Double(), Goc As Double) As Double()
+        Dim Diem(1) As Double
+        Diem(0) = DiemXoay(0) * Math.Cos(Goc) - DiemXoay(1) * Math.Sin(Goc)
+        Diem(1) = DiemXoay(0) * Math.Sin(Goc) + DiemXoay(1) * Math.Cos(Goc)
+        Return Diem
+    End Function
+    Public Function TinhGoc(canha As Double, canhb As Double, canhc As Double)
+        Dim Goc As Double
+        Goc = Math.Acos((canha * canha + canhb * canhb - canhc * canhc) / (2 * canha * canhb))
+        Return Goc
+    End Function
+
     Public Function getText(path As String)
         Dim list As ArrayList = New ArrayList
         If (System.IO.File.Exists(path)) Then
             Dim text As String = ReadText(path)
             Dim li() As String = text.Split("@")
-            List.AddRange(li)
+            list.AddRange(li)
         End If
-        Return List
+        Return list
     End Function
     Public Function LayThongTinChung(arl As ArrayList)
         Dim li As List(Of String) = New List(Of String)
@@ -119,4 +140,4 @@ Public Class mdSPCFunction_TA
 
         WirteText(textData, DuongDanData + "\" + name + ".txt")
     End Sub
-End Class
+End Module

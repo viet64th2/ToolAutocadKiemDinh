@@ -121,4 +121,22 @@
   <data name="cột 15 m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cột 15 m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TH1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TH1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TH2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TH2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TH3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TH3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TH4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TH4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TH5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TH5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TH6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TH6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

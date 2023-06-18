@@ -51,32 +51,32 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AcCoreMgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="accoremgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\AcCoreMgd.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\accoremgd.dll</HintPath>
     </Reference>
-    <Reference Include="AcDbMgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="acdbmgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\AcDbMgd.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acdbmgd.dll</HintPath>
     </Reference>
     <Reference Include="acdbmgdbrep, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\acdbmgdbrep.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acdbmgdbrep.dll</HintPath>
     </Reference>
-    <Reference Include="AcMgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="acmgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\AcMgd.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\acmgd.dll</HintPath>
     </Reference>
     <Reference Include="AdWindows, Version=2018.11.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\AdWindows.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\AdWindows.dll</HintPath>
     </Reference>
     <Reference Include="Autodesk.AutoCAD.Interop">
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\Autodesk.AutoCAD.Interop.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\Autodesk.AutoCAD.Interop.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Autodesk.AutoCAD.Interop.Common">
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2022\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
+      <HintPath>C:\ITsoft\ThietKeTuyenCap\2021\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
@@ -413,6 +413,12 @@
   <ItemGroup>
     <Content Include="icon\b4a896b1a45d5d03044c.bmp" />
     <Content Include="icon\iconviettel4.png" />
+    <None Include="Resources\TH6.png" />
+    <None Include="Resources\TH5.png" />
+    <None Include="Resources\TH4.png" />
+    <None Include="Resources\TH3.png" />
+    <None Include="Resources\TH2.png" />
+    <None Include="Resources\TH1.png" />
     <None Include="Resources\icon_viettel.png" />
   </ItemGroup>
   <ItemGroup />

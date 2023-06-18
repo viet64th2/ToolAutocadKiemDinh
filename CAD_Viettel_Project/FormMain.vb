@@ -18,8 +18,7 @@ Imports Autodesk.Windows
 Imports System.Windows.Input
 Imports Microsoft.WindowsAPICodePack.Dialogs
 Public Class FormMain
-    Dim fc As New mdSPCFunction_TA
-    Dim fcSPC As New mdSPCFunction_TA
+
     Dim DefaultProjectFolder As String = ""
     Dim TenTram As String = ""
 
@@ -45,10 +44,10 @@ Public Class FormMain
 
     End Sub
     Private Sub insertDataCotTuDung()
-        listThongTinChung = fcSPC.getText(DuongDanData & "\TABLEBia.txt")
-        fcSPC.InsertData(frmTTC_TuDung.BangTTC, listThongTinChung)
+        listThongTinChung = getText(DuongDanData & "\TABLEBia.txt")
+        InsertData(frmTTC_TuDung.BangTTC, listThongTinChung)
         Try
-            textdauvao = fcSPC.ReadText(DuongDanData & "\TABLE2.txt")
+            textdauvao = ReadText(DuongDanData & "\TABLE2.txt")
             Dim daura As String()
             daura = mbVeMong.TachChuoi(textdauvao, 1, 1)
             daura = mbVeMong.TachChuoi(textdauvao, 4, 1)
@@ -81,8 +80,8 @@ Public Class FormMain
 
 
         Dim listChieuCao As ArrayList = New ArrayList
-        listChieuCao = fcSPC.getText(DuongDanData & "\TABLEMstower.txt")
-        fcSPC.InsertData(frmTTC_TuDung.BangChieuCaoDot, listChieuCao)
+        listChieuCao = getText(DuongDanData & "\TABLEMstower.txt")
+        InsertData(frmTTC_TuDung.BangChieuCaoDot, listChieuCao)
 
         x1 = (-ThongTinChung.KichThuocChanCot.ToString.Split("x")(0) / 2) * 1000
         y1 = (ThongTinChung.KichThuocChanCot.ToString.Split("x")(0) / 2) * 1000
@@ -107,12 +106,12 @@ Public Class FormMain
 
     End Sub
     Private Sub insertDataCotDayCo()
-        listThongTinChung = fcSPC.getText(DuongDanData & "\TABLEBia.txt")
-        fcSPC.InsertData(frmTTC.BangTTC, listThongTinChung)
+        listThongTinChung = getText(DuongDanData & "\TABLEBia.txt")
+        InsertData(frmTTC.BangTTC, listThongTinChung)
 
         'Try
-        textdauvao = fcSPC.ReadText(DuongDanData & "\TABLE2.txt")
-            Dim daura As String()
+        textdauvao = ReadText(DuongDanData & "\TABLE2.txt")
+        Dim daura As String()
         daura = mbVeMong.TachChuoi(textdauvao, 1, 1)
         If daura.Length < 2 Then
             daura = New String() {0.4, 0.4, 0.3}
@@ -201,7 +200,7 @@ Public Class FormMain
         End If
 
         If ThongTinChung.SoMong = 4 Then
-                Dim daura44 As String()
+            Dim daura44 As String()
             daura44 = mbVeMong.TachChuoi(textdauvao, 5, 1)
             If IsNumeric(daura44(0)) Then
                 frmTTC.txtbM4.Text = Val(daura44(0)) * 1000
@@ -232,25 +231,25 @@ Public Class FormMain
                 frmTTC.cbMongNoiChung1.SelectedIndex = 3
             End If
         End If
-
+        frmTTC.cmb_NoiDayCo.Text = ThongTinChung.NoiDayCo
         Dim pathCaoDoChanCot = DuongDanData & "\CaoDoChanCot.txt"
         Dim pathGocXoay = DuongDanData & "\GocMoc.txt"
-        If fcSPC.ReadText(pathGocXoay) <> "" Then
-            frmTTC.txtGocXoay.Text = fcSPC.ReadText(pathGocXoay)
+        If ReadText(pathGocXoay) <> "" Then
+            frmTTC.txtGocXoay.Text = ReadText(pathGocXoay)
         Else
             frmTTC.txtGocXoay.Text = "0"
         End If
-        If fcSPC.ReadText(pathCaoDoChanCot) <> "" Then
-            frmTTC.txtCaoDoMong.Text = fcSPC.ReadText(pathCaoDoChanCot)
+        If ReadText(pathCaoDoChanCot) <> "" Then
+            frmTTC.txtCaoDoMong.Text = ReadText(pathCaoDoChanCot)
         Else
             frmTTC.txtCaoDoMong.Text = "0"
         End If
 
         Dim listThongTinCot As ArrayList = New ArrayList
-        listThongTinCot = fcSPC.getText(DuongDanData & "\TABLEMsTower.txt")
+        listThongTinCot = getText(DuongDanData & "\TABLEMsTower.txt")
         frmTTC.BangChieuCaoDot.Rows.Clear()
         If listThongTinCot.Count > 1 Then
-            fcSPC.InsertData(frmTTC.BangChieuCaoDot, listThongTinCot)
+            InsertData(frmTTC.BangChieuCaoDot, listThongTinCot)
         Else
             If IsNumeric(ThongTinChung.SoDot) Then
                 Dim chieucaodot = ThongTinChung.ChieuCaoDot
@@ -272,10 +271,10 @@ Public Class FormMain
         Next
         'Toa do mong
         Dim listChieuCao As ArrayList = New ArrayList
-        listChieuCao = fcSPC.getText(DuongDanData & "\TABLECot.txt")
+        listChieuCao = getText(DuongDanData & "\TABLECot.txt")
         frmTTC.dgvToaDoMong.Rows.Clear()
         If listChieuCao.Count > 2 Then
-            fcSPC.InsertData(frmTTC.dgvToaDoMong, listChieuCao)
+            InsertData(frmTTC.dgvToaDoMong, listChieuCao)
         Else
             If IsNumeric(ThongTinChung.SoMong) Then
                 For i = 0 To ThongTinChung.SoMong - 1
@@ -286,13 +285,28 @@ Public Class FormMain
         For i = 0 To frmTTC.dgvToaDoMong.RowCount - 1
             frmTTC.dgvToaDoMong.Rows(i).Cells("clSuaToaDo").Value = "Sửa"
         Next
-
+        'Toa do mong Mstoer
+        listChieuCao = New ArrayList
+        listChieuCao = getText(DuongDanData & "\TABLEToaDoMstower.txt")
+        frmTTC.dgvToaDoMongMstower.Rows.Clear()
+        If listChieuCao.Count > 2 Then
+            InsertData(frmTTC.dgvToaDoMongMstower, listChieuCao)
+        Else
+            If IsNumeric(ThongTinChung.SoMong) Then
+                For i = 0 To ThongTinChung.SoMong - 1
+                    frmTTC.dgvToaDoMongMstower.Rows.Add("Móng " & (i + 1), 0, 0, 0)
+                Next
+            End If
+        End If
+        'For i = 0 To frmTTC.dgvToaDoMongMstower.RowCount - 1
+        '    frmTTC.dgvToaDoMongMstower.Rows(i).Cells("clSuaToaDo").Value = "Sửa"
+        'Next
         'Cao do day co
         Dim listCaoDo As ArrayList = New ArrayList
-        listCaoDo = fcSPC.getText(DuongDanData & "\TABLECaoDoDayCo.txt")
+        listCaoDo = getText(DuongDanData & "\TABLECaoDoDayCo.txt")
         frmTTC.dgvCaoDoDayCo.Rows.Clear()
         If listCaoDo.Count > 2 Then
-            fcSPC.InsertData(frmTTC.dgvCaoDoDayCo, listCaoDo)
+            InsertData(frmTTC.dgvCaoDoDayCo, listCaoDo)
         Else
             If IsNumeric(ThongTinChung.SoTangDay) Then
                 For i = 0 To ThongTinChung.SoTangDay - 1
@@ -303,7 +317,7 @@ Public Class FormMain
 
 
         Dim listChiTiet As ArrayList = New ArrayList
-        listChiTiet = fcSPC.getText(DuongDanData & "\TABLEChiTietCot.txt")
+        listChiTiet = getText(DuongDanData & "\TABLEChiTietCot.txt")
         If listChiTiet.Count = 0 Then
             Dim chitiet = "@Loai mặt bằng_L1@Loai đốt_L1@Loai móng_L1@Loai móng_L1@Loai móng_L1@Loai móng_L1"
             Dim li() As String = chitiet.Split("@")
@@ -372,10 +386,10 @@ Public Class FormMain
         End If
         'lOAD BẢNG ĐO CANH CANH
         Dim listKhoangCach As ArrayList = New ArrayList
-        listKhoangCach = fcSPC.getText(DuongDanData & "\TABLECanhCanhCanh.txt")
+        listKhoangCach = getText(DuongDanData & "\TABLECanhCanhCanh.txt")
         frmTTC.dgvCanhCanhCanh.Rows.Clear()
         If listKhoangCach.Count > 2 Then
-            fcSPC.InsertData(frmTTC.dgvCanhCanhCanh, listKhoangCach)
+            InsertData(frmTTC.dgvCanhCanhCanh, listKhoangCach)
         Else
             If IsNumeric(ThongTinChung.SoMong) Then
                 For i = 0 To ThongTinChung.SoMong - 1
@@ -384,10 +398,10 @@ Public Class FormMain
             End If
         End If
         Dim listDoGoc As ArrayList = New ArrayList
-        listDoGoc = fcSPC.getText(DuongDanData & "\TABLECanhGocCanh.txt")
+        listDoGoc = getText(DuongDanData & "\TABLECanhGocCanh.txt")
         frmTTC.dgvCanhGocCanh.Rows.Clear()
         If listDoGoc.Count > 2 Then
-            fcSPC.InsertData(frmTTC.dgvCanhGocCanh, listDoGoc)
+            InsertData(frmTTC.dgvCanhGocCanh, listDoGoc)
         Else
             If IsNumeric(ThongTinChung.SoMong) Then
                 For i = 0 To ThongTinChung.SoMong - 1
@@ -514,13 +528,13 @@ Public Class FormMain
         Dim dlg As New CommonOpenFileDialog()
         dlg.IsFolderPicker = True
 
-        DefaultProjectFolder = fcSPC.ReadText("C:\ProgramData\PathSupport.txt")
+        DefaultProjectFolder = ReadText("C:\ProgramData\PathSupport.txt")
         dlg.DefaultDirectory = DefaultProjectFolder.ToString
 
 
         If dlg.ShowDialog() = DialogResult.OK Then
             DefaultProjectFolder = dlg.FileName
-            fcSPC.WirteText(dlg.FileName, "C:\ProgramData\PathSupport.txt")
+            WirteText(dlg.FileName, "C:\ProgramData\PathSupport.txt")
             Dim List() As String = DefaultProjectFolder.Split("\")
             TenTram = List(List.Length - 1)
             'Hiển thị tên trạm
@@ -532,16 +546,21 @@ Public Class FormMain
                 MsgBox("Không tìm thấy data thông tin bìa!")
                 Exit Sub
             End If
-            Dim listThongTinChung = fcSPC.getText(DefaultProjectFolder & "\Data" & TenTram & "\TABLEBia.txt")
-            Dim li As List(Of String) = fcSPC.LayThongTinChung(listThongTinChung)
+            Dim listThongTinChung = getText(DefaultProjectFolder & "\Data" & TenTram & "\TABLEBia.txt")
+            Dim li As List(Of String) = LayThongTinChung(listThongTinChung)
             b_somong = Convert.ToInt32(ThongTinChung.SoMong)
             'lấy móng nối chung
             If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 Then
                 If File.Exists(DefaultProjectFolder & "\Data" & TenTram & "\MongNoiChung.txt") Then
-                    ThongTinChung.MongNoiChung = fcSPC.ReadText(DefaultProjectFolder & "\Data" & TenTram & "\MongNoiChung.txt")
+                    ThongTinChung.MongNoiChung = ReadText(DefaultProjectFolder & "\Data" & TenTram & "\MongNoiChung.txt")
                 End If
             End If
-                If ThongTinChung.LoaiCot = ("Dây co") Then
+            If File.Exists(DefaultProjectFolder & "\Data" & TenTram & "\NoiDayCo.txt") Then
+                ThongTinChung.NoiDayCo = ReadText(DefaultProjectFolder & "\Data" & TenTram & "\NoiDayCo.txt")
+
+            End If
+            ' DuongDanData + "\" + "NoiDayCo.txt"
+            If ThongTinChung.LoaiCot = ("Dây co") Then
                 insertDataCotDayCo()
             Else
                 ShowForm(frmTTC_TuDung)
@@ -622,17 +641,17 @@ Public Class FormMain
     Private Sub BunifuImageButton2_Click(sender As Object, e As EventArgs) Handles BunifuImageButton2.Click
         If MsgBox("Bạn có muốn lưu lại thông tin của trạm này không?", vbYesNo) = vbYes Then
             If ThongTinChung.LoaiCot = "Dây co" Then
-                fc.SaveFile(frmTTC.BangTTC, "TableBia")
-                fc.SaveFile(frmTTC.BangChieuCaoDot, "TABLEMstower")
-                fc.SaveFile(frmTTC.dgvToaDoMong, "TABLECot")
-                fc.SaveFile(frmTTC.dgvCaoDoDayCo, "TABLECaoDoDayCo")
-                fc.SaveFile(frmTTC.dgvCanhCanhCanh, "TABLECanhCanhCanh")
-                fc.SaveFile(frmTTC.dgvCanhGocCanh, "TABLECanhGocCanh")
-
-                fc.SaveFile(frmTTC.dgvToaDoMong, "TABLEToaDoMstower")
+                SaveFile(frmTTC.BangTTC, "TableBia")
+                SaveFile(frmTTC.BangChieuCaoDot, "TABLEMstower")
+                SaveFile(frmTTC.dgvToaDoMong, "TABLECot")
+                SaveFile(frmTTC.dgvCaoDoDayCo, "TABLECaoDoDayCo")
+                SaveFile(frmTTC.dgvCanhCanhCanh, "TABLECanhCanhCanh")
+                SaveFile(frmTTC.dgvCanhGocCanh, "TABLECanhGocCanh")
+                WirteText(ThongTinChung.NoiDayCo, DuongDanData + "\" + "NoiDayCo.txt")
+                SaveFile(frmTTC.dgvToaDoMongMstower, "TABLEToaDoMstower")
             Else
-                fc.SaveFile(frmTTC_TuDung.BangTTC, "TableBia")
-                fc.SaveFile(frmTTC_TuDung.BangChieuCaoDot, "TABLEMstower")
+                SaveFile(frmTTC_TuDung.BangTTC, "TableBia")
+                SaveFile(frmTTC_TuDung.BangChieuCaoDot, "TABLEMstower")
             End If
       
         Else

@@ -20,7 +20,7 @@ Public Class clsThongTinChung
     Private m_LoaiMong3 As String
     Private m_LoaiMong4 As String
     Private m_MongNoiChung As String
-
+    Private m_NoiDayCo As String = "TH3"
 
 
 #Region "Property"
@@ -183,6 +183,15 @@ Public Class clsThongTinChung
         End Get
         Set(value As String)
             m_MongNoiChung = value
+        End Set
+    End Property
+
+    Public Property NoiDayCo As String
+        Get
+            Return m_NoiDayCo
+        End Get
+        Set(value As String)
+            m_NoiDayCo = value
         End Set
     End Property
 #End Region
