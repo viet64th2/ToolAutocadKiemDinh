@@ -5183,15 +5183,26 @@ Public Class mbVeMong
             Diem2 = line.EndPoint
             acTrans.Commit()
         End Using
+
         If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
-            tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
+            tu = -Math.Abs(DiemNoiDay.X) + Math.Abs(Diem1.X)
         ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
             tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
         ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
             tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
         ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
-            tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
+            tu = -Math.Abs(Diem1.X) + Math.Abs(DiemNoiDay.X)
         End If
+        'If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
+        '    tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
+        'ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
+        '    tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
+        'ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
+        '    tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
+        'ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
+        '    tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
+        'End If
+
         'mau = line.Length
         mau = Math.Sqrt((Diem1.X - DiemNoiDay.X) * (Diem1.X - DiemNoiDay.X) + (Diem1.Y - DiemNoiDay.Y) * (Diem1.Y - DiemNoiDay.Y))
         cos = tu / mau

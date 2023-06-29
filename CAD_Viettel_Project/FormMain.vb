@@ -653,15 +653,11 @@ Public Class FormMain
                 SaveFile(frmTTC_TuDung.BangTTC, "TableBia")
                 SaveFile(frmTTC_TuDung.BangChieuCaoDot, "TABLEMstower")
             End If
-      
+
         Else
             MsgBox("False!")
         End If
 
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
 End Class
