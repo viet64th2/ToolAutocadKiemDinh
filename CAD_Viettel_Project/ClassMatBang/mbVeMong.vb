@@ -5176,35 +5176,49 @@ Public Class mbVeMong
         Dim line As New Line
         Dim Diem1 As New Point3d
         Dim Diem2 As New Point3d
+        '
+
+        Dim diemtext As New Point3d
+        '
         Dim tu, mau, cos As Double
+
         Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
             line = acTrans.GetObject(id, OpenMode.ForWrite)
             Diem1 = line.StartPoint
             Diem2 = line.EndPoint
             acTrans.Commit()
         End Using
+        Dim XText As Double = Diem1.X + (Diem2.X - Diem1.X) / 2.0
+        Dim YText As Double
+
+        If Diem1.X < 0 And Diem2.X >= 0 Then
+            YText = Math.Max(Diem1.Y, Diem2.Y) + 1.0
+        Else
+            YText = Math.Min(Diem1.Y, Diem2.Y) - 1.0
+        End If
+        ' Tạo điểm mới cho text dim
+        diemtext = New Point3d(XText, YText, 0.0)
+
+        ' Chỉnh lại tọa độ các điểm của text dim
+        'Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
+        '    Dim textDim As DBText = acTrans.GetObject(id_TaoTextTrenMB, OpenMode.ForWrite)
+        '    textDim.Position = diemtext
+        '    textDim.AlignmentPoint = diemtext
+        '    acTrans.Commit()
+        'End Using
 
         If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
-            tu = -Math.Abs(DiemNoiDay.X) + Math.Abs(Diem1.X)
+            tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
         ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
             tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
         ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
             tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
         ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
-            tu = -Math.Abs(Diem1.X) + Math.Abs(DiemNoiDay.X)
+            tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
         End If
-        'If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
-        '    tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
-        'ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
-        '    tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
-        'ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
-        '    tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
-        'ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
-        '    tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
-        'End If
 
-        'mau = line.Length
-        mau = Math.Sqrt((Diem1.X - DiemNoiDay.X) * (Diem1.X - DiemNoiDay.X) + (Diem1.Y - DiemNoiDay.Y) * (Diem1.Y - DiemNoiDay.Y))
+        mau = Math.Sqrt((Diem2.X - Diem1.X) * (Diem2.X - Diem1.X) + (Diem2.Y - Diem1.Y) * (Diem2.Y - Diem1.Y))
+
         cos = tu / mau
         goc = Math.Acos(cos)
         Dim gocd = goc * 180 / Math.PI
