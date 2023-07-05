@@ -709,6 +709,79 @@ Public Class Lib_Drawing
         Return Nothing
     End Function
 
+    'Public Shared Sub insertBlock(Vitri As Point3d, TenBlock As String, tile As Double, text As String)
+    '    Dim db As Database = HostApplicationServices.WorkingDatabase()
+    '    Dim doc As Document = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(db)
+    '    Dim ed As Editor = doc.Editor
+
+    '    Using trans As Transaction = db.TransactionManager.StartTransaction()
+    '        ' Lấy đối tượng BlockTable
+    '        Dim bt As BlockTable = trans.GetObject(db.BlockTableId, OpenMode.ForRead)
+    '        ' BlockTable quản lý BlockTableRecord
+    '        Dim btr As BlockTableRecord = trans.GetObject(db.CurrentSpaceId, OpenMode.ForWrite)
+    '        ' Lấy BlockTableRecord qua tên block
+    '        Dim blockDef As BlockTableRecord = trans.GetObject(bt(TenBlock), OpenMode.ForRead)
+    '        ' Sử dụng BlockReference từ id của BlockTableRecord
+    '        Using acNewBlockRef As New BlockReference(Vitri, blockDef.ObjectId)
+    '            ' Scale đối tượng
+    '            acNewBlockRef.TransformBy(Matrix3d.Scaling(tile, Vitri))
+
+    '            ' Tạo khung A4 tỷ lệ 2.5 lần chiều cao chữ
+    '            Dim HA4 As Double = tile * 2.5 ' Chiều cao khung A4
+    '            Dim WA4 As Double = HA4 * 0.707 ' Chiều rộng khung A4 (theo tỷ lệ A4)
+
+    '            ' Tạo polyline khung A4
+    '            Using poly As New Polyline()
+    '                poly.AddVertexAt(0, New Point2d(Vitri.X, Vitri.Y), 0, 0, 0)
+    '                poly.AddVertexAt(1, New Point2d(Vitri.X + WA4, Vitri.Y), 0, 0, 0)
+    '                poly.AddVertexAt(2, New Point2d(Vitri.X + WA4, Vitri.Y + HA4), 0, 0, 0)
+    '                poly.AddVertexAt(3, New Point2d(Vitri.X, Vitri.Y + HA4), 0, 0, 0)
+    '                poly.Closed = True
+
+    '                ' Thêm polyline vào BlockTableRecord
+    '                btr.AppendEntity(poly)
+    '                trans.AddNewlyCreatedDBObject(poly, True)
+    '            End Using
+
+    '            ' Thêm đối tượng vào BlockTableRecord
+    '            btr.AppendEntity(acNewBlockRef)
+    '            ' Xác nhận thêm mới DBObject
+    '            trans.AddNewlyCreatedDBObject(acNewBlockRef, True)
+
+    '            ' Vòng lặp lấy id của BlockTableRecord
+    '            For Each attId As ObjectId In blockDef
+    '                ' Chuyển BlockTableRecord thành Entity
+    '                Dim ent As Entity = trans.GetObject(attId, OpenMode.ForRead)
+    '                If TypeOf ent Is AttributeDefinition Then
+    '                    ' Khai báo chính sửa thuộc tính của thực thể
+    '                    Dim attDef As AttributeDefinition = DirectCast(ent, AttributeDefinition)
+    '                    ' Nếu chứa thuộc tính không phải hằng số
+    '                    If attDef IsNot Nothing AndAlso Not attDef.Constant Then
+    '                        Using attRef As New AttributeReference()
+    '                            ' Sử dụng môi trường reference để chỉnh sửa thuộc tính
+    '                            attRef.SetAttributeFromBlock(attDef, acNewBlockRef.BlockTransform)
+    '                            ' AttributeCollection các thuộc tính trong môi trường reference
+    '                            acNewBlockRef.AttributeCollection.AppendAttribute(attRef)
+    '                            trans.AddNewlyCreatedDBObject(attRef, True)
+    '                            ' Chỉnh sửa thuộc tính
+    '                            attRef.TextString = text
+    '                            If attRef.HasFields Then
+    '                                Dim fOif As ObjectId = attRef.GetField()
+    '                                Dim fo As Field = trans.GetObject(fOif, OpenMode.ForWrite)
+    '                                fo.Evaluate()
+    '                            End If
+    '                        End Using
+    '                    End If
+    '                End If
+    '            Next
+    '        End Using
+
+    '        trans.Commit()
+    '    End Using
+    'End Sub
+
+
+
 
     Public Shared Sub insertBlock(Vitri As Point3d, TenBlock As String, tile As Double, text As String)
         'kaitomajickid1412

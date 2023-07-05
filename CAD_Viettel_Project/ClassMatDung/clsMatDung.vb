@@ -623,6 +623,10 @@ Public Class clsMatDung
         VeCaoDoMong(zM1, zM1, -xM1)
 #Region "Vẽ Móng M0"
         'Móng 0
+        ''
+
+        ''
+
         Dim c As Double = CaoMong0
         Dim d As Double = Rongmong0
         If ThongTinChung.ViTriDat = "Dưới đất" Then
@@ -698,6 +702,8 @@ Public Class clsMatDung
         If LoaiDot = "DRM" Then
             Ve_DRM(SoModule, RongCot, ChieuCaoModule, CaoDoChanDot)
         End If
+        VeHinhChuNhat(New Point3d(0, ChieuCaoDot / 2, 0), ChieuCao / 2)
+
 
 
     End Sub
@@ -1066,5 +1072,35 @@ Public Class clsMatDung
     Public Shared Sub VeDatMong0(Toado As Point3d, RongMong As Double, c As Double)
         Lib_Drawing.CreateLine(New Point3d(Toado.X + RongMong / 2, Toado.Y - c, 0), New Point3d(Toado.X + RongMong * 5, Toado.Y - c, 0))
         Lib_Drawing.CreateLine(New Point3d(Toado.X - RongMong / 2, Toado.Y - c, 0), New Point3d(Toado.X - RongMong * 5, Toado.Y - c, 0))
+        VeHinhChuNhat(New Point3d(0, 0, 0), c / 2.5)
     End Sub
+    Public Shared Sub VeHinhChuNhat(ViTri As Point3d, tile As Double)
+        Dim db As Database = HostApplicationServices.WorkingDatabase()
+        Dim doc As Document = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(db)
+        Dim b_hcn As Double = 210  ' Chiều rộng của hình chữ nhật
+        Dim h_hcn As Double = 270 ' Chiều cao của hình chữ nhật
+        'Dim Width As Double = b_hcn * tile
+        'Dim Height As Double = h_hcn * tile
+        'Dim Toa_Do_hcn(3) As Point2d ' cot tu giac
+        'Toa_Do_hcn(0) = New Point2d(b_hcn / 2, h_hcn / 2)
+        'Toa_Do_hcn(1) = New Point2d(b_hcn / 2, -h_hcn / 2)
+        'Toa_Do_hcn(2) = New Point2d(-b_hcn / 2, -h_hcn / 2)
+        'Toa_Do_hcn(3) = New Point2d(-b_hcn / 2, h_hcn / 2)
+        Dim Width As Double = b_hcn * 100
+        Dim Height As Double = h_hcn * 100
+
+        Dim Toa_Do_hcn(3) As Point2d ' cot tu giac
+        Toa_Do_hcn(0) = New Point2d(Width / 2, Height / 2)
+        Toa_Do_hcn(1) = New Point2d(Width / 2, -Height / 2)
+        Toa_Do_hcn(2) = New Point2d(-Width / 2, -Height / 2)
+        Toa_Do_hcn(3) = New Point2d(-Width / 2, Height / 2)
+        Dim id_cottugiac As ObjectId
+        id_cottugiac = Lib_Drawing.CreateNewPolyline(Toa_Do_hcn, True)
+
+
+
+        doc.Editor.UpdateScreen()
+
+    End Sub
+
 End Class

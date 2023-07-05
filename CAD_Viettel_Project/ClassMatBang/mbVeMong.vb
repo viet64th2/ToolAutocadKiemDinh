@@ -29,6 +29,9 @@ Public Class mbVeMong
         Dim acCurDb As Database = acDoc.Database
         Dim curUCSMatrix As Matrix3d = acDoc.Editor.CurrentUserCoordinateSystem
         Dim curUCS As CoordinateSystem3d = curUCSMatrix.CoordinateSystem3d
+        ''
+        VeHinhChuNhat(New Point3d(0, 0, 0), TextHight / 2.5)
+        ''
         Dim Mang_Toa_Do0ngoai(3) As Point2d 'mong 0 trong
         Mang_Toa_Do0ngoai(0) = New Point2d(-b_b0mong / 2 - b_b0mong / 3, b_h0mong / 2 + b_h0mong / 3)
         Mang_Toa_Do0ngoai(1) = New Point2d(b_b0mong / 2 + b_b0mong / 3, b_h0mong / 2 + b_h0mong / 3)
@@ -1063,6 +1066,10 @@ Public Class mbVeMong
         Dim diem2 As Point2d = cottugiac.GetPoint2dAt(1)
         Dim diem3 As Point2d = cottugiac.GetPoint2dAt(2)
         Dim diem4 As Point2d = cottugiac.GetPoint2dAt(3)
+
+        ''
+        VeHinhChuNhat(New Point3d(0, 0, 0), TextHight / 2.5)
+        ''
 
         'Lib_Drawing.CreateCircle(New Point3d(diem1.X, diem1.Y, 0), 200)
 
@@ -4447,6 +4454,18 @@ Public Class mbVeMong
     End Sub
     Public Shared Function mbTile(x As Double, y As Double) As Double
 
+        '' tính khoảng cách x1 x2 
+        'Dim d1 As Double = Math.Sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2 + (z2 - z1) ^ 2)
+        'Dim d2 As Double = Math.Sqrt((x3 - x2) ^ 2 + (y3 - y2) ^ 2 + (z3 - z2) ^ 2)
+        '' Tìm khoảng cách lớn nhất
+        'Dim maxDistance As Double = Math.Max(d1, d2)
+        ''Tính tỉ lệ 
+        'Dim tinhtile As Double = maxDistance / 297
+        ''scale
+        'Dim sc As Double = tinhtile * 1.1
+        'Dim neww As Double = sc * 297
+        'Dim newh As Double = sc * 210
+        '
         Dim tile As Double = (Math.Sqrt(x ^ 2 + y ^ 2) / 2) / 8
         Return tile
     End Function
@@ -4968,8 +4987,8 @@ Public Class mbVeMong
         Dim Dim4 As RotatedDimension
         Dim ofsetdoc As Double
         Dim ofsetngang As Double
-        ofsetdoc = b_hmong / 2 + TiLeChu * 2 + TiLeChu / 2 ' chu mac dinh kho giay A4 = 2, khoang cach tu dong dim den chu = tilechu/2
-        ofsetngang = b_bmong / 2 + TiLeChu * 2 + TiLeChu / 2
+        ofsetdoc = b_hmong / 2.5 + TiLeChu * 2.5 + TiLeChu / 2.5 ' chu mac dinh kho giay A4 = 2, khoang cach tu dong dim den chu = tilechu/2
+        ofsetngang = b_bmong / 2.5 + TiLeChu * 2.5 + TiLeChu / 2.5
         If (x1 <= 0) And (y1 <= 0) Then
             If (x2 <= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang, y1, 0), 90)
@@ -5305,4 +5324,96 @@ Public Class mbVeMong
         Next
         Return kt
     End Function
+    'Public Shared Function VeHinhChuNhat(ViTri As Point3d, tile As Double, TextHight As Double)
+    '    Dim db As Database = HostApplicationServices.WorkingDatabase()
+    '    Dim doc As Document = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(db)
+    '    Dim ed As Editor = doc.Editor
+
+    '    Using trans As Transaction = db.TransactionManager.StartTransaction()
+    '        ' Lấy đối tượng BlockTable
+    '        Dim bt As BlockTable = trans.GetObject(db.BlockTableId, OpenMode.ForRead)
+    '        ' BlockTable quản lý BlockTableRecord
+    '        Dim btr As BlockTableRecord = trans.GetObject(db.CurrentSpaceId, OpenMode.ForWrite)
+
+    '        ' Tính toán kích thước khung chữ nhật
+    '        Dim widthA4 As Double = 297 ' Độ rộng khung A4 (mm)
+    '        Dim heightA4 As Double = 210 ' Độ cao khung A4 (mm)
+    '        Dim Width As Double = widthA4 * tile
+    '        Dim Height As Double = heightA4 * tile
+
+    '        ' Tạo BlockReference
+    '        Using acNewBlockRef As New BlockReference(ViTri, ObjectId.Null)
+    '            ' Scale đối tượng
+    '            acNewBlockRef.TransformBy(Matrix3d.Scaling(tile, ViTri))
+
+    '            ' Tạo polyline khung chữ nhật
+    '            Using poly As New Polyline()
+    '                Dim halfWidth As Double = Width / 2
+    '                Dim halfHeight As Double = Height / 2
+
+    '                poly.AddVertexAt(0, New Point2d(-halfWidth, -halfHeight), 0, 0, 0)
+    '                poly.AddVertexAt(1, New Point2d(halfWidth, -halfHeight), 0, 0, 0)
+    '                poly.AddVertexAt(2, New Point2d(halfWidth, halfHeight), 0, 0, 0)
+    '                poly.AddVertexAt(3, New Point2d(-halfWidth, halfHeight), 0, 0, 0)
+    '                poly.Closed = True
+
+    '                ' Thêm polyline vào BlockTableRecord
+    '                btr.AppendEntity(poly)
+    '                trans.AddNewlyCreatedDBObject(poly, True)
+    '            End Using
+
+    '            ' Thêm đối tượng vào BlockTableRecord
+    '            btr.AppendEntity(acNewBlockRef)
+    '            ' Xác nhận thêm mới DBObject
+    '            trans.AddNewlyCreatedDBObject(acNewBlockRef, True)
+    '        End Using
+
+    '        trans.Commit()
+    '        doc.Editor.UpdateScreen()
+    '    End Using
+    'End Function
+    Public Shared Sub VeHinhChuNhat(ViTri As Point3d, tile As Double)
+        Dim db As Database = HostApplicationServices.WorkingDatabase()
+        Dim doc As Document = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(db)
+        Dim d1 As Double = TinhKhoangCach(x1, y1, x2, y2)
+
+        Dim d2 As Double = TinhKhoangCach(x2, x3, y2, y3)
+        Dim d3 As Double = TinhKhoangCach(x3, x4, y3, y4)
+        Dim d4 As Double = TinhKhoangCach(x1, x4, y1, y4)
+        ' Tìm khoảng cách lớn nhất
+        Dim maxDistance As Double = Math.Max(d1, Math.Max(d2, Math.Max(d3, d4)))
+
+        'Tính tỉ lệ 
+        Dim tinhtile As Double = maxDistance / 210
+        ''scale
+        Dim sc As Double = tinhtile * 1.1
+        'Dim neww As Double = sc * 297
+        'Dim newh As Double = sc * 210
+        Dim b_hcn As Double = 297  ' Chiều rộng của hình chữ nhật
+        Dim h_hcn As Double = 210 ' Chiều cao của hình chữ nhật
+        'Dim Width As Double = b_hcn * tile
+        'Dim Height As Double = h_hcn * tile
+        'Dim Toa_Do_hcn(3) As Point2d ' cot tu giac
+        'Toa_Do_hcn(0) = New Point2d(b_hcn / 2, h_hcn / 2)
+        'Toa_Do_hcn(1) = New Point2d(b_hcn / 2, -h_hcn / 2)
+        'Toa_Do_hcn(2) = New Point2d(-b_hcn / 2, -h_hcn / 2)
+        'Toa_Do_hcn(3) = New Point2d(-b_hcn / 2, h_hcn / 2)
+        Dim Width As Double = b_hcn * sc
+        Dim Height As Double = h_hcn * sc
+
+        Dim Toa_Do_hcn(3) As Point2d ' cot tu giac
+        Toa_Do_hcn(0) = New Point2d(Width / 2, Height / 2)
+        Toa_Do_hcn(1) = New Point2d(Width / 2, -Height / 2)
+        Toa_Do_hcn(2) = New Point2d(-Width / 2, -Height / 2)
+        Toa_Do_hcn(3) = New Point2d(-Width / 2, Height / 2)
+        Dim id_cottugiac As ObjectId
+        id_cottugiac = Lib_Drawing.CreateNewPolyline(Toa_Do_hcn, True)
+
+
+
+        doc.Editor.UpdateScreen()
+
+    End Sub
+
+
 End Class

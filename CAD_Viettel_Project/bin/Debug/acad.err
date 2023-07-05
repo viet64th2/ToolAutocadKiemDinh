@@ -1,8 +1,10 @@
 
 
-FATAL ERROR:  Unhandled Access Violation Reading 0x0000 Exception at D7E73FA0h
+INTERNAL ERROR:  !dbentapi.cpp@719: eNullObjectId
 
-05/24/2023 at 14:38:12.000  Drawing: Drawing3.dwg
+07/05/2023 at 12:07:12.000  Drawing: Drawing1.dwg
+-------------
+Drawing3.dwg
 -------------
 
 
