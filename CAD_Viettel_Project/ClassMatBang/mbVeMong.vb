@@ -5065,6 +5065,7 @@ Public Class mbVeMong
             tr.Commit()
         End Using
     End Sub
+
     Public Shared Function TinhGocDuongThangMB(id As ObjectId, DiemNoiDay As Point2d)
         Dim acDoc As Document = Application.DocumentManager.MdiActiveDocument
         Dim acCurDb As Database = acDoc.Database
@@ -5078,22 +5079,25 @@ Public Class mbVeMong
             line = acTrans.GetObject(id, OpenMode.ForWrite)
             Diem1 = line.StartPoint
             Diem2 = line.EndPoint
+            goc = line.Angle * 180 / Math.PI
             acTrans.Commit()
         End Using
-        If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
+        If (Diem1.X <= 0 And Diem1.X >= 0) Then
             tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
-        ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
+        ElseIf (Diem1.X <= 0 And Diem1.X <= 0) Then
             tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
-        ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
+        ElseIf (Diem1.X >= 0 And Diem1.X >= 0) Then
             tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
-        ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
+        ElseIf (Diem1.X >= 0 And Diem1.X <= 0) Then
             tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
         End If
         'mau = line.Length
-        mau = Math.Sqrt((Diem1.X - DiemNoiDay.X) * (Diem1.X - DiemNoiDay.X) + (Diem1.Y - DiemNoiDay.Y) * (Diem1.Y - DiemNoiDay.Y))
+        'mau = Math.Sqrt((Diem1.X - DiemNoiDay.X) * (Diem1.X - DiemNoiDay.X) + (Diem1.Y - DiemNoiDay.Y) * (Diem1.Y - DiemNoiDay.Y))
+        mau = Math.Sqrt((DiemNoiDay.X - Diem1.X) * (DiemNoiDay.X - Diem1.X) + (DiemNoiDay.Y - Diem1.Y) * (DiemNoiDay.Y - Diem1.Y))
         cos = tu / mau
         goc = Math.Acos(cos)
         Dim gocd = goc * 180 / Math.PI
+        Dim DoLech
         Return goc
     End Function
     Public Shared Sub TaoTextTrenMB(id As ObjectId, GocXoay As Double, NoiDung As String, DiemNoiDay As Point2d)
@@ -5118,7 +5122,7 @@ Public Class mbVeMong
         Dim DiemDat, DiemText As Point3d
         If DiemNoiDay.X <= 0 And DiemNoiDay.Y >= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 - 0, (diem1.Y + diem2.Y) / 2 - 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 3, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(-((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -5131,7 +5135,7 @@ Public Class mbVeMong
 
         ElseIf DiemNoiDay.X <= 0 And DiemNoiDay.Y <= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 - 0, (diem1.Y + diem2.Y) / 2 - 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 4, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -5154,7 +5158,7 @@ Public Class mbVeMong
             Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu, +GocXoay)
         ElseIf DiemNoiDay.X >= 0 And DiemNoiDay.Y <= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 + 0, (diem1.Y + diem2.Y) / 2 + 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 4, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
