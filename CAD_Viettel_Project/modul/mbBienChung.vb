@@ -73,5 +73,7 @@
     Public listThongTinChung As ArrayList = New ArrayList
     Public ThongTinChung As New clsThongTinChung
     Public TiLeChu As Double
+    Public TiLeChu_MD As Double
+    Public ChieuCaoChu As Double = 2.5
 End Module
 

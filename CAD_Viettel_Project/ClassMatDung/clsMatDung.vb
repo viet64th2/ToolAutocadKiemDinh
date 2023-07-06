@@ -92,12 +92,12 @@ Public Class clsMatDung
         VeMong(CaoMong1, CaoMong2, Rongmong1, Rongmong2, loaimong, xM1, zM1, xM2, zM2, CaoMong0, Rongmong0, tr)
 #End Region
 #Region "Tạo Dim"
-        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu * 20
-        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu * 3
-        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu * 2
+        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu_MD * 20
+        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu_MD * 3
+        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu_MD * 2
         '' Dim
         For i As Integer = 0 To SoDot - 1
-            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu / 2)
+            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu_MD * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu_MD / 2)
         Next
         Dim z As Double
         If zM1 < zM2 Then
@@ -105,15 +105,15 @@ Public Class clsMatDung
         Else
             z = zM2
         End If
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu * 7, ChieuCao / 2, 0), 90, TiLeChu / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu_MD * 3 + 0, 0), 0, TiLeChu_MD / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu_MD * 3 + 0, 0), 0, TiLeChu_MD / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu_MD * 7, ChieuCao / 2, 0), 90, TiLeChu_MD / 2)
 #End Region
 #Region "Tạo text Đốt"
         '' Text
         For i As Integer = 0 To SoDot - 1
             Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            Lib_Drawing.CreateNewMText(New Point3d(ToaDoXText, CaoDoChanDot(i + 1) - caodot / 2, 0), "Đốt " & i + 1, TiLeChu)
+            Lib_Drawing.CreateNewMText(New Point3d(ToaDoXText, CaoDoChanDot(i + 1) - caodot / 2, 0), "Đốt " & i + 1, TiLeChu_MD)
         Next
 #End Region
 #Region " Vẽ Dây co"
@@ -123,11 +123,42 @@ Public Class clsMatDung
             VeDaycoPhai(listchieucaoday(i), Convert.ToDouble(-RongCot), xM1, zM2)
         Next
         'For i As Integer = 0 To listchieucaoday.Count - 1
-        '    Lib_Drawing.CreateNewMText(New Point3d((xM1 + RongCot) / 2, (listchieucaoday(i) * 1000) / 2 + 0, 0), "T" & i + 1, TiLeChu)
+        '    Lib_Drawing.CreateNewMText(New Point3d((xM1 + RongCot) / 2, (listchieucaoday(i) * 1000) / 2 + 0, 0), "T" & i + 1, TiLeChu_MD)
         'Next
 #End Region
 
     End Sub
+    Public Shared Sub VeKhungA4_MD()
+
+        Dim rectangleWidth As Double = 145 ' Độ dài của hình chữ nhật ban đầu (mm)
+        Dim rectangleHeight As Double = 202 ' Chiều cao của hình chữ nhật ban đầu (mm)
+        Dim scaledWidth As Double = rectangleWidth * TiLeChu_MD
+        Dim scaledHeight As Double = rectangleHeight * TiLeChu_MD
+
+
+        Dim Mang_Toa_Do(3) As Point2d 'mong 0 trong
+        Dim KCM1 = Math.Sqrt(((x1 - 0) ^ 2) + ((y1 - 0) ^ 2))
+
+        Dim khoangcachDim = KCM1 * 4 + TiLeChu_MD * 3
+        Dim dolechY = ThongTinChung.ChieuCao * 1000 / 2
+
+        Mang_Toa_Do(0) = New Point2d(-scaledWidth / 2, scaledHeight / 2 + dolechY)
+        Mang_Toa_Do(1) = New Point2d(scaledWidth / 2, scaledHeight / 2 + dolechY)
+        Mang_Toa_Do(2) = New Point2d(scaledWidth / 2, (-scaledHeight / 2) + dolechY)
+        Mang_Toa_Do(3) = New Point2d(-scaledWidth / 2, (-scaledHeight / 2) + dolechY)
+        Dim id As ObjectId
+        'id = Lib_Drawing.CreateNewPolyline(Mang_Toa_Do, True)
+    End Sub
+    Public Shared Function mbTileMD() As Double
+
+        Dim rectangleWidth As Double = 145 ' Độ dài của hình chữ nhật ban đầu (mm)
+        Dim rectangleHeight As Double = 202  ' Chiều cao của hình chữ nhật ban đầu (mm)
+
+        Dim chieucaocot As Double = ThongTinChung.ChieuCao
+        Dim scalingFactor As Double = (chieucaocot * 1000 / rectangleHeight) * 1.5
+
+        Return scalingFactor
+    End Function
     Public Shared Sub MatY_Z_CoGa(ChieuCaoDot As String,
                                    BeRongCot As String,
                                    vaom1 As Double,
@@ -144,8 +175,8 @@ Public Class clsMatDung
                                    zM1 As Double,
                                    zM2 As Double,
                                    Vitri As String, listViTriGaChongXay As List(Of Integer), SoTangDay As Integer)
-        'Dim ViTriCoGa As Integer = 2
-        'Dim SoTangDay As Integer = 3
+        'Vẽ khung A4
+        VeKhungA4_MD()
 #Region "Khai báo"
         Dim ChieuCao As Double
         Dim RongCot As Double
@@ -160,7 +191,6 @@ Public Class clsMatDung
         ChieuCao = ChieuCao * 1000
 
         ChieuCaoModule = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(0).Cells(2).Value) * 1000
-
         SoModule = ChieuCao / ChieuCaoModule
 
         Dim doc As Document = Application.DocumentManager.MdiActiveDocument
@@ -212,12 +242,12 @@ Public Class clsMatDung
         VeMong(CaoMong2, CaoMong3, Rongmong2, Rongmong3, loaimong, xM1, zM1, xM2, zM2, CaoMong0, Rongmong0, tr)
 #End Region
 #Region "Tạo Dim"
-        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu * 20
-        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu * 3
-        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu * 2
+        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu_MD * 20
+        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu_MD * 3
+        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu_MD * 2
         '' Dim
         For i As Integer = 0 To SoDot - 1
-            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu / 2)
+            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu_MD * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu_MD / 2)
         Next
         Dim z As Double
         If zM1 < zM2 Then
@@ -225,15 +255,15 @@ Public Class clsMatDung
         Else
             z = zM2
         End If
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu * 7, ChieuCao / 2, 0), 90, TiLeChu / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu_MD * 3 + 0, 0), 0, TiLeChu_MD / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu_MD * 3 + 0, 0), 0, TiLeChu_MD / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu_MD * 7, ChieuCao / 2, 0), 90, TiLeChu_MD / 2)
 #End Region
 #Region "Tạo text Đốt"
         '' Text
         For i As Integer = 0 To SoDot - 1
             Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            Lib_Drawing.CreateNewMText1(New Point3d(ToaDoXText - TiLeChu * 1.5, CaoDoChanDot(i + 1) - caodot / 1.5, 0), "Đốt " & i + 1, TiLeChu, Math.PI / 2)
+            Lib_Drawing.CreateNewMText1(New Point3d(ToaDoXText - TiLeChu_MD * 1.5, CaoDoChanDot(i + 1) - caodot / 1.5, 0), "Đốt " & i + 1, TiLeChu_MD, Math.PI / 2)
         Next
 #End Region
 #Region " Vẽ Dây co"
@@ -254,127 +284,7 @@ Public Class clsMatDung
 #End Region
 
     End Sub
-    Public Shared Sub MatX_Z_KoGa(ChieuCaoDot As String,
-                                   BeRongCot As String,
-                                   vaom1 As Double,
-                                   vaom2 As Double,
-                                   listchieucaoday As List(Of Double),
-                                   LoaiDot As List(Of String),
-                                   CaoMong1 As Double,
-                                   CaoMong2 As Double,
-                                   Rongmong1 As Double,
-                                   Rongmong2 As Double,
-                                   CaoMong0 As Double,
-                                   Rongmong0 As Double,
-                                   loaimong As String,
-                                   zM1 As Double,
-                                   zM2 As Double,
-                                   Vitri As String, listViTriGaChongXay As List(Of Integer), SoTangDay As Integer)
-#Region "Khai báo"
 
-        Dim ChieuCao As Double
-        Dim RongCot As Double
-        ChieuCao = Convert.ToDouble(ChieuCaoDot)
-        RongCot = Convert.ToDouble(BeRongCot)
-        Dim xM1 As Double = vaom1
-        Dim xM2 As Double = vaom2
-        Dim RongGa As Double = 3 * RongCot
-        Dim SoModule As Integer
-        Dim ChieuCaoModule As Double
-        ChieuCaoModule = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(0).Cells(2).Value) * 1000
-        SoModule = ChieuCao / ChieuCaoModule
-        Dim doc As Document = Application.DocumentManager.MdiActiveDocument
-        Dim db As Database = doc.Database
-        Dim ed As Editor = doc.Editor
-        Dim tr As Transaction = db.TransactionManager.StartTransaction
-#End Region
-#Region "Vẽ thân cột"
-        Dim H As New List(Of Double)
-        Dim Soroucout As Integer = frmTTC.BangChieuCaoDot.RowCount - 1
-        Dim SoDot As Integer = frmTTC.BangChieuCaoDot.RowCount
-
-        Dim CaoDoChanDot As New List(Of Double)
-        CaoDoChanDot.Add(0)
-        Dim TongCao As Double
-        TongCao = 0
-        For i = 0 To frmTTC.BangChieuCaoDot.Rows.Count - 1
-            H.Add(Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000)
-        Next
-
-        For i = 1 To SoDot
-            CaoDoChanDot.Add(CaoDoChanDot(i - 1) + H(i - 1))
-        Next
-
-        For i = 0 To SoDot - 1
-            Dim modul = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(2).Value) * 1000
-            Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            VeThanCot(H(i), LoaiDot(i), CaoDoChanDot(i), RongCot, modul, ChieuCao)
-            TongCao = TongCao + H(i)
-        Next
-        Lib_Drawing.CreateLine(New Point3d(-RongCot / 2, TongCao, 0), New Point3d(-RongCot / 2, ChieuCaoModule * 4 + TongCao, 0))
-#End Region
-        '#Region "Vẽ thân cột"
-        '        Dim H As New List(Of Double)
-        '        Dim Soroucout As Integer = frmTTC.BangChieuCaoDot.RowCount - 1
-        '        Dim SoDot As Integer = frmTTC.BangChieuCaoDot.RowCount
-
-        '        Dim CaoDoChanDot As New List(Of Double)
-        '        CaoDoChanDot.Add(0)
-        '        Dim TongCao As Double
-        '        TongCao = 0
-        '        For i = Soroucout To 0 Step -1
-        '            H.Add(Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000)
-        '        Next
-
-        '        For i = 1 To SoDot
-        '            CaoDoChanDot(i) = CaoDoChanDot(i - 1) + H(i - 1)
-
-        '        Next
-
-        '        For i = 0 To SoDot - 1
-        '            VeThanCot(H(i), LoaiDot(i), CaoDoChanDot(i), RongCot, ChieuCaoModule, ChieuCao)
-        '            TongCao = TongCao + H(i)
-        '        Next
-        '        Lib_Drawing.CreateLine(New Point3d(-RongCot / 2, TongCao, 0), New Point3d(-RongCot / 2, ChieuCaoModule * 4 + TongCao, 0))
-        '#End Region
-#Region " Vẽ Loại Móng"
-        VeMong(CaoMong1, CaoMong2, Rongmong1, Rongmong2, loaimong, xM1, zM1, xM2, zM2, CaoMong0, Rongmong0, tr)
-#End Region
-#Region "Tạo Dim"
-        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu * 20
-        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu * 3
-        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu * 2
-        '' Dim
-        For i As Integer = 0 To SoDot - 1
-            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu / 2)
-        Next
-        Dim z As Double
-        If zM1 < zM2 Then
-            z = zM1
-        Else
-            z = zM2
-        End If
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu * 7, ChieuCao / 2, 0), 90, TiLeChu / 2)
-#End Region
-#Region "Tạo text Đốt"
-        '' Text
-        For i As Integer = 0 To SoDot - 1
-            Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            Lib_Drawing.CreateNewMText(New Point3d(ToaDoXText, CaoDoChanDot(i + 1) - caodot / 2, 0), "Đốt " & i + 1, TiLeChu)
-        Next
-#End Region
-#Region " Vẽ Dây co"
-        ''Vẽ Day co
-        For i = 0 To SoTangDay - 1
-            VeDaycoTrai(listchieucaoday(i), Convert.ToDouble(RongCot), -xM1, zM1)
-            VeDaycoPhai(listchieucaoday(i), Convert.ToDouble(-RongCot), xM1, zM2)
-        Next
-
-#End Region
-
-    End Sub
     Public Shared Sub MatY_Z_KoGa(ChieuCaoDot As String,
                                    BeRongCot As String,
                                    vaom1 As Double,
@@ -391,6 +301,9 @@ Public Class clsMatDung
                                    zM1 As Double,
                                    zM2 As Double,
                                    Vitri As String, listViTriGaChongXay As List(Of Integer), SoTangDay As Integer)
+        'Vẽ khung A4
+        VeKhungA4_MD()
+
 #Region "Khai báo"
         Dim ChieuCao As Double
         Dim RongCot As Double
@@ -441,12 +354,12 @@ Public Class clsMatDung
         VeMong(CaoMong2, CaoMong3, Rongmong2, Rongmong3, loaimong, xM1, zM1, xM2, zM2, CaoMong0, Rongmong0, tr)
 #End Region
 #Region "Tạo Dim"
-        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu * 20
-        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu * 3
-        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu * 2
+        Dim ToaDoXDimTong As Double = -xM1 - TiLeChu_MD * 20
+        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu_MD * 3
+        Dim ToaDoXText As Double = ToaDoXDim + TiLeChu_MD * 2
         '' Dim
         For i As Integer = 0 To SoDot - 1
-            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu / 2)
+            Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDim, CaoDoChanDot(i), 0), New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), New Point3d(ToaDoXDim - TiLeChu_MD * 3, (CaoDoChanDot(i) + CaoDoChanDot(i + 1)) / 2 + 0, 0), 90, TiLeChu_MD / 2)
         Next
         Dim z As Double
         If zM1 < zM2 Then
@@ -454,28 +367,28 @@ Public Class clsMatDung
         Else
             z = zM2
         End If
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu * 3 + 0, 0), 0, TiLeChu / 2)
-        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu * 7, ChieuCao / 2, 0), 90, TiLeChu / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(-xM1, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(-xM1 / 2, z - Rongmong0 * 4 - TiLeChu_MD * 3 + 0, 0), 0, TiLeChu_MD / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(xM2, z - Rongmong0 * 4 + 0, 0), New Point3d(0, z - Rongmong0 * 4, 0), New Point3d(xM2 / 2, z - Rongmong0 * 4 - TiLeChu_MD * 3 + 0, 0), 0, TiLeChu_MD / 2)
+        Lib_Drawing.CreateRotatedDimension1(New Point3d(ToaDoXDimTong, 0, 0), New Point3d(ToaDoXDimTong, TongCao, 0), New Point3d(ToaDoXDimTong - TiLeChu_MD * 7, ChieuCao / 2, 0), 90, TiLeChu_MD / 2)
 #End Region
 #Region "Tạo text Đốt"
         '' Text
         For i As Integer = 0 To SoDot - 1
             Dim caodot = Convert.ToDouble(frmTTC.BangChieuCaoDot.Rows(i).Cells(1).Value) * 1000
-            Lib_Drawing.CreateNewMText1(New Point3d(ToaDoXText - TiLeChu * 1.5, CaoDoChanDot(i + 1) - caodot / 1.5, 0), "Đốt " & i + 1, TiLeChu, Math.PI / 2)
+            Lib_Drawing.CreateNewMText1(New Point3d(ToaDoXText - TiLeChu_MD * 1.5, CaoDoChanDot(i + 1) - caodot / 1.5, 0), "Đốt " & i + 1, TiLeChu_MD, Math.PI / 2)
         Next
 #End Region
 #Region " Vẽ Dây co"
         For j = 0 To listViTriGaChongXay.Count - 1
             VeDaycoTrai(listchieucaoday(listViTriGaChongXay(j)), Convert.ToDouble(-RongGa * 2), -xM1, zM1)
-            VeDaycoPhai(listchieucaoday(listViTriGaChongXay(j)), Convert.ToDouble(RongGa * 2), xM1, zM1)
+            VeDaycoPhai(listchieucaoday(listViTriGaChongXay(j)), Convert.ToDouble(RongGa * 2), xM2, zM2)
         Next
         ''Vẽ Day co
         For i = 0 To SoTangDay - 1
             If KiemTra(i, listViTriGaChongXay) Then
             Else
                 VeDaycoTrai(listchieucaoday(i), Convert.ToDouble(-RongCot), -xM1, zM1)
-                VeDaycoPhai(listchieucaoday(i), Convert.ToDouble(RongCot), xM1, zM2)
+                VeDaycoPhai(listchieucaoday(i), Convert.ToDouble(RongCot), xM2, zM2)
             End If
         Next
 
@@ -550,7 +463,7 @@ Public Class clsMatDung
             id_mong23 = Lib_Drawing.CreateNewPolyline(Toa_Do_M23, True)
             clsMatDung.VeDatMongCoL2(New Point3d(-xM1, zM1, 0), CaoMong1, RongMong1)
             clsMatDung.VeDatMongCoL2(New Point3d(xM2, zM2, 0), CaoMong2, RongMong2)
-            'VeCaoDo(listCaoDo, 2, 3, z1, z3, rongMB / 2, rongMB / 2, b_hmong, b_hmong, 0, TiLeChu * 2)
+            'VeCaoDo(listCaoDo, 2, 3, z1, z3, rongMB / 2, rongMB / 2, b_hmong, b_hmong, 0, TiLeChu_MD * 2)
         ElseIf loaimong = "L1" Then
             Dim id_mong1 As ObjectId 'Vẽ móng 1
             Dim id_mong12 As ObjectId ' Vẽ chi tiết trong móng 1
@@ -659,10 +572,10 @@ Public Class clsMatDung
             End Using
         Else
             Dim Toa_Do_M0(3) As Point2d
-            Toa_Do_M0(0) = New Point2d(-d / 2, 0 + c)
-            Toa_Do_M0(1) = New Point2d(d / 2, 0 + c)
-            Toa_Do_M0(2) = New Point2d(d / 2, -d + c)
-            Toa_Do_M0(3) = New Point2d(-d / 2, -d + c)
+            Toa_Do_M0(0) = New Point2d(-d / 2, 0)
+            Toa_Do_M0(1) = New Point2d(d / 2, 0)
+            Toa_Do_M0(2) = New Point2d(d / 2, -d)
+            Toa_Do_M0(3) = New Point2d(-d / 2, -d)
             Dim id_mongchinh As ObjectId
             id_mongchinh = Lib_Drawing.CreateNewPolyline(Toa_Do_M0, True)
             Dim mongchinh As Polyline
@@ -740,16 +653,16 @@ Public Class clsMatDung
         Dim CaoDoMong_M0 As Double = Convert.ToDouble(frmTTC.txtCaoDoMong.Text) * 1000
         If z1 <> 0 Then
             If b_CaoDoMong = 0 Then
-                Lib_Drawing.insertBlock(New Point3d(xmong1 + 1000, z1, 0), "ct", TiLeChu, "%%p0.00")
+                Lib_Drawing.insertBlock(New Point3d(xmong1 + 1000, z1, 0), "ct", TiLeChu_MD, "%%p0.00")
             Else
                 Dim Caodomong1 As String
                 Caodomong1 = Format((b_CaoDoMong + CaoDoMong_M0) / 1000, "0.00")
                 'MsgBox(Caodomong1)
                 If z1 > 0 Then
-                    Lib_Drawing.insertBlock(New Point3d(xmong1 + 1000, z1, 0), "ct", TiLeChu, "+" & Caodomong1)
+                    Lib_Drawing.insertBlock(New Point3d(xmong1 + 1000, z1, 0), "ct", TiLeChu_MD, "+" & Caodomong1)
 
                 Else
-                    Lib_Drawing.insertBlock(New Point3d(xmong1 + 1000, z1, 0), "ct", TiLeChu, Caodomong1)
+                    Lib_Drawing.insertBlock(New Point3d(xmong1 + 1000, z1, 0), "ct", TiLeChu_MD, Caodomong1)
 
                 End If
             End If
@@ -760,8 +673,8 @@ Public Class clsMatDung
         Dim H As New List(Of Double)
         Dim CaoDoChanDot As New List(Of Double)
 
-        Dim ToaDoXDimTong As Double = -XM1 - TiLeChu * 13
-        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu * 3
+        Dim ToaDoXDimTong As Double = -XM1 - TiLeChu_MD * 13
+        Dim ToaDoXDim As Double = ToaDoXDimTong + TiLeChu_MD * 3
         Dim SoDot As Integer = frmTTC.BangChieuCaoDot.RowCount
         CaoDoChanDot.Add(0)
 
@@ -776,11 +689,11 @@ Public Class clsMatDung
         For i As Integer = 0 To SoDot - 1
             Dim CaoDo As String
             CaoDo = Format(CaoDoChanDot(i + 1) / 1000, "00.00")
-            Lib_Drawing.insertBlock(New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), "ct", tile / 2, "+" & CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(ToaDoXDim, CaoDoChanDot(i + 1), 0), "ct", TiLeChu_MD, "+" & CaoDo)
         Next
 
         Dim ChieuCaoCot = Format((ThongTinChung.ChieuCao * 1000 + b_CaoDoMong) / 1000, "00.00")
-        Lib_Drawing.insertBlock(New Point3d(ToaDoXDim, ChieuCaoCot * 1000, 0), "ct", tile / 2, "+" & ChieuCaoCot)
+        Lib_Drawing.insertBlock(New Point3d(ToaDoXDim, ChieuCaoCot * 1000, 0), "ct", TiLeChu_MD, "+" & ChieuCaoCot)
 
 
     End Sub
@@ -793,17 +706,17 @@ Public Class clsMatDung
         For i As Integer = 0 To frmTTC.dgvCaoDoDayCo.RowCount - 1
             Dim CaoDo As String
             CaoDo = Format((listCaoDo(i) * 1000 + b_CaoDoMong) / 1000, "00.00")
-            Lib_Drawing.insertBlock(New Point3d(2000, listCaoDo(i) * 1000, 0), "ct", tile / 2, "+" & CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(2000, listCaoDo(i) * 1000, 0), "ct", TiLeChu_MD, "+" & CaoDo)
         Next
         Dim ChieuCaoCot = Format((ThongTinChung.ChieuCao * 1000 + b_CaoDoMong) / 1000, "00.00")
-        Lib_Drawing.insertBlock(New Point3d(2000, ChieuCaoCot * 1000, 0), "ct", tile / 2, "+" & ChieuCaoCot)
+        Lib_Drawing.insertBlock(New Point3d(2000, ChieuCaoCot * 1000, 0), "ct", TiLeChu_MD, "+" & ChieuCaoCot)
 
         If b_CaoDoMong = 0 Then
-            Lib_Drawing.insertBlock(New Point3d(2000, -hmongchinh, 0), "ct", tile / 2, "%%p0.00")
+            Lib_Drawing.insertBlock(New Point3d(2000, -hmongchinh, 0), "ct", TiLeChu_MD, "%%p0.00")
         Else
             Dim CaoDo As String
             CaoDo = Format(b_CaoDoMong / 1000, "00.00")
-            Lib_Drawing.insertBlock(New Point3d(2000, -hmongchinh, 0), "ct", tile / 2, "+" & CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(2000, -hmongchinh, 0), "ct", TiLeChu_MD, "+" & CaoDo)
         End If
         ''CaoDomong
         ''''''''''
@@ -987,7 +900,7 @@ Public Class clsMatDung
         Dim DiemDat, DiemText As Point3d
         If diem1.X <= 0 And diem2.X >= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 - 0, (diem1.Y + diem2.Y) / 2 - 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu_MD * 3, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(-((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -995,11 +908,11 @@ Public Class clsMatDung
                 lineclon.Erase()
                 acTrans.Commit()
             End Using
-            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu, GocXoay)
+            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu_MD, GocXoay)
 
         ElseIf diem1.X <= 0 And diem2.X <= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 - 0, (diem1.Y + diem2.Y) / 2 - 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu_MD * 3, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(-((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -1007,10 +920,10 @@ Public Class clsMatDung
                 lineclon.Erase()
                 acTrans.Commit()
             End Using
-            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu, GocXoay)
+            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu_MD, GocXoay)
         ElseIf diem1.X >= 0 And diem2.X >= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 + 0, (diem1.Y + diem2.Y) / 2 + 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu_MD * 3, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -1018,10 +931,10 @@ Public Class clsMatDung
                 lineclon.Erase()
                 acTrans.Commit()
             End Using
-            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu, -GocXoay)
+            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu_MD, -GocXoay)
         ElseIf diem1.X >= 0 And diem2.X <= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 + 0, (diem1.Y + diem2.Y) / 2 + 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu_MD * 3, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -1029,7 +942,7 @@ Public Class clsMatDung
                 lineclon.Erase()
                 acTrans.Commit()
             End Using
-            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu, -GocXoay)
+            Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu_MD, -GocXoay)
         End If
     End Sub
     Public Shared Sub VeDatMongCoL1(Toado As Point3d, CaoMong As Double, RongMong As Double)

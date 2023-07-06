@@ -221,17 +221,21 @@ Public Class FormMain
         End If
         'lấy móng nối chung
         If ThongTinChung.SoMong = 4 And ThongTinChung.SoChanCot = 3 Then
-            If ThongTinChung.MongNoiChung.Contains("M1") And ThongTinChung.MongNoiChung.Contains("M2") Then
-                frmTTC.cbMongNoiChung1.SelectedIndex = 0
-            ElseIf ThongTinChung.MongNoiChung.Contains("M2") And ThongTinChung.MongNoiChung.Contains("M3") Then
-                frmTTC.cbMongNoiChung1.SelectedIndex = 1
-            ElseIf ThongTinChung.MongNoiChung.Contains("M3") And ThongTinChung.MongNoiChung.Contains("M4") Then
-                frmTTC.cbMongNoiChung1.SelectedIndex = 2
-            Else
-                frmTTC.cbMongNoiChung1.SelectedIndex = 3
+            If IsNothing(ThongTinChung.MongNoiChung) Then
+                ThongTinChung.MongNoiChung = "M1_M4"
             End If
-        End If
-        frmTTC.cmb_NoiDayCo.Text = ThongTinChung.NoiDayCo
+
+            If ThongTinChung.MongNoiChung.Contains("M1") And ThongTinChung.MongNoiChung.Contains("M2") Then
+                    frmTTC.cbMongNoiChung1.SelectedIndex = 0
+                ElseIf ThongTinChung.MongNoiChung.Contains("M2") And ThongTinChung.MongNoiChung.Contains("M3") Then
+                    frmTTC.cbMongNoiChung1.SelectedIndex = 1
+                ElseIf ThongTinChung.MongNoiChung.Contains("M3") And ThongTinChung.MongNoiChung.Contains("M4") Then
+                    frmTTC.cbMongNoiChung1.SelectedIndex = 2
+                Else
+                    frmTTC.cbMongNoiChung1.SelectedIndex = 3
+                End If
+            End If
+            frmTTC.cmb_NoiDayCo.Text = ThongTinChung.NoiDayCo
         Dim pathCaoDoChanCot = DuongDanData & "\CaoDoChanCot.txt"
         Dim pathGocXoay = DuongDanData & "\GocMoc.txt"
         If ReadText(pathGocXoay) <> "" Then
@@ -480,8 +484,8 @@ Public Class FormMain
 
             frmTTC.lbMongNoiChungCot.Visible = False
         End If
-        frmTTC.txttile.Text = Math.Round((mbVeMong.mbTile(x3, y3) / 100), 3)
-        frmTTC.txtCoChu.Text = Math.Round((mbVeMong.mbTile(x3, y3) / 3), 3)
+        frmTTC.txttile.Text = Math.Round((mbVeMong.mbTile()), 3)
+        frmTTC.txtCoChu.Text = ChieuCaoChu
     End Sub
     Private Sub btnLuu_Click(sender As Object, e As EventArgs) Handles btnLuu.Click
 
