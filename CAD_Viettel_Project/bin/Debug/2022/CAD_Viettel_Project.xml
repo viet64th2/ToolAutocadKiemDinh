@@ -27,6 +27,36 @@ CAD_Viettel_Project
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.TH1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.TH2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.TH3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.TH4">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.TH5">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.TH6">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="T:CAD_Viettel_Project.My.Resources.Resource1">
 <summary>
   A strongly-typed resource class, for looking up localized strings, etc.

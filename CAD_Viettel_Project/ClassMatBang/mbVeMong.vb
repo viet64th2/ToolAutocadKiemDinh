@@ -29,9 +29,9 @@ Public Class mbVeMong
         Dim acCurDb As Database = acDoc.Database
         Dim curUCSMatrix As Matrix3d = acDoc.Editor.CurrentUserCoordinateSystem
         Dim curUCS As CoordinateSystem3d = curUCSMatrix.CoordinateSystem3d
-        ''
-        VeHinhChuNhat(New Point3d(0, 0, 0), TextHight / 2.5)
-        ''
+        'Vẽ khugn A4
+        VeKhungA4_MB(mbTile())
+        'end
         Dim Mang_Toa_Do0ngoai(3) As Point2d 'mong 0 trong
         Mang_Toa_Do0ngoai(0) = New Point2d(-b_b0mong / 2 - b_b0mong / 3, b_h0mong / 2 + b_h0mong / 3)
         Mang_Toa_Do0ngoai(1) = New Point2d(b_b0mong / 2 + b_b0mong / 3, b_h0mong / 2 + b_h0mong / 3)
@@ -88,7 +88,7 @@ Public Class mbVeMong
                 TextMong0(2) = New Point2d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3 + TextHight * 9, b_h0mong / 2 + b_h0mong / 10 + TextHight)
                 Dim id_TextMong0 As ObjectId
                 id_TextMong0 = Lib_Drawing.CreateNewPolyline(TextMong0, False)
-                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng M0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 4.22, 0), "Móng M0", TextHight) ' nhân với 4.22 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
                 'Cao độ mặt đất của móng
                 Dim CaoDo As String
 
@@ -261,7 +261,7 @@ Public Class mbVeMong
                 TextMong0(2) = New Point2d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3 + TextHight * 9, b_h0mong / 2 + b_h0mong / 10 + TextHight)
                 Dim id_TextMong0 As ObjectId
                 id_TextMong0 = Lib_Drawing.CreateNewPolyline(TextMong0, False)
-                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng M0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 4.22, 0), "Móng M0", TextHight) ' nhân với 4.22 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
                 'Cao độ mặt đất của móng
                 Dim CaoDo As String
 
@@ -836,125 +836,7 @@ Public Class mbVeMong
             TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, Mang_Toa_Do5(2)), "", Mang_Toa_Do5(0))
 
         End If
-        'If GaChongXoay = False Then
-        'If (x1 <= 0) And (y1 >= 0) And (x2 <= 0) And (y2 <= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
 
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        'ElseIf (x1 <= 0) And (y1 >= 0) And (x2 >= 0) And (y2 >= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        'ElseIf (x1 >= 0) And (y1 >= 0) And (x2 >= 0) And (y2 <= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        'ElseIf (x1 >= 0) And (y1 >= 0) And (x2 <= 0) And (y2 >= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        'ElseIf (x1 >= 0) And (y1 <= 0) And (x2 <= 0) And (y2 <= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        'ElseIf (x1 >= 0) And (y1 <= 0) And (x2 >= 0) And (y2 >= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        'ElseIf (x1 <= 0) And (y1 <= 0) And (x2 <= 0) And (y2 > 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        'ElseIf (x1 <= 0) And (y1 <= 0) And (x2 >= 0) And (y2 <= 0) Then
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        'Else
-        '    ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1, y1, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    TaoTextTrenMB(ID_Line1, TinhGocDuongThangMB(ID_Line1, New Point2d(diem2.X, diem2.Y)), "", New Point2d(diem2.X, diem2.Y))
-
-        '    ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2, y2, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    TaoTextTrenMB(ID_Line2, TinhGocDuongThangMB(ID_Line2, New Point2d(diem1.X, diem1.Y)), "", New Point2d(diem1.X, diem1.Y))
-
-        '    ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3, y3, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    TaoTextTrenMB(ID_Line3, TinhGocDuongThangMB(ID_Line3, New Point2d(diem4.X, diem4.Y)), "", New Point2d(diem4.X, diem4.Y))
-
-        '    ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4, y4, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    TaoTextTrenMB(ID_Line4, TinhGocDuongThangMB(ID_Line4, New Point2d(diem3.X, diem3.Y)), "", New Point2d(diem3.X, diem3.Y))
-
-        'End If
         '' thay doi thuoc tinh day 
         Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
             line1 = acTrans.GetObject(ID_Line1, OpenMode.ForWrite)
@@ -965,75 +847,10 @@ Public Class mbVeMong
             line2.Layer = LayerDay
             line3.Layer = LayerDay
             line4.Layer = LayerDay
-            'line11 = acTrans.GetObject(ID_Line11, OpenMode.ForWrite)
-            'line22 = acTrans.GetObject(ID_Line22, OpenMode.ForWrite)
-            'line33 = acTrans.GetObject(ID_Line33, OpenMode.ForWrite)
-            'line44 = acTrans.GetObject(ID_Line44, OpenMode.ForWrite)
-            'line11.Layer = LayerDay
-            'line22.Layer = LayerDay
-            'line33.Layer = LayerDay
-            'line44.Layer = LayerDay
+
             acTrans.Commit()
         End Using
-        'Else
-        '    If (x1 <= 0) And (y1 <= 0) And (x2 <= 0) And (y2 >= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    ElseIf (x1 <= 0) And (y1 >= 0) And (x2 >= 0) And (y2 >= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    ElseIf (x1 >= 0) And (y1 >= 0) And (x2 >= 0) And (y2 <= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    ElseIf (x1 >= 0) And (y1 >= 0) And (x2 <= 0) And (y2 >= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    ElseIf (x1 >= 0) And (y1 <= 0) And (x2 >= 0) And (y2 <= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    ElseIf (x1 >= 0) And (y1 <= 0) And (x2 >= 0) And (y2 >= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '    ElseIf (x1 <= 0) And (y1 <= 0) And (x2 <= 0) And (y2 >= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 + d / 2, y2, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 - d / 2, y4, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '    ElseIf (x1 <= 0) And (y1 <= 0) And (x2 >= 0) And (y2 <= 0) Then
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 + d / 2, y1, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 - d / 2, y3, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '    Else
-        '        ID_Line1 = Lib_Drawing.CreateLine(New Point3d(x1 - d / 2, y1, 0), New Point3d(diem3.X, diem3.Y, 0))
-        '        ID_Line2 = Lib_Drawing.CreateLine(New Point3d(x2 - d / 2, y2, 0), New Point3d(diem2.X, diem2.Y, 0))
-        '        ID_Line3 = Lib_Drawing.CreateLine(New Point3d(x3 + d / 2, y3, 0), New Point3d(diem1.X, diem1.Y, 0))
-        '        ID_Line4 = Lib_Drawing.CreateLine(New Point3d(x4 + d / 2, y4, 0), New Point3d(diem4.X, diem4.Y, 0))
-        '    End If
-        '    Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
-        '        line1 = acTrans.GetObject(ID_Line1, OpenMode.ForWrite)
-        '        line2 = acTrans.GetObject(ID_Line2, OpenMode.ForWrite)
-        '        line3 = acTrans.GetObject(ID_Line3, OpenMode.ForWrite)
-        '        line4 = acTrans.GetObject(ID_Line4, OpenMode.ForWrite)
-        '        line1.Layer = LayerDay
-        '        line2.Layer = LayerDay
-        '        line3.Layer = LayerDay
-        '        line4.Layer = LayerDay
-        '        acTrans.Commit()
-        '    End Using
-        'End If
+
         ''dim
         mbVeMong.Dim4MongCotTamGiac(x1, y1, x2, y2, x3, y3, x4, y4, Math.Max(b_bmong, b_hmong), Math.Max(b_bmong, b_hmong), Dimscale)
 
@@ -1066,10 +883,6 @@ Public Class mbVeMong
         Dim diem2 As Point2d = cottugiac.GetPoint2dAt(1)
         Dim diem3 As Point2d = cottugiac.GetPoint2dAt(2)
         Dim diem4 As Point2d = cottugiac.GetPoint2dAt(3)
-
-        ''
-        VeHinhChuNhat(New Point3d(0, 0, 0), TextHight / 2.5)
-        ''
 
         'Lib_Drawing.CreateCircle(New Point3d(diem1.X, diem1.Y, 0), 200)
 
@@ -1199,6 +1012,9 @@ Public Class mbVeMong
         Dim acCurDb As Database = acDoc.Database
         Dim curUCSMatrix As Matrix3d = acDoc.Editor.CurrentUserCoordinateSystem
         Dim curUCS As CoordinateSystem3d = curUCSMatrix.CoordinateSystem3d
+        'Vẽ khugn A4
+        VeKhungA4_MB(mbTile())
+        'end
         Dim Mang_Toa_Do0ngoai(3) As Point2d 'mong 0 trong
         Mang_Toa_Do0ngoai(0) = New Point2d(-b_b0mong / 2, b_h0mong / 2)
         Mang_Toa_Do0ngoai(1) = New Point2d(b_b0mong / 2, b_h0mong / 2)
@@ -1238,7 +1054,7 @@ Public Class mbVeMong
                 TextMong0(2) = New Point2d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3 + TextHight * 9, b_h0mong / 2 + b_h0mong / 10 + TextHight)
                 Dim id_TextMong0 As ObjectId
                 id_TextMong0 = Lib_Drawing.CreateNewPolyline(TextMong0, False)
-                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 2.6, 0), "Móng 0", TextHight) ' nhân với 2.6 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
+                Lib_Drawing.CreateNewMText(New Point3d(b_b0mong / 2 + b_b0mong / 10 + TextHight * 3, b_h0mong / 2 + b_h0mong / 10 + TextHight + TextHight * 4.22, 0), "Móng 0", TextHight) ' nhân với 4.22 để chứ g trong "Móng 0" theo tỉ lệ sẽ ở trên đường kẻ
                 'Cao độ mặt đất của móng
                 Dim CaoDo As String
 
@@ -1374,7 +1190,7 @@ Public Class mbVeMong
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
                     'Tên móng
-                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
 
@@ -1481,7 +1297,7 @@ Public Class mbVeMong
                     TextMong1(2) = New Point2d(Toado_x + b_bvemong * 3 + TextHight * 9 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight)
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
-                    Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
 
@@ -1589,7 +1405,7 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     'kaitomajickid
-                    Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
 
@@ -1695,7 +1511,7 @@ Public Class mbVeMong
                     TextMong1(2) = New Point2d(Toado_x + b_bvemong * 3 + TextHight * 3 + TextHight * 9, Toado_y - b_hvemong * 3 - TextHight)
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
-                    Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
                     Dim id_c As ObjectId
@@ -1790,7 +1606,7 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
-                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
                     Dim id_c As ObjectId
@@ -1899,7 +1715,7 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
-                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y + b_hvemong * 3 + TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
                     Dim id_c As ObjectId
@@ -2008,7 +1824,7 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
-                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong * 3 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
 
@@ -2118,7 +1934,7 @@ Public Class mbVeMong
                     Dim id_TextMong1 As ObjectId
                     id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                     Dim id_Text As ObjectId
-                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                    id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong * 3 + TextHight * 3, Toado_y - b_hvemong * 3 - TextHight + TextHight * 4.22, 0), Text, TextHight)
                     'Cao độ mặt đất của móng
                     taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
                     Dim id_c As ObjectId
@@ -2190,7 +2006,7 @@ Public Class mbVeMong
                 Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                     vuongngoai = acTrans.GetObject(id_vuongngoai, OpenMode.ForWrite)
                     vuongngoai.Layer = Layer
-                    vuongngoai.LinetypeScale = LinetypeScale
+                    vuongngoai.LinetypeScale = 5
                     acTrans.Commit()
                 End Using
                 Dim TextMong1(2) As Point2d 'mong vi tri so 1
@@ -2200,7 +2016,7 @@ Public Class mbVeMong
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
                 Dim id_Text As ObjectId
-                id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                id_Text = Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight + TextHight * 4.22, 0), Text, TextHight)
                 'Cao độ mặt đất của móng
                 'Lib_Drawing.insertBlock(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight - TextHight * 8, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
                 taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
@@ -2226,7 +2042,7 @@ Public Class mbVeMong
                 TextMong1(2) = New Point2d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 9 + TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight)
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
-                Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight + TextHight * 2.6, 0), Text, TextHight)
+                Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3, Toado_y + b_hvemong / 2 + b_hvemong / 10 + TextHight + TextHight * 4.22, 0), Text, TextHight)
                 'Cao độ mặt đất của móng
                 taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
             ElseIf ((Toado_x) <= 0 And (Toado_y) <= 0) Then 'vitri4
@@ -2251,7 +2067,7 @@ Public Class mbVeMong
                 TextMong1(2) = New Point2d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight)
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
-                Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                Lib_Drawing.CreateNewMText(New Point3d(Toado_x - b_bvemong / 2 - b_bvemong / 10 - TextHight * 9 - TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 4.22, 0), Text, TextHight)
                 taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
 
             ElseIf ((Toado_x) >= 0 And (Toado_y) <= 0) Then 'vitri3
@@ -2276,7 +2092,7 @@ Public Class mbVeMong
                 TextMong1(2) = New Point2d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3 + TextHight * 9, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight)
                 Dim id_TextMong1 As ObjectId
                 id_TextMong1 = Lib_Drawing.CreateNewPolyline(TextMong1, False)
-                Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 2.6, 0), Text, TextHight)
+                Lib_Drawing.CreateNewMText(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 3, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight + TextHight * 4.22, 0), Text, TextHight)
                 'Cao độ mặt đất của móng
                 taoblockcaotrinhmong(Toado_x, Toado_y, b_bvemong, TextHight, b_hvemong, CaoDo)
             End If
@@ -2287,16 +2103,16 @@ Public Class mbVeMong
     End Sub
     Private Shared Sub taoblockcaotrinhmong(Toado_x As Double, Toado_y As Double, b_bvemong As Double, TextHight As Double, b_hvemong As Double, CaoDo As String)
         If Toado_x >= 0 And Toado_y >= 0 Then
-            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 22, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 32, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
 
         ElseIf Toado_x >= 0 And Toado_y <= 0 Then
-            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 22, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 + TextHight * 32, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
 
         ElseIf Toado_x <= 0 And Toado_y <= 0 Then
-            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 - TextHight * 22, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 - TextHight * 32, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
 
         ElseIf Toado_x <= 0 And Toado_y >= 0 Then
-            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 - TextHight * 22, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
+            Lib_Drawing.insertBlock(New Point3d(Toado_x + b_bvemong / 2 + b_bvemong / 10 - TextHight * 32, Toado_y - b_hvemong / 2 - b_hvemong / 10 - TextHight, 0), "CaoTrinhMatBang", TiLeChu, CaoDo)
 
         End If
     End Sub
@@ -4452,31 +4268,92 @@ Public Class mbVeMong
             mbVeMong.Dim4MongCotTamGiac(x1, y1, x2, y2, x3, y3, x4, y4, b_bmong, b_hmong, Dimscale)
         End If
     End Sub
-    Public Shared Function mbTile(x As Double, y As Double) As Double
+    Public Shared Sub VeKhungA4_MD(scalingFactor As Double)
 
-        '' tính khoảng cách x1 x2 
-        'Dim d1 As Double = Math.Sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2 + (z2 - z1) ^ 2)
-        'Dim d2 As Double = Math.Sqrt((x3 - x2) ^ 2 + (y3 - y2) ^ 2 + (z3 - z2) ^ 2)
-        '' Tìm khoảng cách lớn nhất
-        'Dim maxDistance As Double = Math.Max(d1, d2)
-        ''Tính tỉ lệ 
-        'Dim tinhtile As Double = maxDistance / 297
-        ''scale
-        'Dim sc As Double = tinhtile * 1.1
-        'Dim neww As Double = sc * 297
-        'Dim newh As Double = sc * 210
-        '
-        Dim tile As Double = (Math.Sqrt(x ^ 2 + y ^ 2) / 2) / 8
-        Return tile
+        Dim rectangleWidth As Double = 210 ' Độ dài của hình chữ nhật ban đầu (mm)
+        Dim rectangleHeight As Double = 297 ' Chiều cao của hình chữ nhật ban đầu (mm)
+        Dim scaledWidth As Double = rectangleWidth * scalingFactor
+        Dim scaledHeight As Double = rectangleHeight * scalingFactor
+        Dim maxY As Double = Math.Max(Math.Max(y1, y2), Math.Max(y3, y4))
+        Dim minY As Double = Math.Min(Math.Min(y1, y2), Math.Min(y3, y4))
+        Dim maxX As Double = Math.Max(Math.Max(x1, x2), Math.Max(x3, x4))
+        Dim minX As Double = Math.Min(Math.Min(x1, x2), Math.Min(x3, x4))
+
+        Dim Mang_Toa_Do(3) As Point2d 'mong 0 trong
+        Mang_Toa_Do(0) = New Point2d(-scaledWidth / 2, scaledHeight / 2)
+        Mang_Toa_Do(1) = New Point2d(scaledWidth / 2, scaledHeight / 2)
+        Mang_Toa_Do(2) = New Point2d(scaledWidth / 2, -scaledHeight / 2)
+        Mang_Toa_Do(3) = New Point2d(-scaledWidth / 2, -scaledHeight / 2)
+
+        Dim deviationTop As Double = scaledHeight / 2 - maxY
+        Dim deviationBottom As Double = scaledWidth / 2 + minY
+        Dim deviationLeft As Double = scaledWidth / 2 - maxX
+        Dim deviationRight As Double = -scaledWidth / 2 - minX
+        Dim dolechY = (deviationBottom + deviationTop) / 5
+        Dim dolechX = (deviationLeft + deviationRight) / 5
+        Mang_Toa_Do(0) = New Point2d(-scaledWidth / 2, scaledHeight / 2 + dolechY)
+        Mang_Toa_Do(1) = New Point2d(scaledWidth / 2, scaledHeight / 2 + dolechY)
+        Mang_Toa_Do(2) = New Point2d(scaledWidth / 2, (-scaledHeight / 2) + dolechY)
+        Mang_Toa_Do(3) = New Point2d(-scaledWidth / 2, (-scaledHeight / 2) + dolechY)
+        Dim id As ObjectId
+        id = Lib_Drawing.CreateNewPolyline(Mang_Toa_Do, True)
+    End Sub
+    Public Shared Sub VeKhungA4_MB(scalingFactor As Double)
+
+        Dim rectangleWidth As Double = 202 ' Độ dài của hình chữ nhật ban đầu (mm)
+        Dim rectangleHeight As Double = 145 ' Chiều cao của hình chữ nhật ban đầu (mm)
+        Dim scaledWidth As Double = rectangleWidth * scalingFactor
+        Dim scaledHeight As Double = rectangleHeight * scalingFactor
+        Dim maxY As Double = Math.Max(Math.Max(y1, y2), Math.Max(y3, y4))
+        Dim minY As Double = Math.Min(Math.Min(y1, y2), Math.Min(y3, y4))
+        Dim maxX As Double = Math.Max(Math.Max(x1, x2), Math.Max(x3, x4))
+        Dim minX As Double = Math.Min(Math.Min(x1, x2), Math.Min(x3, x4))
+
+        Dim Mang_Toa_Do(3) As Point2d 'mong 0 trong
+        Mang_Toa_Do(0) = New Point2d(-scaledWidth / 2, scaledHeight / 2)
+        Mang_Toa_Do(1) = New Point2d(scaledWidth / 2, scaledHeight / 2)
+        Mang_Toa_Do(2) = New Point2d(scaledWidth / 2, -scaledHeight / 2)
+        Mang_Toa_Do(3) = New Point2d(-scaledWidth / 2, -scaledHeight / 2)
+
+        Dim deviationTop As Double = scaledHeight / 2 - maxY
+        Dim deviationBottom As Double = scaledWidth / 2 + minY
+        Dim deviationLeft As Double = scaledWidth / 2 - maxX
+        Dim deviationRight As Double = -scaledWidth / 2 - minX
+        Dim dolechY = (deviationBottom + deviationTop) / 5
+        Dim dolechX = (deviationLeft + deviationRight) / 5
+        Mang_Toa_Do(0) = New Point2d(-scaledWidth / 2, scaledHeight / 2 + dolechY)
+        Mang_Toa_Do(1) = New Point2d(scaledWidth / 2, scaledHeight / 2 + dolechY)
+        Mang_Toa_Do(2) = New Point2d(scaledWidth / 2, (-scaledHeight / 2) + dolechY)
+        Mang_Toa_Do(3) = New Point2d(-scaledWidth / 2, (-scaledHeight / 2) + dolechY)
+        Dim id As ObjectId
+        'id = Lib_Drawing.CreateNewPolyline(Mang_Toa_Do, True)
+    End Sub
+    Public Shared Function mbTile() As Double
+        'Dim tile As Double = (Math.Sqrt(x ^ 2 + y ^ 2) / 2) / 8
+        'Dim rectangleWidth As Double = 297 ' Độ dài của hình chữ nhật ban đầu (mm)
+        'Dim rectangleHeight As Double = 210 ' Chiều cao của hình chữ nhật ban đầu (mm)
+        Dim rectangleWidth As Double = 202 ' Độ dài của hình chữ nhật ban đầu (mm)
+        Dim rectangleHeight As Double = 145 ' Chiều cao của hình chữ nhật ban đầu (mm)
+        Dim scalingFactor As Double = CalculateScalingFactor(rectangleWidth, rectangleHeight) * 1.5
+        Return scalingFactor
     End Function
-    Public Shared Function mbTileMD(x As Double) As Double
-        Dim tile As Double = x / 15
-        Return tile
+    Public Shared Function CalculateScalingFactor(rectangleWidth As Double, rectangleHeight As Double) As Double
+        'Dim AB As Double = Math.Sqrt((x1 - x2) ^ 2 + (y1 - y2) ^ 2)
+        'Dim BC As Double = Math.Sqrt((x2 - x3) ^ 2 + (y2 - y3) ^ 2)
+
+        Dim maxY As Double = Math.Max(Math.Max(y1, y2), Math.Max(y3, y4))
+        Dim minY As Double = Math.Min(Math.Min(y1, y2), Math.Min(y3, y4))
+        Dim maxX As Double = Math.Max(Math.Max(x1, x2), Math.Max(x3, x4))
+        Dim minX As Double = Math.Min(Math.Min(x1, x2), Math.Min(x3, x4))
+
+        Dim AB As Double = Math.Abs(maxY - minY)
+        Dim BC As Double = Math.Abs(maxX - minX)
+
+        Dim scalingFactor As Double = Math.Max(AB / rectangleHeight, BC / rectangleWidth)
+        Return scalingFactor
     End Function
-    Public Shared Function mbTileMDCT(x As Double) As Double
-        Dim tile As Double = x / 2.5
-        Return tile
-    End Function
+
+
     Public Shared Function mb_TinhH_MatDung(Tong As List(Of Double), so As Integer) As Double
         Dim TongChieucao As Double = 0
         Dim i As Integer = 0
@@ -4605,265 +4482,266 @@ Public Class mbVeMong
 
         ofsetdoc *= 2.5
         ofsetngang *= 2.5
-
+        Dim ofsetdoc_Phu = ofsetdoc - 2.5 * ChieuCaoChu * TiLeChu
+        Dim ofsetngang_Phu = ofsetngang - 2.5 * ChieuCaoChu * TiLeChu
         If (x1 <= 0) And (y1 <= 0) Then
             If (x2 <= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, 0, 0), New Point3d(Math.Min(x1, x2) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, 0, 0), New Point3d(Math.Min(x1, x2) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang_Phu, y1, 0), 90)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(Math.Max(x3, x4) + ofsetngang, y3, 0), 90)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Max(x3, x4) + ofsetngang / 2.5, y3, 0), 90)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Max(x3, x4) + ofsetngang / 2.5, y3, 0), 90)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Max(x3, x4) + ofsetngang_Phu, y3, 0), 90)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Max(x3, x4) + ofsetngang_Phu, y3, 0), 90)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc_Phu, 0), 0)
                 'end
             ElseIf (x2 <= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x3, x2) + ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x3, x2) + ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x3, x2) + ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x3, x2) + ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x3, x2) + ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
                 'end
             Else
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
                 'end
             End If
         ElseIf (x1 <= 0) And (y1 >= 0) Then
             If (x2 <= 0) And (y2 <= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, 0, 0), New Point3d(Math.Min(x1, x2) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, 0, 0), New Point3d(Math.Min(x1, x2) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang_Phu, y1, 0), 90)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(Math.Max(x3, x4) + ofsetngang, y3, 0), 90)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Max(x3, x4) + ofsetngang / 2.5, y3, 0), 90)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Max(x3, x4) + ofsetngang / 2.5, y3, 0), 90)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Max(x3, x4) + ofsetngang_Phu, y3, 0), 90)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Max(x3, x4) + ofsetngang_Phu, y3, 0), 90)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc_Phu, 0), 0)
                 'end
             ElseIf (x2 >= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y4, y3) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Min(y4, y3) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y4, y3) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Min(y4, y3) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y4, y3) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x1, x4) - ofsetngang, y4, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x1, x4) - ofsetngang / 2.5, y4, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x1, x4) - ofsetngang / 2.5, y4, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x1, x4) - ofsetngang_Phu, y4, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x1, x4) - ofsetngang_Phu, y4, 0), 90)
                 'end
             Else
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
                 'end
             End If
         ElseIf (x1) >= 0 And (y1 >= 0) Then
             If (x2 >= 0) And (y2 <= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(Math.Max(x1, x2) + ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, 0, 0), New Point3d(Math.Max(x1, x2) + ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Max(x1, x2) + ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, 0, 0), New Point3d(Math.Max(x1, x2) + ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Max(x1, x2) + ofsetngang_Phu, y1, 0), 90)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Min(y2, y3) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(Math.Min(x3, x4) - ofsetngang, y3, 0), 90)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Min(x3, x4) - ofsetngang / 2.5, y3, 0), 90)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Min(x3, x4) - ofsetngang / 2.5, y3, 0), 90)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Min(x3, x4) - ofsetngang_Phu, y3, 0), 90)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Min(x3, x4) - ofsetngang_Phu, y3, 0), 90)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Max(y1, y4) + ofsetdoc_Phu, 0), 0)
                 'end
             ElseIf (x2 <= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Min(x2, x3) - ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Min(x2, x3) - ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Min(x2, x3) - ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Min(x2, x3) - ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Min(x2, x3) - ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Max(x4, x1) + ofsetngang, y4, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
                 'end
             Else
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
                 'end
             End If
         ElseIf (x1 >= 0) And (y1 <= 0) Then
             If (x2 >= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(Math.Max(x1, x2) + ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x1, 0, 0), New Point3d(Math.Max(x1, x2) + ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Max(x1, x2) + ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x1, 0, 0), New Point3d(Math.Max(x1, x2) + ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, 0, 0), New Point3d(x2, y2, 0), New Point3d(Math.Max(x1, x2) + ofsetngang_Phu, y1, 0), 90)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(0, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y2, 0), New Point3d(x3, y3, 0), New Point3d(x2, Math.Max(y2, y3) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(Math.Min(x3, x4) - ofsetngang, y3, 0), 90)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Min(x3, x4) - ofsetngang / 2.5, y3, 0), 90)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Min(x3, x4) - ofsetngang / 2.5, y3, 0), 90)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, 0, 0), New Point3d(Math.Min(x3, x4) - ofsetngang_Phu, y3, 0), 90)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, 0, 0), New Point3d(x4, y4, 0), New Point3d(Math.Min(x3, x4) - ofsetngang_Phu, y3, 0), 90)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(0, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y4, 0), New Point3d(x1, y1, 0), New Point3d(x4, Math.Min(y1, y4) - ofsetdoc_Phu, 0), 0)
                 'end
             ElseIf (x2 <= 0) And (y2 <= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Min(y1, y2) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Min(x2, x3) - ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Min(x2, x3) - ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Min(x2, x3) - ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Min(x2, x3) - ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Min(x2, x3) - ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x3, Math.Max(y3, y4) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Max(x4, x1) + ofsetngang, y4, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Max(x4, x1) + ofsetngang / 2.5, y4, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Max(x4, x1) + ofsetngang / 2.5, y4, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Max(x4, x1) + ofsetngang_Phu, y4, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Max(x4, x1) + ofsetngang_Phu, y4, 0), 90)
                 'end
             Else
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
-                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc / 2.5, 0), 0)
+                ID_DIMP11 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(0, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
+                ID_DIMP12 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y1, 0), New Point3d(x2, y2, 0), New Point3d(x1, Math.Max(y1, y2) + ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM2 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang, y2, 0), 90)
                 'Dim Phụ
-                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
-                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang / 2.5, y2, 0), 90)
+                ID_DIMP21 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, y2, 0), New Point3d(x3, 0, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
+                ID_DIMP22 = Lib_Drawing.CreateRotatedDimension(New Point3d(x2, 0, 0), New Point3d(x3, y3, 0), New Point3d(Math.Max(x2, x3) + ofsetngang_Phu, y2, 0), 90)
                 'end
                 ID_DIM3 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc, 0), 0)
                 'Dim Phụ
-                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
-                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc / 2.5, 0), 0)
+                ID_DIMP31 = Lib_Drawing.CreateRotatedDimension(New Point3d(x3, y3, 0), New Point3d(0, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
+                ID_DIMP32 = Lib_Drawing.CreateRotatedDimension(New Point3d(0, y3, 0), New Point3d(x4, y4, 0), New Point3d(x4, Math.Min(y3, y4) - ofsetdoc_Phu, 0), 0)
                 'end
                 ID_DIM4 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang, y1, 0), 90)
                 'Dim Phụ
-                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
-                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang / 2.5, y1, 0), 90)
+                ID_DIMP41 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, y4, 0), New Point3d(x1, 0, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
+                ID_DIMP42 = Lib_Drawing.CreateRotatedDimension(New Point3d(x4, 0, 0), New Point3d(x1, y1, 0), New Point3d(Math.Min(x4, x1) - ofsetngang_Phu, y1, 0), 90)
                 'end
             End If
         End If
@@ -4925,11 +4803,11 @@ Public Class mbVeMong
 
         Dim ofset As Double
         ofset = b_bmong + TiLeChu * 2.5 + TiLeChu / 2 ' chu mac dinh kho giay A4 = 2, khoang cach tu dong dim den chu = tilechu/2
-        Dim diemdim1 As Point3d = Lib_Drawing.TimDiem(x1, y1, x2, y2, ofset * 2)
+        Dim diemdim1 As Point3d = Lib_Drawing.TimDiem(x1, y1, x2, y2, ofset * 2.5)
         Dim diemdimp1 As Point3d = Lib_Drawing.TimDiem(x1, y1, x2, y2, ofset)
-        Dim diemdim2 As Point3d = Lib_Drawing.TimDiem(x2, y2, x3, y3, ofset * 2)
+        Dim diemdim2 As Point3d = Lib_Drawing.TimDiem(x2, y2, x3, y3, ofset * 2.5)
         Dim diemdimp2 As Point3d = Lib_Drawing.TimDiem(x2, y2, x3, y3, ofset)
-        Dim diemdim3 As Point3d = Lib_Drawing.TimDiem(x3, y3, x1, y1, ofset * 2)
+        Dim diemdim3 As Point3d = Lib_Drawing.TimDiem(x3, y3, x1, y1, ofset * 2.5)
         Dim diemdimp3 As Point3d = Lib_Drawing.TimDiem(x3, y3, x1, y1, ofset)
         ID_DIM1 = Lib_Drawing.CreateAlignedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), diemdim1, 0)
         'Dim Phụ
@@ -4987,8 +4865,8 @@ Public Class mbVeMong
         Dim Dim4 As RotatedDimension
         Dim ofsetdoc As Double
         Dim ofsetngang As Double
-        ofsetdoc = b_hmong / 2.5 + TiLeChu * 2.5 + TiLeChu / 2.5 ' chu mac dinh kho giay A4 = 2, khoang cach tu dong dim den chu = tilechu/2
-        ofsetngang = b_bmong / 2.5 + TiLeChu * 2.5 + TiLeChu / 2.5
+        ofsetdoc = b_hmong / 2 + TiLeChu * 2 + TiLeChu / 2 ' chu mac dinh kho giay A4 = 2, khoang cach tu dong dim den chu = tilechu/2
+        ofsetngang = b_bmong / 2 + TiLeChu * 2 + TiLeChu / 2
         If (x1 <= 0) And (y1 <= 0) Then
             If (x2 <= 0) And (y2 >= 0) Then
                 ID_DIM1 = Lib_Drawing.CreateRotatedDimension(New Point3d(x1, y1, 0), New Point3d(x2, y2, 0), New Point3d(Math.Min(x1, x2) - ofsetngang, y1, 0), 90)
@@ -5187,6 +5065,7 @@ Public Class mbVeMong
             tr.Commit()
         End Using
     End Sub
+
     Public Shared Function TinhGocDuongThangMB(id As ObjectId, DiemNoiDay As Point2d)
         Dim acDoc As Document = Application.DocumentManager.MdiActiveDocument
         Dim acCurDb As Database = acDoc.Database
@@ -5195,52 +5074,30 @@ Public Class mbVeMong
         Dim line As New Line
         Dim Diem1 As New Point3d
         Dim Diem2 As New Point3d
-        '
-
-        Dim diemtext As New Point3d
-        '
         Dim tu, mau, cos As Double
-
         Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
             line = acTrans.GetObject(id, OpenMode.ForWrite)
             Diem1 = line.StartPoint
             Diem2 = line.EndPoint
+            goc = line.Angle * 180 / Math.PI
             acTrans.Commit()
         End Using
-        Dim XText As Double = Diem1.X + (Diem2.X - Diem1.X) / 2.0
-        Dim YText As Double
-
-        If Diem1.X < 0 And Diem2.X >= 0 Then
-            YText = Math.Max(Diem1.Y, Diem2.Y) + 1.0
-        Else
-            YText = Math.Min(Diem1.Y, Diem2.Y) - 1.0
-        End If
-        ' Tạo điểm mới cho text dim
-        diemtext = New Point3d(XText, YText, 0.0)
-
-        ' Chỉnh lại tọa độ các điểm của text dim
-        'Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
-        '    Dim textDim As DBText = acTrans.GetObject(id_TaoTextTrenMB, OpenMode.ForWrite)
-        '    textDim.Position = diemtext
-        '    textDim.AlignmentPoint = diemtext
-        '    acTrans.Commit()
-        'End Using
-
-        If (Diem1.X <= 0 And DiemNoiDay.X >= 0) Then
+        If (Diem1.X <= 0 And Diem1.X >= 0) Then
             tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
-        ElseIf (Diem1.X <= 0 And DiemNoiDay.X <= 0) Then
+        ElseIf (Diem1.X <= 0 And Diem1.X <= 0) Then
             tu = Math.Abs(DiemNoiDay.X) - Math.Abs(Diem1.X)
-        ElseIf (Diem1.X >= 0 And DiemNoiDay.X >= 0) Then
+        ElseIf (Diem1.X >= 0 And Diem1.X >= 0) Then
             tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
-        ElseIf (Diem1.X >= 0 And DiemNoiDay.X <= 0) Then
+        ElseIf (Diem1.X >= 0 And Diem1.X <= 0) Then
             tu = Math.Abs(Diem1.X) - Math.Abs(DiemNoiDay.X)
         End If
-
-        mau = Math.Sqrt((Diem2.X - Diem1.X) * (Diem2.X - Diem1.X) + (Diem2.Y - Diem1.Y) * (Diem2.Y - Diem1.Y))
-
+        'mau = line.Length
+        'mau = Math.Sqrt((Diem1.X - DiemNoiDay.X) * (Diem1.X - DiemNoiDay.X) + (Diem1.Y - DiemNoiDay.Y) * (Diem1.Y - DiemNoiDay.Y))
+        mau = Math.Sqrt((DiemNoiDay.X - Diem1.X) * (DiemNoiDay.X - Diem1.X) + (DiemNoiDay.Y - Diem1.Y) * (DiemNoiDay.Y - Diem1.Y))
         cos = tu / mau
         goc = Math.Acos(cos)
         Dim gocd = goc * 180 / Math.PI
+        Dim DoLech
         Return goc
     End Function
     Public Shared Sub TaoTextTrenMB(id As ObjectId, GocXoay As Double, NoiDung As String, DiemNoiDay As Point2d)
@@ -5265,7 +5122,7 @@ Public Class mbVeMong
         Dim DiemDat, DiemText As Point3d
         If DiemNoiDay.X <= 0 And DiemNoiDay.Y >= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 - 0, (diem1.Y + diem2.Y) / 2 - 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 3, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(-((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -5278,7 +5135,7 @@ Public Class mbVeMong
 
         ElseIf DiemNoiDay.X <= 0 And DiemNoiDay.Y <= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 - 0, (diem1.Y + diem2.Y) / 2 - 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X - TiLeChu * 4, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -5301,7 +5158,7 @@ Public Class mbVeMong
             Lib_Drawing.CreateNewMText1(DiemText, NoiDung, TiLeChu, +GocXoay)
         ElseIf DiemNoiDay.X >= 0 And DiemNoiDay.Y <= 0 Then
             DiemDat = New Point3d((diem1.X + diem2.X) / 2 + 0, (diem1.Y + diem2.Y) / 2 + 0, 0)
-            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 3, DiemDat.Y, 0))
+            id_lineclon = Lib_Drawing.CreateLine(DiemDat, New Point3d(DiemDat.X + TiLeChu * 4, DiemDat.Y, 0))
             Lib_Drawing.RotateEntity(id_lineclon, Matrix3d.Rotation(((Math.PI) / 2 - GocXoay), curUCS.Zaxis, DiemDat))
             Using acTrans As Transaction = acCurDb.TransactionManager.StartTransaction()
                 lineclon = acTrans.GetObject(id_lineclon, OpenMode.ForWrite)
@@ -5324,96 +5181,5 @@ Public Class mbVeMong
         Next
         Return kt
     End Function
-    'Public Shared Function VeHinhChuNhat(ViTri As Point3d, tile As Double, TextHight As Double)
-    '    Dim db As Database = HostApplicationServices.WorkingDatabase()
-    '    Dim doc As Document = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(db)
-    '    Dim ed As Editor = doc.Editor
-
-    '    Using trans As Transaction = db.TransactionManager.StartTransaction()
-    '        ' Lấy đối tượng BlockTable
-    '        Dim bt As BlockTable = trans.GetObject(db.BlockTableId, OpenMode.ForRead)
-    '        ' BlockTable quản lý BlockTableRecord
-    '        Dim btr As BlockTableRecord = trans.GetObject(db.CurrentSpaceId, OpenMode.ForWrite)
-
-    '        ' Tính toán kích thước khung chữ nhật
-    '        Dim widthA4 As Double = 297 ' Độ rộng khung A4 (mm)
-    '        Dim heightA4 As Double = 210 ' Độ cao khung A4 (mm)
-    '        Dim Width As Double = widthA4 * tile
-    '        Dim Height As Double = heightA4 * tile
-
-    '        ' Tạo BlockReference
-    '        Using acNewBlockRef As New BlockReference(ViTri, ObjectId.Null)
-    '            ' Scale đối tượng
-    '            acNewBlockRef.TransformBy(Matrix3d.Scaling(tile, ViTri))
-
-    '            ' Tạo polyline khung chữ nhật
-    '            Using poly As New Polyline()
-    '                Dim halfWidth As Double = Width / 2
-    '                Dim halfHeight As Double = Height / 2
-
-    '                poly.AddVertexAt(0, New Point2d(-halfWidth, -halfHeight), 0, 0, 0)
-    '                poly.AddVertexAt(1, New Point2d(halfWidth, -halfHeight), 0, 0, 0)
-    '                poly.AddVertexAt(2, New Point2d(halfWidth, halfHeight), 0, 0, 0)
-    '                poly.AddVertexAt(3, New Point2d(-halfWidth, halfHeight), 0, 0, 0)
-    '                poly.Closed = True
-
-    '                ' Thêm polyline vào BlockTableRecord
-    '                btr.AppendEntity(poly)
-    '                trans.AddNewlyCreatedDBObject(poly, True)
-    '            End Using
-
-    '            ' Thêm đối tượng vào BlockTableRecord
-    '            btr.AppendEntity(acNewBlockRef)
-    '            ' Xác nhận thêm mới DBObject
-    '            trans.AddNewlyCreatedDBObject(acNewBlockRef, True)
-    '        End Using
-
-    '        trans.Commit()
-    '        doc.Editor.UpdateScreen()
-    '    End Using
-    'End Function
-    Public Shared Sub VeHinhChuNhat(ViTri As Point3d, tile As Double)
-        Dim db As Database = HostApplicationServices.WorkingDatabase()
-        Dim doc As Document = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.GetDocument(db)
-        Dim d1 As Double = TinhKhoangCach(x1, y1, x2, y2)
-
-        Dim d2 As Double = TinhKhoangCach(x2, x3, y2, y3)
-        Dim d3 As Double = TinhKhoangCach(x3, x4, y3, y4)
-        Dim d4 As Double = TinhKhoangCach(x1, x4, y1, y4)
-        ' Tìm khoảng cách lớn nhất
-        Dim maxDistance As Double = Math.Max(d1, Math.Max(d2, Math.Max(d3, d4)))
-
-        'Tính tỉ lệ 
-        Dim tinhtile As Double = maxDistance / 210
-        ''scale
-        Dim sc As Double = tinhtile * 1.1
-        'Dim neww As Double = sc * 297
-        'Dim newh As Double = sc * 210
-        Dim b_hcn As Double = 297  ' Chiều rộng của hình chữ nhật
-        Dim h_hcn As Double = 210 ' Chiều cao của hình chữ nhật
-        'Dim Width As Double = b_hcn * tile
-        'Dim Height As Double = h_hcn * tile
-        'Dim Toa_Do_hcn(3) As Point2d ' cot tu giac
-        'Toa_Do_hcn(0) = New Point2d(b_hcn / 2, h_hcn / 2)
-        'Toa_Do_hcn(1) = New Point2d(b_hcn / 2, -h_hcn / 2)
-        'Toa_Do_hcn(2) = New Point2d(-b_hcn / 2, -h_hcn / 2)
-        'Toa_Do_hcn(3) = New Point2d(-b_hcn / 2, h_hcn / 2)
-        Dim Width As Double = b_hcn * sc
-        Dim Height As Double = h_hcn * sc
-
-        Dim Toa_Do_hcn(3) As Point2d ' cot tu giac
-        Toa_Do_hcn(0) = New Point2d(Width / 2, Height / 2)
-        Toa_Do_hcn(1) = New Point2d(Width / 2, -Height / 2)
-        Toa_Do_hcn(2) = New Point2d(-Width / 2, -Height / 2)
-        Toa_Do_hcn(3) = New Point2d(-Width / 2, Height / 2)
-        Dim id_cottugiac As ObjectId
-        id_cottugiac = Lib_Drawing.CreateNewPolyline(Toa_Do_hcn, True)
-
-
-
-        doc.Editor.UpdateScreen()
-
-    End Sub
-
 
 End Class

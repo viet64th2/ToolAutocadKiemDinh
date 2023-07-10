@@ -304,7 +304,7 @@ Public Class Lib_Drawing
             RoDim.DimLinePoint = Diem_Ghim
             RoDim.DimensionStyle = db.Dimstyle
             RoDim.Rotation = Goc_Xoay * Math.PI / 180
-            RoDim.Dimscale = 170
+            RoDim.Dimscale = 2.5 * TiLeChu
             ' Thêm text vào block quản lý nó
             ID_Dim = BlTbRe.AppendEntity(RoDim)
             ' Thêm text vào csdl của bản vẽ (database)
@@ -339,7 +339,7 @@ Public Class Lib_Drawing
             RoDim.XLine2Point = Diem_Cuoi
             RoDim.DimLinePoint = Diem_Ghim
             RoDim.DimensionStyle = db.Dimstyle
-            RoDim.Dimscale = mbVeMong.mbTileMD(Dimscale)
+            RoDim.Dimscale = clsMatDung.mbTileMD()
             ' Thêm text vào block quản lý nó
             ID_Dim = BlTbRe.AppendEntity(RoDim)
             ' Thêm text vào csdl của bản vẽ (database)
@@ -465,7 +465,7 @@ Public Class Lib_Drawing
             Dim acMText As MText = New MText()
             acMText.Location = Vitri
             acMText.Contents = Text
-            acMText.TextHeight = Tile * 2 'Do cao chu mac dinh o ban ve A4 = 2
+            acMText.TextHeight = Tile * ChieuCaoChu 'Do cao chu mac dinh o ban ve A4 = 2
             acMText.ColorIndex = 2
             ' Thêm đường tròn vào block quản lý nó
             BlTbRe.AppendEntity(acMText)

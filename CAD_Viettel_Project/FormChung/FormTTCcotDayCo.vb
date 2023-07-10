@@ -101,7 +101,9 @@ Public Class FormTTCcotDayCo
 
 
     Private Sub btnlai_Click(sender As Object, e As EventArgs) Handles btnlai.Click
-        TiLeChu = Convert.ToDouble(txtCoChu.Text)
+        TiLeChu = txttile.Text
+        TiLeChu_MD = clsMatDung.mbTileMD()
+        ChieuCaoChu = txtCoChu.Text
         Try
             If BangTTC.Rows(2).Cells(1).Value = "Dây co" Then
                 ThongTinChung.DiaDiem = BangTTC.Rows(0).Cells(1).Value
@@ -301,13 +303,7 @@ Public Class FormTTCcotDayCo
                 Dim canhtruc1 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(0).Cells(1).Value)
                 Dim canhtruc2 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(1).Cells(1).Value)
                 Dim canhtruc3 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(2).Cells(1).Value)
-                'Nếu do cạnh huyền thì cần chuyển các cạnh về hình chiếu
-                If (rdb_canhhuyen.Checked) Then
-                    canhtruc1 = Math.Sqrt(canhtruc1 * canhtruc1 - z1 * z1)
-                    canhtruc2 = Math.Sqrt(canhtruc2 * canhtruc2 - z2 * z2)
-                    canhtruc3 = Math.Sqrt(canhtruc3 * canhtruc3 - z3 * z3)
-                End If
-                'end
+
                 Dim canh1 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(0).Cells(2).Value)
                 Dim canh2 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(1).Cells(2).Value)
 
@@ -336,14 +332,7 @@ Public Class FormTTCcotDayCo
                 Dim canhtruc2 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(1).Cells(1).Value)
                 Dim canhtruc3 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(2).Cells(1).Value)
                 Dim canhtruc4 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(3).Cells(1).Value)
-                'Nếu do cạnh huyền thì cần chuyển các cạnh về hình chiếu
-                If (rdb_canhhuyen.Checked) Then
-                    canhtruc1 = Math.Sqrt(canhtruc1 * canhtruc1 - z1 * z1)
-                    canhtruc2 = Math.Sqrt(canhtruc2 * canhtruc2 - z2 * z2)
-                    canhtruc3 = Math.Sqrt(canhtruc3 * canhtruc3 - z3 * z3)
-                    canhtruc4 = Math.Sqrt(canhtruc4 * canhtruc4 - z4 * z4)
-                End If
-                'end
+
                 Dim canh1 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(0).Cells(2).Value)
                 Dim canh2 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(1).Cells(2).Value)
                 Dim canh3 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(2).Cells(2).Value)
@@ -417,20 +406,6 @@ Public Class FormTTCcotDayCo
                 Dim canh1 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(0).Cells(2).Value)
                 Dim canh2 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(1).Cells(2).Value)
 
-                'Nếu do cạnh huyền thì cần chuyển các cạnh về hình chiếu
-                If (rdb_canhhuyen.Checked) Then
-                    canhtruc1 = Math.Sqrt(canhtruc1 * canhtruc1 - z1 * z1)
-                    canhtruc2 = Math.Sqrt(canhtruc2 * canhtruc2 - z2 * z2)
-                    canhtruc3 = Math.Sqrt(canhtruc3 * canhtruc3 - z3 * z3)
-
-                    canh1 = Math.Sqrt(canh1 * canh1 - z1 * z1)
-                    canh2 = Math.Sqrt(canh2 * canh2 - z3 * z3)
-
-
-                End If
-                'end
-
-
                 Dim goc1 As Double = TinhGoc(canhtruc1, canhtruc2, canh1)
                 Dim goc2 As Double = TinhGoc(canhtruc3, canhtruc2, canh2)
 
@@ -469,39 +444,98 @@ Public Class FormTTCcotDayCo
                 Dim canh3 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(2).Cells(2).Value)
                 Dim canh4 As Double = Convert.ToDouble(dgvCanhCanhCanh.Rows(3).Cells(2).Value)
 
-                'Nếu do cạnh huyền thì cần chuyển các cạnh về hình chiếu
-                If (rdb_canhhuyen.Checked) Then
-                    canhtruc1 = Math.Sqrt(canhtruc1 * canhtruc1 - z1 * z1)
-                    canhtruc2 = Math.Sqrt(canhtruc2 * canhtruc2 - z2 * z2)
-                    canhtruc3 = Math.Sqrt(canhtruc3 * canhtruc3 - z3 * z3)
-                    canhtruc4 = Math.Sqrt(canhtruc4 * canhtruc4 - z4 * z4)
-
-                    canh1 = Math.Sqrt(canh1 * canh1 - z1 * z1)
-                    canh2 = Math.Sqrt(canh2 * canh2 - z3 * z3)
-                    canh3 = Math.Sqrt(canh3 * canh3 - z2 * z2)
-                    canh4 = Math.Sqrt(canh4 * canh4 - z4 * z4)
-                End If
-                'end
-
-
                 Dim goc1 As Double = TinhGoc(canhtruc1, canhtruc2, canh1)
                 Dim goc2 As Double = TinhGoc(canhtruc2, canhtruc3, canh2)
                 Dim goc3 As Double = TinhGoc(canhtruc3, canhtruc4, canh3)
 
-                Dim Diem1 As Double() = Xoay({canhtruc1, 0}, goc1 / 2)
-                Diem1 = Xoay(Diem1, (180 * Math.PI) / 180)
+                Dim Diem1 As Double()
+                Dim Diem2 As Double()
+                Dim Diem3 As Double()
+                Dim Diem4 As Double()
+                If Math.Abs(canh1 - canh2) < 0.3 Or Math.Abs(canh1 - canh3) < 0.3 Or Math.Abs(canh1 - canh4) < 0.3 Then
+                    Diem1 = {canh2 / 2, canh1 / 2}
+                    Diem2 = {canh2 / 2, -canh1 / 2}
+                    Diem3 = {-canh2 / 2, -canh1 / 2}
+                    Diem4 = {-canh2 / 2, canh1 / 2}
+                    Diem1 = Xoay(Diem1, (0 * Math.PI) / 180)
+                    Diem2 = Xoay(Diem2, (0 * Math.PI) / 180)
+                    Diem3 = Xoay(Diem3, (0 * Math.PI) / 180)
+                    Diem4 = Xoay(Diem4, (0 * Math.PI) / 180)
+                    Dim canhvuong1 As Double = 0
+                    Dim doLechTamX As Double = 0
+                    Dim canhvuong2 As Double = 0
+                    Dim doLechTamY As Double = 0
+                    If Math.Abs(canhtruc1 - canhtruc2) < 0.3 Then
+                        ' Tính độ lệch tâm theo phương X
+                        If Math.Abs(canhtruc1 - canhtruc3) > 0.3 Then
+                            canhvuong1 = Math.Sqrt(canhtruc1 ^ 2 - (canh1 / 2) ^ 2)
+                            doLechTamX = canh2 / 2 - canhvuong1
+                        End If
+                        ' Tính độ lệch tâm theo phương Y
+                        If Math.Abs(canhtruc1 - canhtruc2) > 0.3 Then
+                            canhvuong2 = Math.Sqrt(canhtruc3 ^ 2 - (canh2 / 2) ^ 2)
+                            doLechTamY = canh1 / 2 - canhvuong2
+                        End If
 
-                Dim Diem2 As Double() = {-canhtruc2, 0}
-                Diem2 = Xoay(Diem2, goc1 / 2)
-                Diem2 = Xoay(Diem2, -goc1)
+                    ElseIf Math.Abs(canhtruc1 - canhtruc4) < 0.3 Then
+                        ' Tính độ lệch tâm theo phương Y
+                        If Math.Abs(canhtruc1 - canhtruc3) > 0.3 Then
+                            canhvuong1 = Math.Sqrt(canhtruc1 ^ 2 - (canh2 / 2) ^ 2)
+                            doLechTamY = canh1 / 2 - canhvuong1
 
-                Dim Diem3 As Double() = {-canhtruc3, 0}
-                Diem3 = Xoay(Diem3, goc1 / 2)
-                Diem3 = Xoay(Diem3, -goc2 - goc1)
+                        End If
+                        ' Tính độ lệch tâm theo phương X                        
+                        If Math.Abs(canhtruc1 - canhtruc4) > 0.3 Then
+                            canhvuong2 = Math.Sqrt(canhtruc1 ^ 2 - (canh1 / 2) ^ 2)
+                            doLechTamX = canh1 / 2 - canhvuong2
+                        End If
+                    Else
+                        If Math.Abs(canhtruc1 - canhtruc3) > 0.3 Then
+                            canhvuong1 = Math.Sqrt(canhtruc1 ^ 2 - (canh1 / 2) ^ 2)
+                            doLechTamX = canh2 / 2 - canhvuong1
+                        End If
+                        ' Tính độ lệch tâm theo phương Y
 
-                Dim Diem4 As Double() = {-canhtruc4, 0}
-                Diem4 = Xoay(Diem4, goc1 / 2)
-                Diem4 = Xoay(Diem4, -goc3 - goc2 - goc1)
+                        If Math.Abs(canhtruc1 - canhtruc2) > 0.3 Then
+                            canhvuong2 = Math.Sqrt(canhtruc3 ^ 2 - (canh2 / 2) ^ 2)
+                            doLechTamY = canh1 / 2 - canhvuong2
+                        End If
+                    End If
+
+
+                    Diem1 = {Diem1(0) - doLechTamX, Diem1(1) - doLechTamY}
+                    Diem2 = {Diem2(0) - doLechTamX, Diem2(1) - doLechTamY}
+                    Diem3 = {Diem3(0) - doLechTamX, Diem3(1) - doLechTamY}
+                    Diem4 = {Diem4(0) - doLechTamX, Diem4(1) - doLechTamY}
+
+
+                Else
+                    Diem1 = Xoay({canhtruc1, 0}, goc1 / 2)
+
+                    Diem2 = {Diem1(0), Diem1(1) - canh1}
+
+                    Diem3 = Xoay(Diem2, -goc2)
+
+                    Diem4 = {Diem3(0), Diem3(1) + canh3}
+
+                    Diem1 = Xoay(Diem1, (0 * Math.PI) / 180)
+                    Diem2 = Xoay(Diem2, (0 * Math.PI) / 180)
+                    Diem3 = Xoay(Diem3, (0 * Math.PI) / 180)
+                    Diem4 = Xoay(Diem4, (0 * Math.PI) / 180)
+                    'Diem2 = {-canhtruc2, 0}
+                    'Diem2 = Xoay(Diem2, goc1 / 2)
+                    'Diem2 = Xoay(Diem2, -goc1)
+
+                    'Diem3 = {-canhtruc3, 0}
+                    'Diem3 = Xoay(Diem3, goc1 / 2)
+                    'Diem3 = Xoay(Diem3, -goc2 - goc1)
+
+                    'Diem4 = {-canhtruc4, 0}
+                    'Diem4 = Xoay(Diem4, goc1 / 2)
+                    'Diem4 = Xoay(Diem4, -goc3 - goc2 - goc1)
+                End If
+
+
 
                 'Xoay Các điểm thêm 1 như hiện trường:
                 Diem1 = Xoay(Diem1, -GocRad)
@@ -737,8 +771,10 @@ Public Class FormTTCcotDayCo
     Private Sub btnTinhLaiToaDo_Click(sender As Object, e As EventArgs) Handles btnTinhLaiToaDo.Click
         TinhLaiToaDoHienTrang(dgvToaDoMong, dgvCanhCanhCanh)
         TinhLaiToaDoMstower(dgvToaDoMongMstower, dgvCanhCanhCanh)
-        frmTTC.txttile.Text = Math.Round((mbVeMong.mbTile(x3, y3) / 100), 3)
-        frmTTC.txtCoChu.Text = Math.Round((mbVeMong.mbTile(x3, y3) / 3), 3)
+        frmTTC.txttile.Text = Math.Round(mbVeMong.mbTile(), 3)
+        frmTTC.txtCoChu.Text = ChieuCaoChu
+        TiLeChu_MD = clsMatDung.mbTileMD()
+
     End Sub
 
     Private Sub dgvToaDoMong_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvToaDoMong.CellContentClick

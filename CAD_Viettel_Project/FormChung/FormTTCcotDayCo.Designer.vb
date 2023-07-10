@@ -51,6 +51,7 @@ Partial Class FormTTCcotDayCo
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTTCcotDayCo))
         Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -72,7 +73,6 @@ Partial Class FormTTCcotDayCo
         Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTTCcotDayCo))
         Me.BangTTC = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -166,6 +166,7 @@ Partial Class FormTTCcotDayCo
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.btnTinhLaiToaDo = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.dgvCanhCanhCanh = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -175,26 +176,22 @@ Partial Class FormTTCcotDayCo
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.rdb_canhhuyen = New System.Windows.Forms.RadioButton()
-        Me.rdb_hinhchieu = New System.Windows.Forms.RadioButton()
+        Me.btnTinhLaiToaDoGoc = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dgvCaoDoDayCo = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GCX = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pn_DayCo = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.cmb_NoiDayCo = New System.Windows.Forms.ComboBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnlai = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.BunifuElipse1 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.pn_DayCo = New System.Windows.Forms.Panel()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.cmb_NoiDayCo = New System.Windows.Forms.ComboBox()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GCX = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnTinhLaiToaDo = New Bunifu.Framework.UI.BunifuThinButton2()
-        Me.btnTinhLaiToaDoGoc = New Bunifu.Framework.UI.BunifuThinButton2()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnlai = New Bunifu.Framework.UI.BunifuThinButton2()
         CType(Me.BangTTC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BangChieuCaoDot, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -213,13 +210,12 @@ Partial Class FormTTCcotDayCo
         CType(Me.dgvCanhCanhCanh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.dgvCanhGocCanh, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel5.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgvCaoDoDayCo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.pn_DayCo.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'BangTTC
@@ -379,7 +375,7 @@ Partial Class FormTTCcotDayCo
         Me.txtCoChu.Name = "txtCoChu"
         Me.txtCoChu.Size = New System.Drawing.Size(84, 22)
         Me.txtCoChu.TabIndex = 47
-        Me.txtCoChu.Text = "100.0"
+        Me.txtCoChu.Text = "2.5"
         '
         'Column13
         '
@@ -407,9 +403,9 @@ Partial Class FormTTCcotDayCo
         Me.Label3.Location = New System.Drawing.Point(10, 21)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 16)
+        Me.Label3.Size = New System.Drawing.Size(95, 16)
         Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Tỷ lệ cỡ chữ:"
+        Me.Label3.Text = "Chiều cao chữ:"
         '
         'BangChieuCaoDot
         '
@@ -1324,7 +1320,6 @@ Partial Class FormTTCcotDayCo
         'GroupBox9
         '
         Me.GroupBox9.Controls.Add(Me.TabControl1)
-        Me.GroupBox9.Controls.Add(Me.Panel5)
         Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox9.Location = New System.Drawing.Point(0, 598)
         Me.GroupBox9.Name = "GroupBox9"
@@ -1338,10 +1333,10 @@ Partial Class FormTTCcotDayCo
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(3, 38)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 16)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(419, 172)
+        Me.TabControl1.Size = New System.Drawing.Size(419, 194)
         Me.TabControl1.TabIndex = 12
         '
         'TabPage1
@@ -1351,10 +1346,36 @@ Partial Class FormTTCcotDayCo
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(411, 146)
+        Me.TabPage1.Size = New System.Drawing.Size(411, 168)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Cạnh Cạnh Cạnh"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'btnTinhLaiToaDo
+        '
+        Me.btnTinhLaiToaDo.ActiveBorderThickness = 2
+        Me.btnTinhLaiToaDo.ActiveCornerRadius = 20
+        Me.btnTinhLaiToaDo.ActiveFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnTinhLaiToaDo.ActiveForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDo.ActiveLineColor = System.Drawing.Color.DimGray
+        Me.btnTinhLaiToaDo.BackColor = System.Drawing.Color.Transparent
+        Me.btnTinhLaiToaDo.BackgroundImage = CType(resources.GetObject("btnTinhLaiToaDo.BackgroundImage"), System.Drawing.Image)
+        Me.btnTinhLaiToaDo.ButtonText = "Tính lại toạ độ"
+        Me.btnTinhLaiToaDo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnTinhLaiToaDo.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnTinhLaiToaDo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.22642!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTinhLaiToaDo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDo.IdleBorderThickness = 1
+        Me.btnTinhLaiToaDo.IdleCornerRadius = 10
+        Me.btnTinhLaiToaDo.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnTinhLaiToaDo.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDo.IdleLineColor = System.Drawing.Color.DimGray
+        Me.btnTinhLaiToaDo.Location = New System.Drawing.Point(3, 130)
+        Me.btnTinhLaiToaDo.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnTinhLaiToaDo.Name = "btnTinhLaiToaDo"
+        Me.btnTinhLaiToaDo.Size = New System.Drawing.Size(405, 35)
+        Me.btnTinhLaiToaDo.TabIndex = 48
+        Me.btnTinhLaiToaDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'dgvCanhCanhCanh
         '
@@ -1406,7 +1427,7 @@ Partial Class FormTTCcotDayCo
         DataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black
         Me.dgvCanhCanhCanh.RowsDefaultCellStyle = DataGridViewCellStyle36
         Me.dgvCanhCanhCanh.RowTemplate.Height = 24
-        Me.dgvCanhCanhCanh.Size = New System.Drawing.Size(405, 140)
+        Me.dgvCanhCanhCanh.Size = New System.Drawing.Size(405, 162)
         Me.dgvCanhCanhCanh.TabIndex = 11
         '
         'DataGridViewTextBoxColumn6
@@ -1442,7 +1463,7 @@ Partial Class FormTTCcotDayCo
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(411, 146)
+        Me.TabPage2.Size = New System.Drawing.Size(411, 168)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Cạnh Góc Cạnh"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1497,7 +1518,7 @@ Partial Class FormTTCcotDayCo
         DataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black
         Me.dgvCanhGocCanh.RowsDefaultCellStyle = DataGridViewCellStyle44
         Me.dgvCanhGocCanh.RowTemplate.Height = 24
-        Me.dgvCanhGocCanh.Size = New System.Drawing.Size(405, 105)
+        Me.dgvCanhGocCanh.Size = New System.Drawing.Size(405, 127)
         Me.dgvCanhGocCanh.TabIndex = 12
         '
         'DataGridViewTextBoxColumn9
@@ -1526,37 +1547,31 @@ Partial Class FormTTCcotDayCo
         Me.DataGridViewTextBoxColumn11.HeaderText = "Góc (độ)"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         '
-        'Panel5
+        'btnTinhLaiToaDoGoc
         '
-        Me.Panel5.Controls.Add(Me.rdb_canhhuyen)
-        Me.Panel5.Controls.Add(Me.rdb_hinhchieu)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel5.Location = New System.Drawing.Point(3, 16)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(419, 22)
-        Me.Panel5.TabIndex = 13
-        '
-        'rdb_canhhuyen
-        '
-        Me.rdb_canhhuyen.AutoSize = True
-        Me.rdb_canhhuyen.Location = New System.Drawing.Point(171, 2)
-        Me.rdb_canhhuyen.Name = "rdb_canhhuyen"
-        Me.rdb_canhhuyen.Size = New System.Drawing.Size(187, 17)
-        Me.rdb_canhhuyen.TabIndex = 1
-        Me.rdb_canhhuyen.Text = "Kích thước cạnh huyền (Đo chéo)"
-        Me.rdb_canhhuyen.UseVisualStyleBackColor = True
-        '
-        'rdb_hinhchieu
-        '
-        Me.rdb_hinhchieu.AutoSize = True
-        Me.rdb_hinhchieu.Checked = True
-        Me.rdb_hinhchieu.Location = New System.Drawing.Point(8, 2)
-        Me.rdb_hinhchieu.Name = "rdb_hinhchieu"
-        Me.rdb_hinhchieu.Size = New System.Drawing.Size(157, 17)
-        Me.rdb_hinhchieu.TabIndex = 0
-        Me.rdb_hinhchieu.TabStop = True
-        Me.rdb_hinhchieu.Text = "Kích thước cạnh hình chiếu"
-        Me.rdb_hinhchieu.UseVisualStyleBackColor = True
+        Me.btnTinhLaiToaDoGoc.ActiveBorderThickness = 2
+        Me.btnTinhLaiToaDoGoc.ActiveCornerRadius = 20
+        Me.btnTinhLaiToaDoGoc.ActiveFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnTinhLaiToaDoGoc.ActiveForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDoGoc.ActiveLineColor = System.Drawing.Color.DimGray
+        Me.btnTinhLaiToaDoGoc.BackColor = System.Drawing.Color.Transparent
+        Me.btnTinhLaiToaDoGoc.BackgroundImage = CType(resources.GetObject("btnTinhLaiToaDoGoc.BackgroundImage"), System.Drawing.Image)
+        Me.btnTinhLaiToaDoGoc.ButtonText = "Tính lại toạ độ"
+        Me.btnTinhLaiToaDoGoc.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnTinhLaiToaDoGoc.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnTinhLaiToaDoGoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.22642!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTinhLaiToaDoGoc.ForeColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDoGoc.IdleBorderThickness = 1
+        Me.btnTinhLaiToaDoGoc.IdleCornerRadius = 10
+        Me.btnTinhLaiToaDoGoc.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnTinhLaiToaDoGoc.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.btnTinhLaiToaDoGoc.IdleLineColor = System.Drawing.Color.DimGray
+        Me.btnTinhLaiToaDoGoc.Location = New System.Drawing.Point(3, 130)
+        Me.btnTinhLaiToaDoGoc.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnTinhLaiToaDoGoc.Name = "btnTinhLaiToaDoGoc"
+        Me.btnTinhLaiToaDoGoc.Size = New System.Drawing.Size(405, 35)
+        Me.btnTinhLaiToaDoGoc.TabIndex = 49
+        Me.btnTinhLaiToaDoGoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox5
         '
@@ -1626,38 +1641,24 @@ Partial Class FormTTCcotDayCo
         Me.dgvCaoDoDayCo.Size = New System.Drawing.Size(221, 181)
         Me.dgvCaoDoDayCo.TabIndex = 11
         '
-        'Panel3
+        'Column10
         '
-        Me.Panel3.Controls.Add(Me.btnlai)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 645)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(696, 41)
-        Me.Panel3.TabIndex = 53
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column10.HeaderText = "STT"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Width = 60
         '
-        'ImageList1
+        'Column11
         '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "MongLoai1.png")
-        Me.ImageList1.Images.SetKeyName(1, "MongLoai2.png")
-        Me.ImageList1.Images.SetKeyName(2, "loaimong3.jpg")
+        Me.Column11.HeaderText = "Cao độ (m)"
+        Me.Column11.Name = "Column11"
         '
-        'BunifuElipse1
+        'GCX
         '
-        Me.BunifuElipse1.ElipseRadius = 5
-        Me.BunifuElipse1.TargetControl = Me
-        '
-        'Panel4
-        '
-        Me.Panel4.AutoScroll = True
-        Me.Panel4.Controls.Add(Me.Panel1)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(451, 645)
-        Me.Panel4.TabIndex = 69
+        Me.GCX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.GCX.HeaderText = "GCX"
+        Me.GCX.Name = "GCX"
+        Me.GCX.Width = 50
         '
         'pn_DayCo
         '
@@ -1669,6 +1670,16 @@ Partial Class FormTTCcotDayCo
         Me.pn_DayCo.Name = "pn_DayCo"
         Me.pn_DayCo.Size = New System.Drawing.Size(200, 181)
         Me.pn_DayCo.TabIndex = 12
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CAD_Viettel_Project.My.Resources.Resources.TH3
+        Me.PictureBox1.Location = New System.Drawing.Point(32, 31)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(134, 146)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 106
+        Me.PictureBox1.TabStop = False
         '
         'Label23
         '
@@ -1692,86 +1703,15 @@ Partial Class FormTTCcotDayCo
         Me.cmb_NoiDayCo.TabIndex = 105
         Me.cmb_NoiDayCo.Text = "TH3"
         '
-        'Column10
+        'Panel3
         '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.Column10.HeaderText = "STT"
-        Me.Column10.Name = "Column10"
-        Me.Column10.Width = 60
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Cao độ (m)"
-        Me.Column11.Name = "Column11"
-        '
-        'GCX
-        '
-        Me.GCX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.GCX.HeaderText = "GCX"
-        Me.GCX.Name = "GCX"
-        Me.GCX.Width = 50
-        '
-        'btnTinhLaiToaDo
-        '
-        Me.btnTinhLaiToaDo.ActiveBorderThickness = 2
-        Me.btnTinhLaiToaDo.ActiveCornerRadius = 20
-        Me.btnTinhLaiToaDo.ActiveFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnTinhLaiToaDo.ActiveForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDo.ActiveLineColor = System.Drawing.Color.DimGray
-        Me.btnTinhLaiToaDo.BackColor = System.Drawing.Color.Transparent
-        Me.btnTinhLaiToaDo.BackgroundImage = CType(resources.GetObject("btnTinhLaiToaDo.BackgroundImage"), System.Drawing.Image)
-        Me.btnTinhLaiToaDo.ButtonText = "Tính lại toạ độ"
-        Me.btnTinhLaiToaDo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnTinhLaiToaDo.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnTinhLaiToaDo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.22642!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTinhLaiToaDo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDo.IdleBorderThickness = 1
-        Me.btnTinhLaiToaDo.IdleCornerRadius = 10
-        Me.btnTinhLaiToaDo.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnTinhLaiToaDo.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDo.IdleLineColor = System.Drawing.Color.DimGray
-        Me.btnTinhLaiToaDo.Location = New System.Drawing.Point(3, 108)
-        Me.btnTinhLaiToaDo.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnTinhLaiToaDo.Name = "btnTinhLaiToaDo"
-        Me.btnTinhLaiToaDo.Size = New System.Drawing.Size(405, 35)
-        Me.btnTinhLaiToaDo.TabIndex = 48
-        Me.btnTinhLaiToaDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnTinhLaiToaDoGoc
-        '
-        Me.btnTinhLaiToaDoGoc.ActiveBorderThickness = 2
-        Me.btnTinhLaiToaDoGoc.ActiveCornerRadius = 20
-        Me.btnTinhLaiToaDoGoc.ActiveFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnTinhLaiToaDoGoc.ActiveForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDoGoc.ActiveLineColor = System.Drawing.Color.DimGray
-        Me.btnTinhLaiToaDoGoc.BackColor = System.Drawing.Color.Transparent
-        Me.btnTinhLaiToaDoGoc.BackgroundImage = CType(resources.GetObject("btnTinhLaiToaDoGoc.BackgroundImage"), System.Drawing.Image)
-        Me.btnTinhLaiToaDoGoc.ButtonText = "Tính lại toạ độ"
-        Me.btnTinhLaiToaDoGoc.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnTinhLaiToaDoGoc.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnTinhLaiToaDoGoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.22642!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTinhLaiToaDoGoc.ForeColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDoGoc.IdleBorderThickness = 1
-        Me.btnTinhLaiToaDoGoc.IdleCornerRadius = 10
-        Me.btnTinhLaiToaDoGoc.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnTinhLaiToaDoGoc.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.btnTinhLaiToaDoGoc.IdleLineColor = System.Drawing.Color.DimGray
-        Me.btnTinhLaiToaDoGoc.Location = New System.Drawing.Point(3, 108)
-        Me.btnTinhLaiToaDoGoc.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnTinhLaiToaDoGoc.Name = "btnTinhLaiToaDoGoc"
-        Me.btnTinhLaiToaDoGoc.Size = New System.Drawing.Size(405, 35)
-        Me.btnTinhLaiToaDoGoc.TabIndex = 49
-        Me.btnTinhLaiToaDoGoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CAD_Viettel_Project.My.Resources.Resources.TH3
-        Me.PictureBox1.Location = New System.Drawing.Point(32, 31)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(134, 146)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 106
-        Me.PictureBox1.TabStop = False
+        Me.Panel3.Controls.Add(Me.btnlai)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(0, 645)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(696, 41)
+        Me.Panel3.TabIndex = 53
         '
         'btnlai
         '
@@ -1798,6 +1738,29 @@ Partial Class FormTTCcotDayCo
         Me.btnlai.Size = New System.Drawing.Size(696, 41)
         Me.btnlai.TabIndex = 47
         Me.btnlai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "MongLoai1.png")
+        Me.ImageList1.Images.SetKeyName(1, "MongLoai2.png")
+        Me.ImageList1.Images.SetKeyName(2, "loaimong3.jpg")
+        '
+        'BunifuElipse1
+        '
+        Me.BunifuElipse1.ElipseRadius = 5
+        Me.BunifuElipse1.TargetControl = Me
+        '
+        'Panel4
+        '
+        Me.Panel4.AutoScroll = True
+        Me.Panel4.Controls.Add(Me.Panel1)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(451, 645)
+        Me.Panel4.TabIndex = 69
         '
         'FormTTCcotDayCo
         '
@@ -1830,15 +1793,13 @@ Partial Class FormTTCcotDayCo
         CType(Me.dgvCanhCanhCanh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         CType(Me.dgvCanhGocCanh, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.dgvCaoDoDayCo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
         Me.pn_DayCo.ResumeLayout(False)
         Me.pn_DayCo.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1955,9 +1916,6 @@ Partial Class FormTTCcotDayCo
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents btnTinhLaiToaDoGoc As Bunifu.Framework.UI.BunifuThinButton2
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents rdb_canhhuyen As RadioButton
-    Friend WithEvents rdb_hinhchieu As RadioButton
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents GCX As DataGridViewTextBoxColumn

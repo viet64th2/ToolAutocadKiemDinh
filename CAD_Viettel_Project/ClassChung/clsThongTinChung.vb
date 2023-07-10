@@ -19,7 +19,7 @@ Public Class clsThongTinChung
     Private m_LoaiMong2 As String
     Private m_LoaiMong3 As String
     Private m_LoaiMong4 As String
-    Private m_MongNoiChung As String
+    Private m_MongNoiChung As String = "M1_M4"
     Private m_NoiDayCo As String = "TH3"
 
 
