@@ -27,6 +27,16 @@ CAD_Viettel_Project
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.new_copy_52px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:CAD_Viettel_Project.My.Resources.Resources.Screenshot_2020_11_06_165016">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:CAD_Viettel_Project.My.Resources.Resources.TH1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

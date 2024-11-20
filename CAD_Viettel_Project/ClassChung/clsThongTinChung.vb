@@ -21,7 +21,7 @@ Public Class clsThongTinChung
     Private m_LoaiMong4 As String
     Private m_MongNoiChung As String = "M1_M4"
     Private m_NoiDayCo As String = "TH3"
-
+    Private m_DuongDanLuu As String = ""
 
 #Region "Property"
     Public Property KichThuocChanCot As String
@@ -29,7 +29,7 @@ Public Class clsThongTinChung
             m_KichThuocChanCot = value
         End Set
         Get
-            Return m_KichThuocChanCot
+            Return m_KichThuocChanCot.Trim
         End Get
     End Property
     Public Property MaTram As String
@@ -37,7 +37,7 @@ Public Class clsThongTinChung
             m_MaTram = value
         End Set
         Get
-            Return m_MaTram
+            Return m_MaTram.Trim
         End Get
     End Property
     Public Property LoaiMong1 As String
@@ -45,7 +45,7 @@ Public Class clsThongTinChung
             m_LoaiMong1 = value
         End Set
         Get
-            Return m_LoaiMong1
+            Return m_LoaiMong1.Trim
         End Get
     End Property
     Public Property LoaiMong2 As String
@@ -53,7 +53,7 @@ Public Class clsThongTinChung
             m_LoaiMong2 = value
         End Set
         Get
-            Return m_LoaiMong2
+            Return m_LoaiMong2.Trim
         End Get
     End Property
     Public Property LoaiMong3 As String
@@ -61,7 +61,7 @@ Public Class clsThongTinChung
             m_LoaiMong3 = value
         End Set
         Get
-            Return m_LoaiMong3
+            Return m_LoaiMong3.Trim
         End Get
     End Property
     Public Property LoaiMong4 As String
@@ -69,7 +69,7 @@ Public Class clsThongTinChung
             m_LoaiMong4 = value
         End Set
         Get
-            Return m_LoaiMong4
+            Return m_LoaiMong4.Trim
         End Get
     End Property
     Public Property LoaiGaChongXoay As String
@@ -77,7 +77,7 @@ Public Class clsThongTinChung
             m_LoaiGaChongXoay = value
         End Set
         Get
-            Return m_LoaiGaChongXoay
+            Return m_LoaiGaChongXoay.Trim
         End Get
     End Property
     Public Property DiaDiem As String
@@ -85,7 +85,7 @@ Public Class clsThongTinChung
             m_DiaDiem = value
         End Set
         Get
-            Return m_DiaDiem
+            Return m_DiaDiem.Trim
         End Get
     End Property
     Public Property LoaiCot As String
@@ -93,7 +93,7 @@ Public Class clsThongTinChung
             m_LoaiCot = value
         End Set
         Get
-            Return m_LoaiCot
+            Return m_LoaiCot.Trim
         End Get
     End Property
     Public Property ChieuCao As Single
@@ -117,7 +117,7 @@ Public Class clsThongTinChung
             m_ViTriDat = value
         End Set
         Get
-            Return m_ViTriDat
+            Return m_ViTriDat.Trim
         End Get
     End Property
     Public Property GaChongXoay As String
@@ -125,7 +125,7 @@ Public Class clsThongTinChung
             m_GaChongXoay = value
         End Set
         Get
-            Return m_GaChongXoay
+            Return m_GaChongXoay.Trim
         End Get
     End Property
     Public Property TietDienCot As String
@@ -133,7 +133,7 @@ Public Class clsThongTinChung
             m_TietDienCot = value
         End Set
         Get
-            Return m_TietDienCot
+            Return m_TietDienCot.Trim
         End Get
     End Property
     Public Property BeTongMong As String
@@ -141,7 +141,7 @@ Public Class clsThongTinChung
             m_BeTongMong = value
         End Set
         Get
-            Return m_BeTongMong
+            Return m_BeTongMong.Trim
         End Get
     End Property
     Public Property SoDot As Integer
@@ -192,6 +192,15 @@ Public Class clsThongTinChung
         End Get
         Set(value As String)
             m_NoiDayCo = value
+        End Set
+    End Property
+
+    Public Property DuongDanLuu As String
+        Get
+            Return m_DuongDanLuu
+        End Get
+        Set(value As String)
+            m_DuongDanLuu = value
         End Set
     End Property
 #End Region

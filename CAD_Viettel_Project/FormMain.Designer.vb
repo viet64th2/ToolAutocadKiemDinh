@@ -44,6 +44,7 @@ Partial Class FormMain
         Me.bangtinh = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnsave = New Bunifu.Framework.UI.BunifuImageButton()
         Me.BunifuImageButton2 = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btn_TaoMoi = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btnOpenDA = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btnXuatBaoCao = New Bunifu.Framework.UI.BunifuImageButton()
         Me.BunifuImageButton1 = New Bunifu.Framework.UI.BunifuImageButton()
@@ -54,6 +55,7 @@ Partial Class FormMain
         Me.Panel1.SuspendLayout()
         CType(Me.btnsave, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn_TaoMoi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnOpenDA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnXuatBaoCao, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +121,7 @@ Partial Class FormMain
         '
         Me.BunifuDragControl2.Fixed = True
         Me.BunifuDragControl2.Horizontal = True
+        Me.BunifuDragControl2.TargetControl = Nothing
         Me.BunifuDragControl2.Vertical = True
         '
         'menusave
@@ -174,6 +177,7 @@ Partial Class FormMain
         Me.Panel1.Controls.Add(Me.bangtinh)
         Me.Panel1.Controls.Add(Me.btnsave)
         Me.Panel1.Controls.Add(Me.BunifuImageButton2)
+        Me.Panel1.Controls.Add(Me.btn_TaoMoi)
         Me.Panel1.Controls.Add(Me.btnOpenDA)
         Me.Panel1.Controls.Add(Me.btnXuatBaoCao)
         Me.Panel1.Controls.Add(Me.BunifuImageButton1)
@@ -313,7 +317,7 @@ Partial Class FormMain
         Me.btnsave.BackColor = System.Drawing.Color.Transparent
         Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
         Me.btnsave.ImageActive = Nothing
-        Me.btnsave.Location = New System.Drawing.Point(81, 5)
+        Me.btnsave.Location = New System.Drawing.Point(117, 5)
         Me.btnsave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(20, 22)
@@ -328,7 +332,7 @@ Partial Class FormMain
         Me.BunifuImageButton2.BackColor = System.Drawing.Color.Transparent
         Me.BunifuImageButton2.Image = CType(resources.GetObject("BunifuImageButton2.Image"), System.Drawing.Image)
         Me.BunifuImageButton2.ImageActive = Nothing
-        Me.BunifuImageButton2.Location = New System.Drawing.Point(117, 4)
+        Me.BunifuImageButton2.Location = New System.Drawing.Point(153, 4)
         Me.BunifuImageButton2.Margin = New System.Windows.Forms.Padding(2)
         Me.BunifuImageButton2.Name = "BunifuImageButton2"
         Me.BunifuImageButton2.Size = New System.Drawing.Size(19, 20)
@@ -337,13 +341,28 @@ Partial Class FormMain
         Me.BunifuImageButton2.TabStop = False
         Me.BunifuImageButton2.Zoom = 10
         '
+        'btn_TaoMoi
+        '
+        Me.btn_TaoMoi.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_TaoMoi.BackColor = System.Drawing.Color.Transparent
+        Me.btn_TaoMoi.Image = Global.CAD_Viettel_Project.My.Resources.Resources.new_copy_52px
+        Me.btn_TaoMoi.ImageActive = Nothing
+        Me.btn_TaoMoi.Location = New System.Drawing.Point(11, 4)
+        Me.btn_TaoMoi.Margin = New System.Windows.Forms.Padding(2)
+        Me.btn_TaoMoi.Name = "btn_TaoMoi"
+        Me.btn_TaoMoi.Size = New System.Drawing.Size(19, 20)
+        Me.btn_TaoMoi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btn_TaoMoi.TabIndex = 7
+        Me.btn_TaoMoi.TabStop = False
+        Me.btn_TaoMoi.Zoom = 10
+        '
         'btnOpenDA
         '
         Me.btnOpenDA.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnOpenDA.BackColor = System.Drawing.Color.Transparent
         Me.btnOpenDA.Image = CType(resources.GetObject("btnOpenDA.Image"), System.Drawing.Image)
         Me.btnOpenDA.ImageActive = Nothing
-        Me.btnOpenDA.Location = New System.Drawing.Point(14, 5)
+        Me.btnOpenDA.Location = New System.Drawing.Point(50, 5)
         Me.btnOpenDA.Margin = New System.Windows.Forms.Padding(2)
         Me.btnOpenDA.Name = "btnOpenDA"
         Me.btnOpenDA.Size = New System.Drawing.Size(19, 20)
@@ -358,7 +377,7 @@ Partial Class FormMain
         Me.btnXuatBaoCao.BackColor = System.Drawing.Color.Transparent
         Me.btnXuatBaoCao.Image = CType(resources.GetObject("btnXuatBaoCao.Image"), System.Drawing.Image)
         Me.btnXuatBaoCao.ImageActive = Nothing
-        Me.btnXuatBaoCao.Location = New System.Drawing.Point(48, 5)
+        Me.btnXuatBaoCao.Location = New System.Drawing.Point(84, 5)
         Me.btnXuatBaoCao.Margin = New System.Windows.Forms.Padding(2)
         Me.btnXuatBaoCao.Name = "btnXuatBaoCao"
         Me.btnXuatBaoCao.Size = New System.Drawing.Size(19, 20)
@@ -404,6 +423,7 @@ Partial Class FormMain
         Me.Panel1.ResumeLayout(False)
         CType(Me.btnsave, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_TaoMoi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnOpenDA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnXuatBaoCao, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -434,4 +454,5 @@ Partial Class FormMain
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents BunifuDragControl1 As Bunifu.Framework.UI.BunifuDragControl
     Friend WithEvents BunifuImageButton2 As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents btn_TaoMoi As Bunifu.Framework.UI.BunifuImageButton
 End Class

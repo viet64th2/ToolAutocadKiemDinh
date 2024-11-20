@@ -51,32 +51,32 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="accoremgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="accoremgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\accoremgd.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\accoremgd.dll</HintPath>
     </Reference>
-    <Reference Include="acdbmgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="acdbmgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\acdbmgd.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\acdbmgd.dll</HintPath>
     </Reference>
-    <Reference Include="acdbmgdbrep, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="acdbmgdbrep, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\acdbmgdbrep.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\acdbmgdbrep.dll</HintPath>
     </Reference>
-    <Reference Include="acmgd, Version=24.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="acmgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\acmgd.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\acmgd.dll</HintPath>
     </Reference>
-    <Reference Include="AdWindows, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AdWindows, Version=2018.11.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\AdWindows.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\AdWindows.dll</HintPath>
     </Reference>
     <Reference Include="Autodesk.AutoCAD.Interop">
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\Autodesk.AutoCAD.Interop.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\Autodesk.AutoCAD.Interop.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Autodesk.AutoCAD.Interop.Common">
-      <HintPath>C:\ITsoft\ThietKeTuyenCap\2023\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
+      <HintPath>..\..\..\..\15.Du An Ve Tuyen Cap\BoCai\PM VeTuyenCap\BoCai\2023\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
@@ -172,6 +172,12 @@
       <DependentUpon>FormTTCcotTuDung.vb</DependentUpon>
     </Compile>
     <Compile Include="FormChung\FormTTCcotTuDung.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChung\Form_ThemMoi.Designer.vb">
+      <DependentUpon>Form_ThemMoi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormChung\Form_ThemMoi.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MatBang\DuoiDat\Form3Chan_4Mong_DD_CG.Designer.vb">
@@ -325,6 +331,9 @@
     <EmbeddedResource Include="FormChung\FormTTCcotTuDung.resx">
       <DependentUpon>FormTTCcotTuDung.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormChung\Form_ThemMoi.resx">
+      <DependentUpon>Form_ThemMoi.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MatBang\DuoiDat\Form3Chan_3Mong_DD_KG.resx">
       <DependentUpon>Form3Chan_3Mong_DD_KG.vb</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +422,8 @@
   <ItemGroup>
     <Content Include="icon\b4a896b1a45d5d03044c.bmp" />
     <Content Include="icon\iconviettel4.png" />
+    <None Include="Resources\Screenshot 2020-11-06 165016.png" />
+    <None Include="Resources\new_copy_52px.png" />
     <None Include="Resources\TH6.png" />
     <None Include="Resources\TH5.png" />
     <None Include="Resources\TH4.png" />
