@@ -1,0 +1,226 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\formmain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\formmain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|d:\\5.toolkiemdinh\\toolautocadkiemdinh\\cad_viettel_project\\formmain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\formmain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|d:\\5.toolkiemdinh\\toolautocadkiemdinh\\cad_viettel_project\\classmatbang\\mbvemong.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\classmatbang\\mbvemong.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\modul\\mbbienchung.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\modul\\mbbienchung.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\formchung\\formttccotdayco.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\formchung\\formttccotdayco.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\classchung\\clsthongtinchung.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\classchung\\clsthongtinchung.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\formchung\\form_themmoi.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\formchung\\form_themmoi.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CAD_Viettel_Project||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|d:\\5.toolkiemdinh\\toolautocadkiemdinh\\cad_viettel_project\\classchung\\command.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\classchung\\command.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\modul\\mdspcfunction_ta.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\modul\\mdspcfunction_ta.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\formchung\\form_themmoi.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\formchung\\form_themmoi.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\cad_viettel_project\\formchung\\formttccotdayco.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|solutionrelative:cad_viettel_project\\formchung\\formttccotdayco.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E8EAE-AC6B-43FA-8B07-1696E50BA0E7}|CAD_Viettel_Project\\CAD_Viettel_Project.vbproj|d:\\5.toolkiemdinh\\toolautocadkiemdinh\\cad_viettel_project\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|6185191f-1008-4fb2-a715-3a4e4f27e610"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormMain.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormMain.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\FormMain.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormMain.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\FormMain.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-19T03:47:53.377Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mbVeMong.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\ClassMatBang\\mbVeMong.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\ClassMatBang\\mbVeMong.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\ClassMatBang\\mbVeMong.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\ClassMatBang\\mbVeMong.vb",
+              "ViewState": "AgIAAGMFAAAAAAAAAAAIwHQFAACBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T07:51:04.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "mbBienChung.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\modul\\mbBienChung.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\modul\\mbBienChung.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\modul\\mbBienChung.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\modul\\mbBienChung.vb",
+              "ViewState": "AgIAACwAAAAAAAAAAAAQwEkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T03:45:30.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormTTCcotDayCo.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb",
+              "ViewState": "AgIAAJcBAAAAAAAAAAAIwLIBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T03:32:37.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "clsThongTinChung.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\ClassChung\\clsThongTinChung.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\ClassChung\\clsThongTinChung.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\ClassChung\\clsThongTinChung.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\ClassChung\\clsThongTinChung.vb",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwEcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T03:33:22.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Command.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\ClassChung\\Command.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\ClassChung\\Command.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\ClassChung\\Command.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\ClassChung\\Command.vb",
+              "ViewState": "AgIAABgAAAAAAAAAAIA0wEAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T07:49:53.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormMain.vb [Design]",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormMain.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\FormMain.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormMain.vb [Design]",
+              "RelativeToolTip": "CAD_Viettel_Project\\FormMain.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-19T03:47:50.332Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form_ThemMoi.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAIwIoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T03:29:43.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CAD_Viettel_Project",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\CAD_Viettel_Project.vbproj",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\CAD_Viettel_Project.vbproj",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\CAD_Viettel_Project.vbproj",
+              "RelativeToolTip": "CAD_Viettel_Project\\CAD_Viettel_Project.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-20T05:12:07.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "mdSPCFunction_TA.vb",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\modul\\mdSPCFunction_TA.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\modul\\mdSPCFunction_TA.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\modul\\mdSPCFunction_TA.vb",
+              "RelativeToolTip": "CAD_Viettel_Project\\modul\\mdSPCFunction_TA.vb",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAcwKoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T03:45:35.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form_ThemMoi.vb [Design]",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb [Design]",
+              "RelativeToolTip": "CAD_Viettel_Project\\FormChung\\Form_ThemMoi.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T03:19:49.659Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormTTCcotDayCo.vb [Design]",
+              "DocumentMoniker": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb",
+              "RelativeDocumentMoniker": "CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb",
+              "ToolTip": "D:\\5.ToolKiemDinh\\ToolAutocadKiemDinh\\CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb [Design]",
+              "RelativeToolTip": "CAD_Viettel_Project\\FormChung\\FormTTCcotDayCo.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-11-20T02:25:40.137Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

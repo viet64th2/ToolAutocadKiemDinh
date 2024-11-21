@@ -67,7 +67,7 @@ Public Class Form_ThemMoi
                 Dim result As New Text.StringBuilder()
                 For i As Integer = 1 To ThongTinChung.SoDot
                     ' Các đoạn còn lại không có "CT"
-                    result.AppendLine($"@{i}_{ChieuCaoCot}_0.4286_DRM_16-M18_0_0_7_D42x3.9_D12")
+                    result.AppendLine($"@{i}_{ChieuCaoDot}_0.4286_DRM_16-M18_0_0_7_D42x3.9_D12")
                 Next
                 ' Tạo file văn bản
                 filePath = dataPath + "\" + "TABLEMsTower.txt"
